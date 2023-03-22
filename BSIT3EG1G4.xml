@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="BSIT3EG1G4.css"?>
+<techCompanies>
+	<title>Top IT Companies in the Philippines</title>
+	<!--1-->
+	<techCompany>
+		<companyName>Smart Communications</companyName>
+		<yearStart>1991</yearStart>
+		<tagline>Live more</tagline>
+		<totalBranch>95</totalBranch>
+		<headquarter>Makati City</headquarter>
+	</techCompany>
+	
+	<!--2-->
+	<techCompany>
+		<companyName>Accenture</companyName>
+		<yearStart>1985</yearStart>
+		<tagline>We make change for you</tagline>
+		<totalBranch>22</totalBranch>
+		<headquarter>Mandaluyong</headquarter>
+	</techCompany>
+	
+	<!--3-->
+	<techCompany>
+		<companyName>Philippine Long Distance Telephone Company (PLDT)</companyName>
+		<yearStart>1928</yearStart> 
+		<tagline>Leading and inspiring Filipinos to create a better tomorrow</tagline>
+		<totalBranch/>
+		<headquarter>Makati</headquarter>
+	</techCompany>
+	
+	
+	<!--4-->
+	<techCompany>
+		<companyName>Metrobank</companyName>
+		<yearStart>1962</yearStart>
+		<tagline>You're in good hands</tagline>
+		<totalBranch>940+</totalBranch>
+		<headquarter>Makati</headquarter>
+	</techCompany>
+	
+	<!--5-->
+	<techCompany>
+		<companyName>BDO</companyName>
+		<yearStart>1968</yearStart>
+		<tagline>We find ways</tagline>
+		<totalBranch>1,200</totalBranch>
+		<headquarter>Makati</headquarter>
+	</techCompany>
+	
+	<!--6-->
+	<techCompany>
+		<companyName>Converge</companyName>
+		<yearStart>2007</yearStart>
+		<tagline>The game changer</tagline>
+		<totalBranch>1,076</totalBranch>
+		<headquarter>Pasig</headquarter>
+	</techCompany>
+	
+	<!--7-->
+	<techCompany>
+		<companyName>Oracle</companyName>
+		<yearStart>1990</yearStart>
+		<tagline>Can't break it, can't break in</tagline>
+		<totalBranch>300</totalBranch>
+		<headquarter>Makati</headquarter>
+	</techCompany>
+	
+	<!--8-->
+	<techCompany>
+		<companyName>Concentrix</companyName>
+		<yearStart>1983</yearStart>
+		<tagline>CX never stop</tagline>
+		<totalBranch>50</totalBranch>
+		<headquarter>Quezon City</headquarter>
+	</techCompany>
+	
+	<!--9-->
+	<techCompany>
+		<companyName>Novare Technologies</companyName>
+		<yearStart>2007</yearStart>
+		<tagline>Think, Build, Run</tagline>
+		<totalBranch/>
+		<headquarter>Makati</headquarter>
+	</techCompany>
+	
+	<!--10-->
+	<techCompany>
+		<companyName>International Business Machines(IBM)</companyName>
+		<yearStart>1937</yearStart>
+		<tagline>THINK</tagline>
+		<totalBranch>3</totalBranch>
+		<headquarter>Quezon City</headquarter>
+	</techCompany>
+	
+	<!--11-->
+	
+	
+	<!--12-->
+	<techCompany>
+		<companyName>Sykes Asia, Inc.</companyName>
+		<yearStart>1997</yearStart>
+		<tagline>WORK, LEARN, GROW WITH SYKES</tagline>
+		<totalBranch>8</totalBranch>
+		<headquarter>Makati</headquarter>
+	</techCompany>
+	
+	
+
+</techCompanies>

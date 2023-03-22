@@ -1,0 +1,62 @@
+*{
+	display:block;
+}
+
+title{
+
+	color: gold;
+	font-size: 40px;
+	font-weight: bolder;
+	text-align: center;
+	text-transform:uppercase;
+}
+
+
+
+techCompany{
+
+	margin:0 auto 10px auto;
+	width: 50%;
+	font-size: 20px;
+	border-radius: 30px;
+	padding: 10px 50px;
+}
+
+techCompany > *{
+	margin-bottom: 10px;
+}
+
+techCompany:nth-of-type(even){
+	border: solid 5px lightblue;
+	background: royalblue;
+	
+	
+}techCompany:nth-of-type(odd){
+	border: solid 5px royalblue;
+	background-color: lightblue;
+	
+}
+
+companyName{
+	color:white;
+	text-align: center;
+	font-style: italic;
+}
+
+
+companyName::before {
+	content:"Company Name: "
+	}
+yearStart::before {
+	content:"Year Started: "
+	}	
+tagline::before {
+	content:"Tagline: "
+	}	
+totalBranch::before {
+	content:"Total Number of Branches: "
+	}	
+headquarter::before {
+	content:"Headquarter: "
+	}	
+	
