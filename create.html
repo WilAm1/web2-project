@@ -12,6 +12,7 @@
       <div>
         Name:
         <input type="text" name="name" required />
+        <span id="message"></span>
       </div>
       <div>
         Year Started
@@ -34,4 +35,25 @@
       <button>Save</button>
     </form>
   </body>
+
+  <script>
+    function handleInput(event) {
+      var value = event.target.value;
+
+      if (value.trim().length === 0) {
+        msg.innerHTML = "";
+      } else {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.responseText);
+            var suggestionArray = xhr.responseText;
+            divList.innerHTML = suggestionArray;
+          }
+        };
+        xhr.open("GET", "checkID.php?q=" + value, true);
+        xhr.send();
+      }
+    }
+  </script>
 </html>
