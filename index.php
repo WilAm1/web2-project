@@ -60,12 +60,15 @@
     <button><a href="delete.php">Delete</a></button>
 
 
-    <div class="autocomplete" style="width:300px">
-      <input list="suggestions" type="search" id="search">
-      <!-- the dropdown . Stays 0 height if there is no children. -->
-      <div id="autocomplete-list" class="autocomplete-items">
+    <form action="./searchProcess.php" method="GET">
+      <div class="autocomplete" style="width:300px">
+        <input type="search" id="search" name="search">
+        <!-- the dropdown . Stays 0 height if there is no children. -->
+        <div id="autocomplete-list" class="autocomplete-items">
+        </div>
       </div>
-    </div>
+      <input type="submit" value="Search">
+    </form>
     <span id="msg"></span>
   </div>
   </div>
@@ -117,8 +120,9 @@
     }
 
     // handles individual dropdown clicks
-    function handleDropdownClick(form) {
-      form.submit();
+    function handleDropdownClick(value) {
+      console.log(value);
+      window.location.href = "/searchProcess.php?search=" + value;
 
     }
   </script>
