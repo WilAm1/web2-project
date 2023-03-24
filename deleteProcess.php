@@ -1,11 +1,11 @@
 <?php
 
 $xml = new DOMDocument('1.0');
-$xml->load("BSIT3EG1G4.xml");
 
 $xml->formatOutput = true;
 $xml->preserveWhiteSpace = false;
 
+$xml->load("BSIT3EG1G4.xml");
 $searchName = $_POST['name'];
 
 $companies = $xml->getElementsByTagName("techCompany");

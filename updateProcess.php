@@ -1,12 +1,12 @@
 <?php
 
 $xml = new DOMDocument('1.0');
-$xml->load("BSIT3EG1G4.xml");
 
 $xml->formatOutput = true;
 $xml->preserveWhiteSpace = false;
 
-                
+$xml->load("BSIT3EG1G4.xml");
+
 
 $companies = $xml->getElementsByTagName("techCompany");
 $flag = 0;
@@ -21,7 +21,7 @@ foreach ($companies as $company) {
         $yearElem = $xml->createElement("yearStart", $year);
         $taglineElem = $xml->createElement("tagline", $tagline);
         $branchElem = $xml->createElement("totalBranch", $branches);
-        $headquarterElem = $xml->createElement("headquarter",$headquarter);
+        $headquarterElem = $xml->createElement("headquarter", $headquarter);
 
 
         $newNode->appendChild($nameElem);
