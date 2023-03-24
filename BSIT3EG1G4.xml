@@ -1,23 +1,11 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/css" href="BSIT3EG1G4.css"?>
 <techCompanies>
-  <title>Top IT Companies in the Philippines</title>
-  <!--1-->
-  <techCompany>
-    <companyName>Smart Communications</companyName>
-    <yearStart>1991</yearStart>
-    <tagline>Live more</tagline>
-    <totalBranch>95</totalBranch>
-    <headquarter>Makati City</headquarter>
-  </techCompany>
+	<title>Top IT Companies in the Philippines</title>
+	<!--1-->
+  
   <!--2-->
-  <techCompany>
-    <companyName>Accenture</companyName>
-    <yearStart>1985</yearStart>
-    <tagline>We make change for you</tagline>
-    <totalBranch>22</totalBranch>
-    <headquarter>Mandaluyong</headquarter>
-  </techCompany>
+  
   <!--3-->
   <techCompany>
     <companyName>Philippine Long Distance Telephone Company (PLDT)</companyName>
@@ -74,35 +62,8 @@
     <totalBranch/>
     <headquarter>Makati</headquarter>
   </techCompany>
-  <!--10-->
-  <techCompany>
-    <companyName>International Business Machines(IBM)</companyName>
-    <yearStart>1937</yearStart>
-    <tagline>THINK</tagline>
-    <totalBranch>3</totalBranch>
-    <headquarter>Quezon City</headquarter>
-  </techCompany>
-  <!--11-->
-  <!--12-->
-  <techCompany>
-    <companyName>Sykes Asia, Inc.</companyName>
-    <yearStart>1997</yearStart>
-    <tagline>WORK, LEARN, GROW WITH SYKES</tagline>
-    <totalBranch>8</totalBranch>
-    <headquarter>Makati</headquarter>
-  </techCompany>
-  <techCompany>
-    <companyName>aaa</companyName>
-    <yearStart>123</yearStart>
-    <tagline>123</tagline>
-    <totalBranch>123</totalBranch>
-    <headquarter>1231</headquarter>
-  </techCompany>
-  <techCompany>
-    <companyName>aaaa</companyName>
-    <yearStart>12</yearStart>
-    <tagline>12</tagline>
-    <totalBranch>12</totalBranch>
-    <headquarter>12</headquarter>
-  </techCompany>
+	
+	
+	
+
 </techCompanies>
