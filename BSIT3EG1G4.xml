@@ -92,17 +92,31 @@
     <headquarter>Makati</headquarter>
   </techCompany>
   <techCompany>
-    <companyName>aaa</companyName>
+    <companyName>Acee</companyName>
     <yearStart>123</yearStart>
     <tagline>123</tagline>
     <totalBranch>123</totalBranch>
-    <headquarter>1231</headquarter>
+    <headquarter>123</headquarter>
   </techCompany>
   <techCompany>
-    <companyName>aaaa</companyName>
-    <yearStart>12</yearStart>
-    <tagline>12</tagline>
-    <totalBranch>12</totalBranch>
-    <headquarter>12</headquarter>
+    <companyName>1232</companyName>
+    <yearStart>123</yearStart>
+    <tagline>123</tagline>
+    <totalBranch>123122</totalBranch>
+    <headquarter>123</headquarter>
+  </techCompany>
+  <techCompany>
+    <companyName>aaaaa</companyName>
+    <yearStart>123</yearStart>
+    <tagline>123</tagline>
+    <totalBranch>123</totalBranch>
+    <headquarter>123</headquarter>
+  </techCompany>
+  <techCompany>
+    <companyName>Adf</companyName>
+    <yearStart>123</yearStart>
+    <tagline>123</tagline>
+    <totalBranch>123</totalBranch>
+    <headquarter>123</headquarter>
   </techCompany>
 </techCompanies>

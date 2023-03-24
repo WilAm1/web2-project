@@ -8,7 +8,7 @@ $xml->load("BSIT3EG1G4.xml");
 
 
 
-$name = $_POST['name'];
+$name = ucwords($_POST['name']);
 $year = $_POST['year'];
 $tagline = $_POST['tagline'];
 $branches = $_POST['branches'];
@@ -24,7 +24,7 @@ $branchElem = $xml->createElement("totalBranch", $branches);
 $headquarterElem = $xml->createElement("headquarter", $headquarter);
 
 
-$newCompany->appendChild($nameElem);
+$newCompany->appendChild(($nameElem));
 $newCompany->appendChild($yearElem);
 $newCompany->appendChild($taglineElem);
 $newCompany->appendChild($branchElem);
