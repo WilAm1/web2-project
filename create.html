@@ -25,11 +25,11 @@
           minlength="3"
           required
           onkeyup="handleInput(this)"
-          placeholder="name@example.com"
+          placeholder="Company Name"
         />
-        <label for="name">Name:</label>
-        <span id="message" class="valid-feedback">That's available</span>
-        <span id="err" class="invalid-feedback">Minimum of 3 length.</span>
+        <label for="name">Company Name:</label>
+        <span id="message" class="valid-feedback">That's is available</span>
+        <span id="err" class="invalid-feedback"></span>
       </div>
       <div class="form-floating mb-3">
         <input
@@ -99,36 +99,41 @@
     }
 
     var submitBtn = document.getElementById("submit");
-    var msgElem = document.getElementById("err");
+    var companyNameErrorMessage = document.getElementById("err");
 
-    function handleInput(elem) {
-      var value = elem.value;
+    function handleInput(inputElement) {
+      var inputValue = inputElement.value;
 
-      if (value.length < 3 || value.trim().length === 0) {
-        elem.classList.add("is-invalid");
-        elem.classList.remove("is-valid");
-        msgElem.innerHTML = "Company name is too short.";
-        // comment
+      // disbales the submit button if length is less than 3 or text is only spaces.
+      if (inputValue.length < 3 || inputValue.trim().length === 0) {
+        inputElement.classList.add("is-invalid");
+        inputElement.classList.remove("is-valid");
+        companyNameErrorMessage.innerHTML = "Company name is too short.";
+
+        submitBtn.disabled = true;
       } else {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            var responseText = xhr.responseText;
+        var http = new XMLHttpRequest();
+
+        http.onreadystatechange = function () {
+          if (http.readyState === 4 && http.status === 200) {
+            var responseText = http.responseText;
+            // checks the response from the server. Disables the submit button if 'Is in use' is the response.
             if (responseText == " in use.") {
-              msgElem.textContent = "Is in use!";
-              elem.classList.add("is-invalid");
-              elem.classList.remove("is-valid");
+              companyNameErrorMessage.textContent = "Is in use!";
+              inputElement.classList.add("is-invalid");
+              inputElement.classList.remove("is-valid");
 
               submitBtn.disabled = true;
             } else if (responseText == " is available.") {
-              elem.classList.add("is-valid");
-              elem.classList.remove("is-invalid");
+              inputElement.classList.add("is-valid");
+              inputElement.classList.remove("is-invalid");
+
               submitBtn.disabled = false;
             }
           }
         };
-        xhr.open("GET", "checkID.php?q=" + value, true);
-        xhr.send();
+        http.open("GET", "checkID.php?q=" + inputValue, true);
+        http.send();
       }
     }
   </script>
