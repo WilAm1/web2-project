@@ -1,62 +1,24 @@
-*{
-	display:block;
+.formContainer {
+  width: 40%;
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 54px 55px,
+    rgba(255, 255, 255, 0.12) 0px -12px 30px,
+    rgba(255, 255, 255, 0.12) 0px 4px 6px,
+    rgba(255, 255, 255, 0.17) 0px 12px 13px,
+    rgba(255, 255, 255, 0.09) 0px -3px 5px;
+  background-color: aliceblue;
+  padding: 50px 10px;
+  border-radius: 10px;
+  margin-inline: auto;
 }
 
-title{
+/* custom modal */
 
-	color: gold;
-	font-size: 40px;
-	font-weight: bolder;
-	text-align: center;
-	text-transform:uppercase;
+.modalContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(48, 48, 48, 0.466);
 }
 
-
-
-techCompany{
-
-	margin:0 auto 10px auto;
-	width: 50%;
-	font-size: 20px;
-	border-radius: 30px;
-	padding: 10px 50px;
+.modalContent {
+  width: 40%;
 }
-
-techCompany > *{
-	margin-bottom: 10px;
-}
-
-techCompany:nth-of-type(even){
-	border: solid 5px lightblue;
-	background: royalblue;
-	
-	
-}techCompany:nth-of-type(odd){
-	border: solid 5px royalblue;
-	background-color: lightblue;
-	
-}
-
-companyName{
-	color:white;
-	text-align: center;
-	font-style: italic;
-}
-
-
-companyName::before {
-	content:"Company Name: "
-	}
-yearStart::before {
-	content:"Year Started: "
-	}	
-tagline::before {
-	content:"Tagline: "
-	}	
-totalBranch::before {
-	content:"Total Number of Branches: "
-	}	
-headquarter::before {
-	content:"Headquarter: "
-	}	
-	
