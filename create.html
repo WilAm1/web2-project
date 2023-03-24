@@ -4,136 +4,125 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create</title>
-
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="BSIT3EG1G4.css" />
+    <title>Create</title>
   </head>
-  <body>
-    <h1>Create New Company</h1>
-    <form
-      action="/createProcess.php"
-      method="post"
-      class="container-md"
-      autocomplete="off"
-    >
-      <div class="form-floating mb-3">
-        <input
-          class="form-control"
-          type="text"
-          id="name"
-          name="name"
-          minlength="3"
-          required
-          onkeyup="handleInput(this)"
-          placeholder="Company Name"
-        />
-        <label for="name">Company Name:</label>
-        <span id="message" class="valid-feedback">That's is available</span>
-        <span id="err" class="invalid-feedback"></span>
-      </div>
-      <div class="form-floating mb-3">
-        <input
-          class="form-control"
-          type="number"
-          name="year"
-          id="year"
-          required
-          placeholder="2023"
-        />
-        <label for="year">Year Started</label>
-      </div>
-      <div class="form-floating mb-3">
-        <input
-          class="form-control"
-          type="text"
-          id="tagline"
-          name="tagline"
-          placeholder="Just do it."
-          required
-        />
-        <label for="tagline">tagline</label>
-      </div>
-      <div class="form-floating mb-3">
-        <input
-          class="form-control"
-          id="branches"
-          type="number"
-          name="branches"
-          placeholder="10"
-          required
-        />
-        <label for="branches">branches</label>
-      </div>
-      <div class="form-floating mb-3">
-        <input
-          class="form-control"
-          type="text"
-          id="headquarter"
-          name="headquarter"
-          placeholder="Makati City"
-          required
-        />
-        <label for="headquarter">headquarter</label>
-      </div>
-      <button
-        class="btn btn-outline-secondary"
-        id="backBtn"
-        onclick="handleBackClick()"
-        type="button"
-      >
-        Back
-      </button>
+  <body class="bg-secondary">
+    <div class="container text-center">
+      <h1 class="text-light">Create New Company</h1>
+      <form action="/htdocs/createProcess.php" method="post">
+        <div class="formContainer">
+          <!-- company name -->
+          <div class="input-group mb-5 w-75 mx-auto">
+            <label class="input-group-text fw-bold" for="companyName"
+              >Name:</label
+            >
+            <input
+              class="form-control"
+              id="companyName"
+              type="text"
+              name="name"
+              minlength="3"
+              required
+              placeholder="ex: E-Youth Company"
+              onkeyup="handleInput(this.value)"
+            />
+          </div>
 
-      <input
-        id="submit"
-        type="submit"
-        value="Save New Company"
-        class="btn btn-primary"
-      />
-    </form>
+          <!-- year started -->
+          <div class="input-group mb-5 w-75 mx-auto">
+            <label class="input-group-text fw-bold" for="yearStarted"
+              >Year Started:
+            </label>
+            <input
+              class="form-control"
+              id="yearStarted"
+              type="number"
+              name="year"
+              placeholder="ex: 2025"
+              required
+            />
+          </div>
+
+          <!-- tagline -->
+          <div class="input-group mb-5 w-75 mx-auto">
+            <label class="input-group-text fw-bold" for="tagLine"
+              >Tagline:</label
+            >
+            <input
+              class="form-control"
+              id="tagLine"
+              type="text"
+              name="tagline"
+              placeholder="ex: We stay connected even offline"
+              required
+            />
+          </div>
+
+          <!-- total branch -->
+          <div class="input-group mb-5 w-75 mx-auto">
+            <label class="input-group-text fw-bold" for="branches"
+              >Total Branch:</label
+            >
+            <input
+              class="form-control"
+              id="branches"
+              type="number"
+              name="branches"
+              placeholder="ex: 106"
+              required
+            />
+          </div>
+
+          <!-- total headquarter -->
+          <div class="input-group mb-5 w-75 mx-auto">
+            <label class="input-group-text fw-bold" for="headquarter"
+              >Headquarter:</label
+            >
+            <input
+              class="form-control"
+              id="headquarter"
+              type="text"
+              name="headquarter"
+              placeholder="ex: Makati"
+              required
+            />
+          </div>
+
+          <button class="btn btn-outline-primary">
+            <a href="index.php">Back</a>
+          </button>
+          <input
+            class="btn btn-primary"
+            id="submit"
+            type="submit"
+            value="Save New Company"
+          />
+        </div>
+      </form>
+    </div>
   </body>
 
   <script>
-    function handleBackClick() {
-      window.location.href = "/";
-    }
-
     var submitBtn = document.getElementById("submit");
-    var companyNameErrorMessage = document.getElementById("err");
+    function handleInput(value) {
+      console.log(value);
+      return;
 
-    function handleInput(inputElement) {
-      var inputValue = inputElement.value;
-
-      // disbales the submit button if length is less than 3 or text is only spaces.
-      if (inputValue.length < 3 || inputValue.trim().length === 0) {
-        inputElement.classList.add("is-invalid");
-        inputElement.classList.remove("is-valid");
-        companyNameErrorMessage.innerHTML = "Company name is too short.";
-
-        submitBtn.disabled = true;
+      if (value.trim().length === 0) {
+        // comment
       } else {
-        var http = new XMLHttpRequest();
-
-        http.onreadystatechange = function () {
-          if (http.readyState === 4 && http.status === 200) {
-            var responseText = http.responseText;
-            // checks the response from the server. Disables the submit button if 'Is in use' is the response.
-            if (responseText == " in use.") {
-              companyNameErrorMessage.textContent = "Is in use!";
-              inputElement.classList.add("is-invalid");
-              inputElement.classList.remove("is-valid");
-
-              submitBtn.disabled = true;
-            } else if (responseText == " is available.") {
-              inputElement.classList.add("is-valid");
-              inputElement.classList.remove("is-invalid");
-
-              submitBtn.disabled = false;
-            }
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.responseText);
+            var suggestionArray = xhr.responseText;
+            // check condition if name is ok or not.
           }
         };
-        http.open("GET", "checkID.php?q=" + inputValue, true);
-        http.send();
+        xhr.open("GET", "checkID.php?q=" + value, true);
+        xhr.send();
       }
     }
   </script>
