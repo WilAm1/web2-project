@@ -49,7 +49,7 @@ foreach ($companies as $company) {
                     <p><span class="fw-bold">'.$name.'</span>is successfully updated!</p>
 
                     <button class="d-block ms-auto btn btn-secondary">
-                        <a class="text-decoration-none" href="index.php">Close</a>
+                        <a class="text-decoration-none text-light" href="index.php">Close</a>
                     </button>
                 </div>
             </div>
