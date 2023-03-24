@@ -60,7 +60,7 @@
     <button><a href="delete.php">Delete</a></button>
 
 
-    <form action="./searchProcess.php" method="GET">
+    <form action="./searchProcess.php" method="GET" autocomplete="off">
       <div class="autocomplete" style="width:300px">
         <input type="search" id="search" name="search">
         <!-- the dropdown . Stays 0 height if there is no children. -->
@@ -92,6 +92,7 @@
       closeAllList(e.target);
     })
 
+    // TODO refactor later to use simpler code.
     function handleInput(event) {
 
       // remove the elements first.
@@ -119,13 +120,17 @@
       }
     }
 
-    // handles individual dropdown clicks
+    // handles individual dropdown clicks.
+    // 
     function handleDropdownClick(value) {
       console.log(value);
       window.location.href = "/searchProcess.php?search=" + value;
 
     }
   </script>
+
+
+  <!-- handles the list of companies. -->
   <?php
   $xml = new DOMDocument("1.0");
   $xml->load("./BSIT3EG1G4.xml");

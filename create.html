@@ -5,50 +5,126 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create</title>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
   </head>
   <body>
     <h1>Create New Company</h1>
-    <form action="/createProcess.php" method="post">
-      <div>
-        Name:
-        <input type="text" name="name" required />
-        <span id="message"></span>
+    <form
+      action="/createProcess.php"
+      method="post"
+      class="container-md"
+      autocomplete="off"
+    >
+      <div class="form-floating mb-3">
+        <input
+          class="form-control"
+          type="text"
+          id="name"
+          name="name"
+          minlength="3"
+          required
+          onkeyup="handleInput(this)"
+          placeholder="name@example.com"
+        />
+        <label for="name">Name:</label>
+        <span id="message" class="valid-feedback">That's available</span>
+        <span id="err" class="invalid-feedback">Minimum of 3 length.</span>
       </div>
-      <div>
-        Year Started
-        <input type="number" name="year" required />
+      <div class="form-floating mb-3">
+        <input
+          class="form-control"
+          type="number"
+          name="year"
+          id="year"
+          required
+          placeholder="2023"
+        />
+        <label for="year">Year Started</label>
       </div>
-      <div>
-        tagline
-        <input type="text" name="tagline" required />
+      <div class="form-floating mb-3">
+        <input
+          class="form-control"
+          type="text"
+          id="tagline"
+          name="tagline"
+          placeholder="Just do it."
+          required
+        />
+        <label for="tagline">tagline</label>
       </div>
-      <div>
-        branches
-        <input type="number" name="branches" required />
+      <div class="form-floating mb-3">
+        <input
+          class="form-control"
+          id="branches"
+          type="number"
+          name="branches"
+          placeholder="10"
+          required
+        />
+        <label for="branches">branches</label>
       </div>
-      <div>
-        headquarter
-        <input type="text" name="headquarter" required />
+      <div class="form-floating mb-3">
+        <input
+          class="form-control"
+          type="text"
+          id="headquarter"
+          name="headquarter"
+          placeholder="Makati City"
+          required
+        />
+        <label for="headquarter">headquarter</label>
       </div>
-      <button><a href="index.php">Back</a></button>
+      <button
+        class="btn btn-outline-secondary"
+        id="backBtn"
+        onclick="handleBackClick()"
+        type="button"
+      >
+        Back
+      </button>
 
-      <button>Save</button>
+      <input
+        id="submit"
+        type="submit"
+        value="Save New Company"
+        class="btn btn-primary"
+      />
     </form>
   </body>
 
   <script>
-    function handleInput(event) {
-      var value = event.target.value;
+    function handleBackClick() {
+      window.location.href = "/";
+    }
 
-      if (value.trim().length === 0) {
-        msg.innerHTML = "";
+    var submitBtn = document.getElementById("submit");
+    var msgElem = document.getElementById("err");
+
+    function handleInput(elem) {
+      var value = elem.value;
+
+      if (value.length < 3 || value.trim().length === 0) {
+        elem.classList.add("is-invalid");
+        elem.classList.remove("is-valid");
+        msgElem.innerHTML = "Company name is too short.";
+        // comment
       } else {
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log(xhr.responseText);
-            var suggestionArray = xhr.responseText;
-            divList.innerHTML = suggestionArray;
+            var responseText = xhr.responseText;
+            if (responseText == " in use.") {
+              msgElem.textContent = "Is in use!";
+              elem.classList.add("is-invalid");
+              elem.classList.remove("is-valid");
+
+              submitBtn.disabled = true;
+            } else if (responseText == " is available.") {
+              elem.classList.add("is-valid");
+              elem.classList.remove("is-invalid");
+              submitBtn.disabled = false;
+            }
           }
         };
         xhr.open("GET", "checkID.php?q=" + value, true);
