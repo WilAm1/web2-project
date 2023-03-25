@@ -49,5 +49,10 @@ foreach ($companies as $company) {
     }
 }
 if ($flag == 0) {
-    echo "Search has found no item. <a href='index.php'>Back</a>";
+
+    echo " 
+          <link rel='stylesheet' href='bootstrap/css/bootstrap.min.css' />
+          <link rel='stylesheet' href='BSIT3EG1G4.css' />
+          <h1>Search has found no item '$searchName' in the XML file.</h1>
+          <a class='btn btn-primary' href='index.php'>Back</a>";
 }

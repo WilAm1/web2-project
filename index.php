@@ -66,15 +66,9 @@
 
 
   <div class="menus container mt-5 d-flex justify-content-center ">
-    <button class="btn btn-outline-primary m-2">
-      <a class="text-decoration-none" href="create.html">Add</a>
-    </button>
-    <button class="btn btn-outline-primary m-2">
-      <a class="text-decoration-none" href="update.php">Edit</a>
-    </button>
-    <button class="btn btn-outline-primary m-2">
-      <a class="text-decoration-none" href="delete.php">Delete</a>
-    </button>
+    <a class=" btn btn-outline-primary m-2 text-decoration-none" href="create.html">Add</a>
+    <a class="btn btn-outline-primary m-2 text-decoration-none" href="update.php">Edit</a>
+    <a class="btn btn-outline-danger m-2 text-decoration-none" href="delete.php">Delete</a>
 
 
     <form action="./searchProcess.php" method="GET" autocomplete="off">
