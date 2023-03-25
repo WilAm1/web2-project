@@ -22,14 +22,29 @@ foreach ($companies as $company) {
         $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
 
 
+        echo '
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="BSIT3EG1G4.css" />
 
-        echo "Name: " . $name . "</br>";
-        echo "Year Started: " . $year . "</br>";
-        echo "Tagline: " . $tagline . "</br>";
-        echo "Branches: " . $branches . "</br>";
-        echo "Headquarters: " . $headquarter . "</br>";
-        echo "</br>";
-        echo "Company is Found. <a href='index.php'>Back</a>";
+  <div class="card mb-3">
+    <img src="..." class="card-img-top" alt="Placeholder Image" style="height:200px" />
+    <div class="card-body">
+      <h5 class="card-title">' . $name . '</h5>
+      <p class="card-text">
+      Tagline: ' . $tagline . ' 
+      </p>
+      <p class="card-text">
+
+      Branches: ' . $branches . ' 
+      </p>
+      <p class="card-text">
+      Headquarter: : ' . $headquarter . ' 
+      </p>
+    </div>
+  </div>
+        ';
+
+        echo " <a class='btn btn-primary' href='index.php'>Back</a>";
         break;
     }
 }
