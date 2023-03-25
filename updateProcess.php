@@ -5,7 +5,7 @@ $xml->load("BSIT3EG1G4.xml");
 $xml->formatOutput = true;
 $xml->preserveWhiteSpace = false;
 
-                
+
 $searchName = $_POST['name'];
 $year = $_POST['year'];
 $tagline = $_POST['tagline'];
@@ -25,7 +25,7 @@ foreach ($companies as $company) {
         $yearElem = $xml->createElement("yearStart", $year);
         $taglineElem = $xml->createElement("tagline", $tagline);
         $branchElem = $xml->createElement("totalBranch", $branches);
-        $headquarterElem = $xml->createElement("headquarter",$headquarter);
+        $headquarterElem = $xml->createElement("headquarter", $headquarter);
 
 
         $newNode->appendChild($nameElem);
@@ -46,7 +46,7 @@ foreach ($companies as $company) {
                 <div class="modalContent rounded bg-light p-3 mx-auto">
                     <h2 class="text-success">Update Successful</h2>
                     <hr>
-                    <p><span class="fw-bold">'.$name.'</span>is successfully updated!</p>
+                    <p><span class="fw-bold">' . $name . '</span> is successfully updated!</p>
 
                     <button class="d-block ms-auto btn btn-secondary">
                         <a class="text-decoration-none text-light" href="index.php">Close</a>
