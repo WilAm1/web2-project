@@ -4,7 +4,7 @@
 $xml = new DOMDocument("1.0");
 $xml->load("BSIT3EG1G4.xml");
 
-$searchName = $_REQUEST["search"];
+$searchName = $_REQUEST["q"];
 
 $companies = $xml->getElementsByTagName("techCompany");
 $flag = 0;

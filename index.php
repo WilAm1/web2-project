@@ -128,7 +128,7 @@
             optionsContainerElem.innerHTML = suggestionArray;
           }
         }
-        xhr.open("GET", "search.php?q=" + value, true);
+        xhr.open("GET", "showCompaniesProcess.php?q=" + value, true);
         xhr.send();
       }
     }
@@ -137,7 +137,7 @@
     // 
     function handleDropdownClick(value) {
       console.log(value);
-      window.location.href = "/searchProcess.php?search=" + value;
+      window.location.href = "/searchProcess.php?q=" + value;
 
     }
   </script>
