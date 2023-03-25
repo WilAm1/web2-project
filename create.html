@@ -30,7 +30,7 @@
             />
             <!-- 'this' refers to the  company name input text -->
             <span id="message" class="valid-feedback"
-              >That name is available!</span
+              >That company is available!</span
             >
             <span id="err" class="invalid-feedback"></span>
           </div>
@@ -121,7 +121,8 @@
       if (inputValue.length < 3 || inputValue.trim().length === 0) {
         inputElement.classList.add("is-invalid");
         inputElement.classList.remove("is-valid");
-        companyNameErrorMessage.innerHTML = "Company name is too short.";
+        companyNameErrorMessage.innerHTML =
+          "Company name must not be empty or too short.";
         submitBtn.disabled = true;
       } else {
         var http = new XMLHttpRequest();
@@ -131,12 +132,16 @@
           if (http.readyState === 4 && http.status === 200) {
             var responseText = http.responseText;
             if (responseText == "false") {
-              companyNameErrorMessage.textContent = "That name is available!";
+              companyNameErrorMessage.textContent =
+                "That company was already been created.";
               inputElement.classList.add("is-invalid");
               inputElement.classList.remove("is-valid");
 
               submitBtn.disabled = true;
             } else if (responseText == "true") {
+              companyNameErrorMessage.textContent =
+                "That company is available!";
+
               inputElement.classList.add("is-valid");
               inputElement.classList.remove("is-invalid");
 
