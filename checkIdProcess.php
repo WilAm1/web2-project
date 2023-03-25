@@ -13,11 +13,12 @@ $requestValue = $_REQUEST['q'];
 foreach ($companies as $company) {
     $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
 
-    if (strtolower($requestValue) == $name) {
-        echo " in use.";
+    if (strtolower($requestValue) == strtolower($name)) {
+        echo "false";
         return;
+        //  the script won't run the code below anymore due to return statement.
     }
 }
 
 // name is available.
-echo " is available.";
+echo "true";

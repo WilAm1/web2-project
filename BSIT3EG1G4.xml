@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/css" href="BSIT3EG1G4.css"?>
 <techCompanies>
-	<title>Top IT Companies in the Philippines</title>
-	<!--1-->
-  
+  <title>Top IT Companies in the Philippines</title>
+  <!--1-->
   <!--2-->
-  
   <!--3-->
   <techCompany>
     <companyName>Philippine Long Distance Telephone Company (PLDT)</companyName>
@@ -80,17 +78,32 @@
     <headquarter>Makati</headquarter>
   </techCompany>
   <techCompany>
-    <companyName>Aaa</companyName>
-    <yearStart>123</yearStart>
-    <tagline>123</tagline>
-    <totalBranch>123</totalBranch>
-    <headquarter>1231</headquarter>
-  </techCompany>
-  <techCompany>
     <companyName>Aaaa</companyName>
     <yearStart>12</yearStart>
     <tagline>12</tagline>
     <totalBranch>12</totalBranch>
     <headquarter>12</headquarter>
   </techCompany>
+  <techCompany>
+    <companyName>A111</companyName>
+    <yearStart>122</yearStart>
+    <tagline>1111</tagline>
+    <totalBranch>111</totalBranch>
+    <headquarter>1111</headquarter>
+  </techCompany>
+  <techCompany>
+    <companyName>Aaaaa</companyName>
+    <yearStart>123</yearStart>
+    <tagline>1231</tagline>
+    <totalBranch>123</totalBranch>
+    <headquarter>1222</headquarter>
+  </techCompany>
+  <techCompany>
+    <companyName>Aaa</companyName>
+    <yearStart>11</yearStart>
+    <tagline>11</tagline>
+    <totalBranch>11</totalBranch>
+    <headquarter>11</headquarter>
+  </techCompany>
+  
 </techCompanies>

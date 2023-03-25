@@ -11,7 +11,7 @@
   <body class="bg-secondary">
     <div class="container text-center">
       <h1 class="text-light">Create New Company</h1>
-      <form action="/htdocs/createProcess.php" method="post">
+      <form action="createProcess.php" method="post">
         <div class="formContainer">
           <!-- company name -->
           <div class="input-group mb-5 w-75 mx-auto">
@@ -26,8 +26,13 @@
               minlength="3"
               required
               placeholder="ex: E-Youth Company"
-              onkeyup="handleInput(this.value)"
+              onkeyup="handleInput(this)"
             />
+            <!-- 'this' refers to the  company name input text -->
+            <span id="message" class="valid-feedback"
+              >That name is available!</span
+            >
+            <span id="err" class="invalid-feedback"></span>
           </div>
 
           <!-- year started -->
@@ -106,23 +111,41 @@
 
   <script>
     var submitBtn = document.getElementById("submit");
-    function handleInput(value) {
-      console.log(value);
-      return;
+    var companyNameErrorMessage = document.getElementById("err");
 
-      if (value.trim().length === 0) {
-        // comment
+    function handleInput(inputElement) {
+      //inputElement is the company name input text
+      var inputValue = inputElement.value;
+
+      // disbales the submit button if length is less than 3 or text is only spaces.
+      if (inputValue.length < 3 || inputValue.trim().length === 0) {
+        inputElement.classList.add("is-invalid");
+        inputElement.classList.remove("is-valid");
+        companyNameErrorMessage.innerHTML = "Company name is too short.";
+        submitBtn.disabled = true;
       } else {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log(xhr.responseText);
-            var suggestionArray = xhr.responseText;
-            // check condition if name is ok or not.
+        var http = new XMLHttpRequest();
+
+        http.onreadystatechange = function () {
+          // checks the response from the server. Disables the submit button if 'false' is the response.
+          if (http.readyState === 4 && http.status === 200) {
+            var responseText = http.responseText;
+            if (responseText == "false") {
+              companyNameErrorMessage.textContent = "That name is available!";
+              inputElement.classList.add("is-invalid");
+              inputElement.classList.remove("is-valid");
+
+              submitBtn.disabled = true;
+            } else if (responseText == "true") {
+              inputElement.classList.add("is-valid");
+              inputElement.classList.remove("is-invalid");
+
+              submitBtn.disabled = false;
+            }
           }
         };
-        xhr.open("GET", "checkID.php?q=" + value, true);
-        xhr.send();
+        http.open("GET", "checkIdProcess.php?q=" + inputValue, true);
+        http.send();
       }
     }
   </script>
