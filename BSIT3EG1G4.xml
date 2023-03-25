@@ -112,4 +112,18 @@
     <totalBranch>123</totalBranch>
     <headquarter>123</headquarter>
   </techCompany>
+  <techCompany>
+    <companyName>    Aaa</companyName>
+    <yearStart>213</yearStart>
+    <tagline>12</tagline>
+    <totalBranch>123</totalBranch>
+    <headquarter>123</headquarter>
+  </techCompany>
+  <techCompany>
+    <companyName>Aaaaa</companyName>
+    <yearStart>213</yearStart>
+    <tagline>12</tagline>
+    <totalBranch>123</totalBranch>
+    <headquarter>123</headquarter>
+  </techCompany>
 </techCompanies>

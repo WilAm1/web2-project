@@ -8,7 +8,7 @@ $xml->load("BSIT3EG1G4.xml");
 
 
 
-$name = ucwords($_POST['name']);
+$name = ucwords(trim($_POST['name']));
 $year = $_POST['year'];
 $tagline = $_POST['tagline'];
 $branches = $_POST['branches'];

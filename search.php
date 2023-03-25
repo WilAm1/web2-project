@@ -2,7 +2,7 @@
 
 $xml = new DOMDocument("1.0");
 $xml->load("BSIT3EG1G4.xml");
-$searchName = ucwords($_REQUEST["q"]);
+$searchName = ucwords(trim($_REQUEST["q"]));
 
 $companies = $xml->getElementsByTagName("techCompany");
 $result = "";
