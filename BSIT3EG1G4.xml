@@ -105,5 +105,11 @@
     <totalBranch>11</totalBranch>
     <headquarter>11</headquarter>
   </techCompany>
-  
+  <techCompany>
+    <companyName>Aaaaaa</companyName>
+    <yearStart>123</yearStart>
+    <tagline>adf</tagline>
+    <totalBranch>123</totalBranch>
+    <headquarter>123</headquarter>
+  </techCompany>
 </techCompanies>

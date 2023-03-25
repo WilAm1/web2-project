@@ -32,4 +32,8 @@ $newCompany->appendChild($headquarterElem);
 
 $xml->getElementsByTagName('techCompanies')->item(0)->appendChild($newCompany);
 $xml->save("BSIT3EG1G4.xml");
-echo "Details updated." . "<a href='index.php'>Back</a>";
+echo " 
+          <link rel='stylesheet' href='bootstrap/css/bootstrap.min.css' />
+          <link rel='stylesheet' href='BSIT3EG1G4.css' />
+          <h1>'$name' is added to the XML file.</h1>
+          <a class='btn btn-primary' href='index.php'>Back</a>";
