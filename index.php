@@ -112,64 +112,50 @@
       // remove the elements first.
       optionsContainerElem.innerHTML = '';
 
-      var xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
+      var http = new XMLHttpRequest();
+      http.onreadystatechange = function() {
 
-            console.log(xhr.responseText);
-            var suggestionArray = xhr.responseText;
-            optionsContainerElem.innerHTML = suggestionArray;
-          }
+        if (http.readyState === 4 && http.status === 200) {
+
+          console.log(http.responseText);
+          var suggestionArray = http.responseText;
+          optionsContainerElem.innerHTML = suggestionArray;
         }
-      xhr.open("GET", "showCompaniesProcess.php?q=" + value, true);
-      xhr.send();
-        
+      }
+      http.open("GET", "showCompaniesProcess.php?q=" + value, true);
+      http.send();
     }
 
     // handles individual dropdown clicks.
     // 
     function handleDropdownClick(value) {
-      console.log(value);
       window.location.href = "/searchProcess.php?q=" + value;
     }
   </script>
 
 
-  <!-- handles the list of companies. -->
-  <?php
-  $xml = new DOMDocument("1.0");
-  $xml->load("./BSIT3EG1G4.xml");
-
-  $companies = $xml->getElementsByTagName("techCompany");
+  <div id="table-container"></div>
+  <script>
+    // handles fetching of data
+    var tableContainer = document.getElementById("table-container");
 
 
-  echo '<table class="table w-75 ms-auto me-auto mt-5 table-dark table-striped ">';
-  echo '<tr class="bg-primary text-light"><th>Name</th>
-              <th>Year Started:</th>
-              <th>Tagline:</th>
-              <th>Branches:</th>
-              <th>Headquarters:</th>
-          </tr>';
-  foreach ($companies as $company) {
-    $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
-    $year = $company->getElementsByTagName("yearStart")->item(0)->nodeValue;
-    $tagline = $company->getElementsByTagName("tagline")->item(0)->nodeValue;
-    $branches = $company->getElementsByTagName("totalBranch")->item(0)->nodeValue;
-    $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
+    function fetchData() {
+      var http = new XMLHttpRequest();
+      http.onreadystatechange = function() {
 
-    echo '<tr>';
-    echo "<td>" . $name . "</td> ";
-    echo "<td>" . $year . "</td>";
-    echo "<td>" . $tagline . "</td>";
-    echo "<td>" . $branches . "</td>";
-    echo "<td>" . $headquarter . "</td>";
-    echo "</tr>";
-  }
+        if (http.readyState === 4 && http.status === 200) {
 
-  echo '</table>';
-  ?>
+          tableContainer.innerHTML = http.responseText;
+          console.log("The table is refreshed.");
+        }
+      }
+      http.open("GET", 'fetchAllCompanies.php', true);
+      http.send();
+    }
 
-
+    setInterval(fetchData, 5);
+  </script>
 </body>
 
 </html>
