@@ -111,26 +111,19 @@
 
       // remove the elements first.
       optionsContainerElem.innerHTML = '';
-      var suggestions = document.getElementById("suggestions");
-      var msg = document.getElementById("msg");
 
-      if (value.trim().length === 0) {
-        msg.innerHTML = "";
-      } else {
-
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-
-          if (xhr.readyState === 4 && xhr.status === 200) {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
 
             console.log(xhr.responseText);
             var suggestionArray = xhr.responseText;
             optionsContainerElem.innerHTML = suggestionArray;
           }
         }
-        xhr.open("GET", "showCompaniesProcess.php?q=" + value, true);
-        xhr.send();
-      }
+      xhr.open("GET", "showCompaniesProcess.php?q=" + value, true);
+      xhr.send();
+        
     }
 
     // handles individual dropdown clicks.
@@ -138,7 +131,6 @@
     function handleDropdownClick(value) {
       console.log(value);
       window.location.href = "/searchProcess.php?q=" + value;
-
     }
   </script>
 
