@@ -74,7 +74,6 @@
     <form action="./searchProcess.php" method="GET" autocomplete="off">
       <div class="input-group m-2">
 
-        <!-- <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2"> -->
         <input class="form-control" placeholder="Search company" type="search" id="search" name="search" onkeyup="handleInput(this.value)">
         <!-- the dropdown . Stays 0 height if there is no children. -->
         <div id="autocomplete-list" class="autocomplete-items"></div>
@@ -83,8 +82,6 @@
       </div>
 
     </form>
-    <span id="msg"></span>
-  </div>
   </div>
 
   <script>
@@ -93,7 +90,7 @@
 
     var optionsContainerElem = document.getElementById("autocomplete-list");
 
-    function closeAllList(notClosedElem) {
+    function closeAllList() {
       var elems = document.getElementsByClassName("autocomplete-item");
       elems = Array.from(elems); // converts node list to proper array in order to loop properly. May use elems.forEach as an alternative
       for (var e of elems) {
@@ -102,9 +99,9 @@
     }
 
 
-    // if the user clicks anywhere in the page not in the optionsContainerElement, the container will get closed.
-    document.addEventListener("click", (e) => {
-      closeAllList(e.target);
+    // if the user clicks anywhere in the page , the container will get closed.
+    document.addEventListener("click", () => {
+      closeAllList();
     })
 
     function handleInput(value) {
@@ -126,8 +123,7 @@
       http.send();
     }
 
-    // handles individual dropdown clicks.
-    // 
+    // if dropdown is clicked, redirect to this url.
     function handleDropdownClick(value) {
       window.location.href = "/searchProcess.php?q=" + value;
     }
@@ -154,7 +150,9 @@
       http.send();
     }
 
-    setInterval(fetchData, 5);
+    fetchData();
+    //refresh the table every 3 seconds
+    setInterval(fetchData, 3000);
   </script>
 </body>
 
