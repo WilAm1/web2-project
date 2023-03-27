@@ -9,6 +9,8 @@ $xml->preserveWhiteSpace = false;
 
 $companies = $xml->getElementsByTagName("techCompany");
 
+
+// display the data in a table
 echo '
 
   <table class="table w-75 ms-auto me-auto mt-5 table-dark table-striped ">
@@ -22,6 +24,7 @@ echo '
 
 ';
 
+// retrieve all the data of each companies in the xml and then display it on the table
 foreach ($companies as $company) {
 
     $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
