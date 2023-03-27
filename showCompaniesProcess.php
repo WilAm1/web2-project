@@ -9,7 +9,9 @@ $result = "";
 foreach ($companies as $company) {
     $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
 
-    if ($searchName == substr($name, 0, strlen($searchName))) {
+
+    $searchName = strtolower($searchName);
+    if ($searchName == substr(strtolower($name), 0, strlen($searchName))) {
 
         $result .= "
         <div onClick='handleDropdownClick(" . '"' . $name . '"' . ")' class='autocomplete-item' >

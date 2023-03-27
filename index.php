@@ -37,12 +37,6 @@
       color: #1B5EE2;
     }
 
-    /*when navigating through the items using the arrow keys:*/
-    .autocomplete-active {
-      background-color: DodgerBlue !important;
-      color: #ffffff;
-    }
-
     /* for shadow the table */
     table {
       box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -74,7 +68,7 @@
     <form action="./searchProcess.php" method="GET" autocomplete="off">
       <div class="input-group m-2">
 
-        <input class="form-control" placeholder="Search company" type="search" id="search" name="search" onkeyup="handleInput(this.value)">
+        <input class="form-control" placeholder="Search company" type="search" id="search" name="q" onkeyup="handleInput(this.value)">
         <!-- the dropdown . Stays 0 height if there is no children. -->
         <div id="autocomplete-list" class="autocomplete-items"></div>
 
@@ -90,31 +84,17 @@
 
     var optionsContainerElem = document.getElementById("autocomplete-list");
 
-    function closeAllList() {
-      var elems = document.getElementsByClassName("autocomplete-item");
-      elems = Array.from(elems); // converts node list to proper array in order to loop properly. May use elems.forEach as an alternative
-      for (var e of elems) {
-        e.parentNode.removeChild(e);
-      }
-    }
-
-
-    // if the user clicks anywhere in the page , the container will get closed.
-    document.addEventListener("click", () => {
-      closeAllList();
-    })
-
     function handleInput(value) {
 
       // remove the elements first.
-      optionsContainerElem.innerHTML = '';
+      // optionsContainerElem.innerHTML = '';
 
       var http = new XMLHttpRequest();
       http.onreadystatechange = function() {
 
         if (http.readyState === 4 && http.status === 200) {
 
-          console.log(http.responseText);
+          // console.log(http.responseText);
           var suggestionArray = http.responseText;
           optionsContainerElem.innerHTML = suggestionArray;
         }
@@ -127,6 +107,10 @@
     function handleDropdownClick(value) {
       window.location.href = "/searchProcess.php?q=" + value;
     }
+    // if the user clicks anywhere in the page , the container will get closed.
+    document.addEventListener("click", () => {
+      optionsContainerElem.innerHTML = '';
+    })
   </script>
 
 

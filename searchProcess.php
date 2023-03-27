@@ -4,25 +4,25 @@
 $xml = new DOMDocument("1.0");
 $xml->load("BSIT3EG1G4.xml");
 
-$searchName = $_REQUEST["q"];
+$searchName = $_GET["q"];
 
 $companies = $xml->getElementsByTagName("techCompany");
 $flag = 0;
 
 foreach ($companies as $company) {
 
+  $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
+
+  if ($name == $searchName) {
+    $flag = 1;
     $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
-
-    if ($name == $searchName) {
-        $flag = 1;
-        $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
-        $year = $company->getElementsByTagName("yearStart")->item(0)->nodeValue;
-        $tagline = $company->getElementsByTagName("tagline")->item(0)->nodeValue;
-        $branches = $company->getElementsByTagName("totalBranch")->item(0)->nodeValue;
-        $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
+    $year = $company->getElementsByTagName("yearStart")->item(0)->nodeValue;
+    $tagline = $company->getElementsByTagName("tagline")->item(0)->nodeValue;
+    $branches = $company->getElementsByTagName("totalBranch")->item(0)->nodeValue;
+    $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
 
 
-        echo '
+    echo '
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" href="BSIT3EG1G4.css" />
 
@@ -44,13 +44,13 @@ foreach ($companies as $company) {
   </div>
         ';
 
-        echo " <a class='btn btn-primary' href='index.php'>Back</a>";
-        break;
-    }
+    echo " <a class='btn btn-primary' href='index.php'>Back</a>";
+    break;
+  }
 }
 if ($flag == 0) {
 
-    echo " 
+  echo " 
           <link rel='stylesheet' href='bootstrap/css/bootstrap.min.css' />
           <link rel='stylesheet' href='BSIT3EG1G4.css' />
           <h1>Search has found no item '$searchName' in the XML file.</h1>
