@@ -113,13 +113,13 @@
     })
   </script>
 
-
+  <!-- show the data in table   -->
   <div id="table-container"></div>
   <script>
     // handles fetching of data
     var tableContainer = document.getElementById("table-container");
 
-
+//  Function that will perform ajax to fetch data in the xml   
     function fetchData() {
       var http = new XMLHttpRequest();
       http.onreadystatechange = function() {
@@ -130,7 +130,7 @@
           console.log("The table is refreshed.");
         }
       }
-      http.open("GET", 'fetchAllCompanies.php', true);
+      http.open("GET", 'fetchAllCompanies.php', true); //where we will request the data
       http.send();
     }
 
