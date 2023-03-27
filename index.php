@@ -24,7 +24,7 @@
     }
 
 
-    .autocomplete-items div {
+    .autocomplete-item {
       padding: 10px;
       cursor: pointer;
       background-color: #fff;
@@ -32,7 +32,7 @@
     }
 
     /*when hovering an item:*/
-    .autocomplete-items div:hover {
+    .autocomplete-item:hover {
       background-color: #e9e9e9;
       color: #1B5EE2;
     }
@@ -80,23 +80,17 @@
 
   <script>
     var input = document.getElementById("search");
-
-
-    var optionsContainerElem = document.getElementById("autocomplete-list");
+    var autocompleteContainerElement = document.getElementById("autocomplete-list");
 
     function handleInput(value) {
-
-      // remove the elements first.
-      // optionsContainerElem.innerHTML = '';
 
       var http = new XMLHttpRequest();
       http.onreadystatechange = function() {
 
-        if (http.readyState === 4 && http.status === 200) {
+        if (http.readyState == 4 && http.status == 200) {
 
-          // console.log(http.responseText);
-          var suggestionArray = http.responseText;
-          optionsContainerElem.innerHTML = suggestionArray;
+          var suggestions = http.responseText;
+          autocompleteContainerElement.innerHTML = suggestions;
         }
       }
       http.open("GET", "showCompaniesProcess.php?q=" + value, true);
@@ -109,7 +103,7 @@
     }
     // if the user clicks anywhere in the page , the container will get closed.
     document.addEventListener("click", () => {
-      optionsContainerElem.innerHTML = '';
+      autocompleteContainerElement.innerHTML = '';
     })
   </script>
 
@@ -119,7 +113,7 @@
     // handles fetching of data
     var tableContainer = document.getElementById("table-container");
 
-//  Function that will perform ajax to fetch data in the xml   
+    //  Function that will perform ajax to fetch data in the xml   
     function fetchData() {
       var http = new XMLHttpRequest();
       http.onreadystatechange = function() {
