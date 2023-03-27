@@ -93,7 +93,13 @@
 	</techCompany>
 	
 	<!--11-->
-	
+	<techCompany>
+		<companyName>TaskUs</companyName>
+		<yearStart>2008</yearStart>
+		<tagline>We exist to empower people to deliver Ridiculously Good innovation to the world's best companies</tagline>
+		<totalBranch>10</totalBranch>
+		<headquarter>Taguig</headquarter>
+	</techCompany>
 	
 	<!--12-->
 	<techCompany>
