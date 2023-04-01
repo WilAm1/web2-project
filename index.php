@@ -69,7 +69,6 @@
       <div class="input-group m-2">
 
         <input class="form-control" placeholder="Search company" type="search" id="search" name="q" onkeyup="handleInput(this.value)">
-        <!-- the dropdown . Stays 0 height if there is no children. -->
         <div id="autocomplete-list" class="autocomplete-items"></div>
 
         <button class="btn btn-success" type="submit" value="Search">Search</button>
@@ -84,6 +83,9 @@
 
     function handleInput(value) {
 
+      if (value.trim().length === 0) {
+        return;
+      }
       var http = new XMLHttpRequest();
       http.onreadystatechange = function() {
 

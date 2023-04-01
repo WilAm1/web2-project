@@ -25,7 +25,7 @@
               name="name"
               minlength="3"
               required
-              placeholder="ex: E-Youth Company"
+              placeholder="ex: BulSU Company"
               onkeyup="handleInput(this)"
             />
             <!-- 'this' refers to the  company name input text -->
@@ -116,7 +116,7 @@
       var inputValue = inputElement.value;
 
       // disbales the submit button if length is less than 3 or text is only spaces.
-      if (inputValue.length < 3 || inputValue.trim().length === 0) {
+      if (inputValue.length < 3 || inputValue.trim().length == 0) {
         inputElement.classList.add("is-invalid");
         inputElement.classList.remove("is-valid");
         companyNameErrorMessage.innerHTML =
