@@ -82,7 +82,7 @@
 
       echo '
     <div class="accordion-header ">
-      <a href=" /searchProcess.php?q=' . $name  . '">' . $name . ' </a> <i class="caret"></i>
+      <a target="_blank" href="/searchProcess.php?q=' . $name  . '">' . $name . ' </a> <i class="caret"></i>
       <p class="date-founded">Founded in <span>' . $year . '</span></p>
     </div>
 
@@ -94,16 +94,19 @@
         <p>Headquarter: <span class="detail">' . $headquarter . '</span> </p>
       </div>
 
-      <div class="dropdown">
-        <a class="btn btn-primary dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Action
-        </a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/searchProcess.php?q=' . $name . '">View in Seperate Page</a></li>
-          <li><a class="dropdown-item" href="/update.php">Update</a></li>
-          <li class="dropdown-item delete-company" data-bs-toggle="modal" data-bs-target="#theModal" data-companyName="' . $name . '">Delete</li>
-
-        </ul>
+        <div class="accordion-btn-group">
+  
+            <a class="btn btn-primary" href="/searchProcess.php?q=' . $name . '">View in Seperate Page</a>
+        <div class="dropdown">
+          <a class="btn btn-primary dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Action
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/update.php">Update</a></li>
+            <li class="dropdown-item delete-company" data-bs-toggle="modal" data-bs-target="#theModal" data-companyName="' . $name . '">Delete</li>
+  
+          </ul>
+        </div>
       </div>
     </div>
     ';

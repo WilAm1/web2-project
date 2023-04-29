@@ -23,9 +23,9 @@
     <nav>
         <div class="menus mt-5 d-flex justify-content-center nav-box">
             <a class="nav-link m-2 text-decoration-none" href="index.php">Home</a>
-            <a class="nav-link active m-2 text-decoration-none" href="create.html">Add</a>
+            <a class="nav-link  m-2 text-decoration-none" href="create.html">Add</a>
             <a class="nav-link m-2 text-decoration-none" href="update.php">Edit</a>
-            <a class="nav-link m-2 text-decoration-none" href="delete.php">Delete</a>
+            <a class="nav-link active m-2 text-decoration-none" href="delete.php">Delete</a>
         </div>
     </nav>
     <div class="container mt-5 ">

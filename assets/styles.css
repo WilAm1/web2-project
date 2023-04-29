@@ -160,6 +160,9 @@ h1 {
   font-weight: 600;
   text-decoration: none;
 }
+.accordion-header:hover a {
+  color: #b721ff;
+}
 .date-founded {
   font-size: 1rem;
   font-variant: small-caps;
@@ -265,4 +268,10 @@ h2 {
   margin-top: 16px;
   border-radius: 8px;
   padding: 8px;
+}
+
+.accordion-btn-group {
+  display: flex;
+  align-items: start;
+  gap: 10px;
 }
