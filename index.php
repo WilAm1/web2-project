@@ -26,6 +26,22 @@
     </div>
   </nav>
 
+  <div class="container-xl my-5">
+    <div class="row">
+      <div class="col-md-6 heading-box">
+        <h2 class="heading-text ">Find the job that <span class="text-gradient">suits</span> you</h2>
+        <p>
+          Finding the right company can be a challenging task when you consider your skills and interests.
+          Identify the company that suits you best and pave the way for your professional success.
+        </p>
+      </div>
+      <div class="col-md-6 heading-box">
+
+        <img class="w-75" src="assets/images/boxes.png" alt="">
+      </div>
+    </div>
+
+  </div>
 
 
   <div class="menus container mt-5 d-flex justify-content-center ">
