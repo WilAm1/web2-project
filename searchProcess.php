@@ -41,6 +41,11 @@ foreach ($companies as $company) {
       <p class="card-text">
       Tagline:  ' . $tagline . ' 
       </p>
+
+      <p class="card-text">
+      Founded on   ' . $year . ' 
+      </p>
+
       <p class="card-text">
 
       ' . $branches . ' Branches available.
