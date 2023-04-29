@@ -129,7 +129,7 @@
           <form action="/deleteProcess.php" method="post">
             <input id="deleteCompanyInput" type="hidden" name="name" value="">
 
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" class="btn btn-danger">Confirm Delete</button>
           </form>
         </div>
       </div>
