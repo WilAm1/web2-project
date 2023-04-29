@@ -1,29 +1,27 @@
 <!DOCTYPE html>
+<html>
 
 <head>
-  <title>Main Page</title>
+  <title>Top Tech Companies</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="styles.css">
-
+  <link rel="stylesheet" href="assets/styles.css">
 
   <!-- JS and JQuery files -->
   <script src="assets/jquery-3.6.4.min.js"></script>
   <script src="assets/jquery-ui/jquery-ui.min.js"></script>
+  <!-- Own JS File -->
   <script src="assets/js/indexPage.js"></script>
 </head>
 
-
 <body>
-
-
   <nav class="navbar bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand text-light fw-bold" href="#" style="color:#5A2D91">
-        <img src="images/logo.png" width="54" height="54" class="d-inline-block">
+        <img src="assets/images/logo.png" width="54" height="54" class="d-inline-block">
         Top Tech Companies</a>
     </div>
   </nav>
