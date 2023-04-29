@@ -1,6 +1,6 @@
 @font-face {
   font-family: Inter;
-  src: url(fonts/Inter/Inter-VariableFont_slnt\wght.ttf);
+  src: url(fonts/Inter/Inter-VariableFont.ttf);
 }
 
 body {
@@ -133,4 +133,34 @@ h2 {
   display: flex;
   row-gap: 20px;
   align-items: center;
+}
+
+/* Accordion */
+
+.accordion-header {
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+
+.ui-accordion-header-icon {
+  position: absolute;
+  right: 0;
+}
+
+.iconOpen {
+  display: inline-block;
+  background: url(./icons/caretUp.svg);
+  background-size: 40px;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+}
+
+.iconClosed {
+  display: inline-block;
+  background: url(./icons/caretDown.svg);
+  background-size: 40px;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
 }

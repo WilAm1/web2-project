@@ -55,7 +55,42 @@
 
   </div>
 
+  <div class="accordion">
+    <div class="accordion-header ">Section 1 <i class="caret"></i>
+    </div>
+    <div>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, dignissimos eius sunt minima accusamus, alias iure officiis consequuntur similique laudantium nemo inventore. Dignissimos porro accusantium voluptatibus voluptate fugit. Saepe, provident.</p>
 
+    </div>
+  </div>
+
+  <br>
+  <!-- handles the list of companies. -->
+  <?php
+  $xml = new DOMDocument("1.0");
+  $xml->load("./BSIT3EG1G4.xml");
+
+  $companies = $xml->getElementsByTagName("techCompany");
+
+
+  foreach ($companies as $company) {
+    $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
+    $year = $company->getElementsByTagName("yearStart")->item(0)->nodeValue;
+    $tagline = $company->getElementsByTagName("tagline")->item(0)->nodeValue;
+    $branches = $company->getElementsByTagName("totalBranch")->item(0)->nodeValue;
+    $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
+
+    echo '<tr>';
+    echo "<td>" . $name . "</td> ";
+    echo "<td>" . $year . "</td>";
+    echo "<td>" . $tagline . "</td>";
+    echo "<td>" . $branches . "</td>";
+    echo "<td>" . $headquarter . "</td>";
+    echo "</tr>";
+  }
+
+  echo '</table>';
+  ?>
 
 
 

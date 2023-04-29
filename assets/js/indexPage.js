@@ -31,4 +31,13 @@ $(document).ready(function () {
   $(document).click(function () {
     removeAutoComplete();
   });
+
+  $(".accordion").accordion({
+    collapsible: true,
+    active: false,
+    icons: {
+      header: "iconClosed",
+      activeHeader: "iconOpen",
+    },
+  });
 });
