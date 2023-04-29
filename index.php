@@ -108,49 +108,6 @@
   </div>
 
 
-
-
-
-
-
-
-
-  <!-- handles the list of companies. -->
-  <?php
-  $xml = new DOMDocument("1.0");
-  $xml->load("./BSIT3EG1G4.xml");
-
-  $companies = $xml->getElementsByTagName("techCompany");
-
-
-  echo '<table class="table w-75 ms-auto me-auto mt-5 table-dark table-striped ">';
-  echo '<tr class="bg-primary text-light"><th>Name</th>
-              <th>Year Started:</th>
-              <th>Tagline:</th>
-              <th>Branches:</th>
-              <th>Headquarters:</th>
-          </tr>';
-  foreach ($companies as $company) {
-    $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
-    $year = $company->getElementsByTagName("yearStart")->item(0)->nodeValue;
-    $tagline = $company->getElementsByTagName("tagline")->item(0)->nodeValue;
-    $branches = $company->getElementsByTagName("totalBranch")->item(0)->nodeValue;
-    $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
-
-    echo '<tr>';
-    echo "<td>" . $name . "</td> ";
-    echo "<td>" . $year . "</td>";
-    echo "<td>" . $tagline . "</td>";
-    echo "<td>" . $branches . "</td>";
-    echo "<td>" . $headquarter . "</td>";
-    echo "</tr>";
-  }
-
-  echo '</table>';
-  ?>
-
-
-
   <!-- Modal -->
   <div class="modal fade" id="theModal" tabindex="-1" aria-labelledby="theModalLabel" aria-hidden="true">
     <div class="modal-dialog">

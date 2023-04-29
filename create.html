@@ -10,8 +10,8 @@
     <!--  JQuery and JQueryUI  -->
     <script src="assets/jquery-3.6.4.min.js"></script>
     <script src="assets/jquery-ui/jquery-ui.min.js"></script>
+    <link href="assets/jquery-ui.css" rel="stylesheet" type="text/css" />
     <!-- Own JS  -->
-    <script src="assets/js/indexPage.js"></script>
     <script src="assets/js/createScript.js"></script>
     <!-- Own CSS -->
     <link rel="stylesheet" href="assets/styles.css" />
@@ -76,7 +76,6 @@
               placeholder="ex: BulSU Company"
             />
 
-            <!-- 'this' refers to the  company name input text -->
             <span id="message" class="valid-feedback"
               >That company is available!</span
             >
@@ -88,15 +87,12 @@
             <label class="form-label fw-bold" for="yearStarted"
               >Year Started:
             </label>
-            <input
-              class="form-control"
+            <select
+              class="form-select"
               required
-              placeholder="ex: 1999"
               name="year"
               id="yearStarted"
-              type="text"
-              id="datepicker"
-            />
+            ></select>
           </div>
 
           <!-- tagline -->
@@ -143,7 +139,7 @@
           <div class="flex-btn-end">
             <a class="btn btn-outline-primary" href="index.php">Back</a>
             <input
-              class="btn btn-accent"
+              class="btn btn-secondary"
               id="submit"
               type="submit"
               value="Save New Company"
