@@ -12,17 +12,19 @@
     <script src="assets/jquery-ui/jquery-ui.min.js"></script>
     <!-- Own JS  -->
     <script src="assets/js/indexPage.js"></script>
+    <script src="assets/js/createScript.js"></script>
     <!-- Own CSS -->
     <link rel="stylesheet" href="assets/styles.css" />
+
     <title>Create</title>
   </head>
   <body>
     <nav>
       <div class="menus mt-5 d-flex justify-content-center nav-box">
-        <a class="nav-link active m-2 text-decoration-none" href="index.php"
-          >Home</a
+        <a class="nav-link m-2 text-decoration-none" href="index.php">Home</a>
+        <a class="nav-link active m-2 text-decoration-none" href="create.html"
+          >Add</a
         >
-        <a class="nav-link m-2 text-decoration-none" href="create.html">Add</a>
         <a class="nav-link m-2 text-decoration-none" href="update.php">Edit</a>
         <a class="nav-link m-2 text-decoration-none" href="delete.php"
           >Delete</a
@@ -51,18 +53,19 @@
       </div>
     </nav>
 
-    <div class="container text-center">
-      <h1 class="text-primary">Create New Company</h1>
+    <div class="container mt-5">
+      <h1 class="text-accent text-center">Create New Company</h1>
       <form action="createProcess.php" method="post" autocomplete="off">
         <div class="formContainer">
           <!-- company name -->
+
+          <label class="form-label w-75 mx-auto fw-bold" for="companyName"
+            >Name:</label
+          >
+          <div class="form-text w-75 mx-auto">
+            Company name must have 3 minimum characters
+          </div>
           <div class="input-group mb-5 w-75 mx-auto">
-            <div class="form-text">
-              Company name must have 3 minimum characters
-            </div>
-            <label class="input-group-text fw-bold" for="companyName"
-              >Name:</label
-            >
             <input
               class="form-control"
               id="companyName"
@@ -71,8 +74,8 @@
               minlength="3"
               required
               placeholder="ex: BulSU Company"
-              onkeyup="handleInput(this)"
             />
+
             <!-- 'this' refers to the  company name input text -->
             <span id="message" class="valid-feedback"
               >That company is available!</span
@@ -81,25 +84,24 @@
           </div>
 
           <!-- year started -->
-          <div class="input-group mb-5 w-75 mx-auto">
-            <label class="input-group-text fw-bold" for="yearStarted"
+          <div class="mb-5 w-75 mx-auto">
+            <label class="form-label fw-bold" for="yearStarted"
               >Year Started:
             </label>
             <input
               class="form-control"
-              id="yearStarted"
-              type="number"
-              name="year"
-              placeholder="ex: 2025"
               required
+              placeholder="ex: 1999"
+              name="year"
+              id="yearStarted"
+              type="text"
+              id="datepicker"
             />
           </div>
 
           <!-- tagline -->
-          <div class="input-group mb-5 w-75 mx-auto">
-            <label class="input-group-text fw-bold" for="tagLine"
-              >Tagline:</label
-            >
+          <div class="mb-5 w-75 mx-auto">
+            <label class="form-label fw-bold" for="tagLine">Tagline:</label>
             <input
               class="form-control"
               id="tagLine"
@@ -111,8 +113,8 @@
           </div>
 
           <!-- total branch -->
-          <div class="input-group mb-5 w-75 mx-auto">
-            <label class="input-group-text fw-bold" for="branches"
+          <div class="mb-5 w-75 mx-auto">
+            <label class="form-label fw-bold" for="branches"
               >Total Branch:</label
             >
             <input
@@ -126,10 +128,8 @@
           </div>
 
           <!-- total headquarter -->
-          <div class="input-group mb-5 w-75 mx-auto">
-            <label class="input-group-text fw-bold" for="headquarter"
-              >Headquarter:</label
-            >
+          <div class="mb-5 w-75 mx-auto">
+            <label class="-text fw-bold" for="headquarter">Headquarter:</label>
             <input
               class="form-control"
               id="headquarter"
@@ -140,68 +140,17 @@
             />
           </div>
 
-          <a class="btn btn-outline-primary" href="index.php">Back</a>
-          <input
-            class="btn btn-primary"
-            id="submit"
-            type="submit"
-            value="Save New Company"
-          />
+          <div class="flex-btn-end">
+            <a class="btn btn-outline-primary" href="index.php">Back</a>
+            <input
+              class="btn btn-accent"
+              id="submit"
+              type="submit"
+              value="Save New Company"
+            />
+          </div>
         </div>
       </form>
     </div>
   </body>
-
-  <script>
-    var submitBtn = document.getElementById("submit");
-    var companyNameErrorMessage = document.getElementById("err");
-
-    function handleInput(inputElement) {
-      //inputElement is the company name input text
-      var inputValue = inputElement.value;
-
-      // disbales the submit button if length is less than 3 or text is only spaces.
-      if (inputValue.length < 3 || inputValue.trim().length == 0) {
-        inputElement.classList.add("is-invalid");
-        inputElement.classList.remove("is-valid");
-        submitBtn.classList.add("btn-secondary");
-        submitBtn.classList.remove("btn-primary");
-
-        companyNameErrorMessage.innerHTML =
-          "Company name must not be empty or too short.";
-        submitBtn.disabled = true;
-      } else {
-        var http = new XMLHttpRequest();
-
-        http.onreadystatechange = function () {
-          // checks the response from the server. Disables the submit button if 'false' is the response.
-          if (http.readyState === 4 && http.status === 200) {
-            var responseText = http.responseText;
-            if (responseText == "false") {
-              companyNameErrorMessage.textContent =
-                "That company was already been created.";
-              inputElement.classList.add("is-invalid");
-              inputElement.classList.remove("is-valid");
-              submitBtn.classList.add("btn-secondary");
-              submitBtn.classList.remove("btn-primary");
-
-              submitBtn.disabled = true;
-            } else if (responseText == "true") {
-              companyNameErrorMessage.textContent =
-                "That company is available!";
-
-              inputElement.classList.add("is-valid");
-              inputElement.classList.remove("is-invalid");
-              submitBtn.classList.remove("btn-secondary");
-              submitBtn.classList.add("btn-primary");
-
-              submitBtn.disabled = false;
-            }
-          }
-        };
-        http.open("GET", "checkIdProcess.php?q=" + inputValue, true);
-        http.send();
-      }
-    }
-  </script>
 </html>
