@@ -4,13 +4,55 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="BSIT3EG1G4.css" />
+    <!-- bootstrap  -->
+    <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
+    <!--  JQuery and JQueryUI  -->
+    <script src="assets/jquery-3.6.4.min.js"></script>
+    <script src="assets/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Own JS  -->
+    <script src="assets/js/indexPage.js"></script>
+    <!-- Own CSS -->
+    <link rel="stylesheet" href="assets/styles.css" />
     <title>Create</title>
   </head>
-  <body class="bg-secondary">
+  <body>
+    <nav>
+      <div class="menus mt-5 d-flex justify-content-center nav-box">
+        <a class="nav-link active m-2 text-decoration-none" href="index.php"
+          >Home</a
+        >
+        <a class="nav-link m-2 text-decoration-none" href="create.html">Add</a>
+        <a class="nav-link m-2 text-decoration-none" href="update.php">Edit</a>
+        <a class="nav-link m-2 text-decoration-none" href="delete.php"
+          >Delete</a
+        >
+
+        <form
+          action="./searchProcess.php"
+          method="GET"
+          autocomplete="off"
+          class="search-form"
+        >
+          <div class="search-box">
+            <label for="search" class="col-form-label">Search:</label>
+            <div class="input-group m-2">
+              <input
+                class="form-control"
+                placeholder="Company"
+                type="search"
+                id="search"
+                name="q"
+              />
+              <div id="autocomplete-list"></div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </nav>
+
     <div class="container text-center">
-      <h1 class="text-light">Create New Company</h1>
+      <h1 class="text-primary">Create New Company</h1>
       <form action="createProcess.php" method="post" autocomplete="off">
         <div class="formContainer">
           <!-- company name -->

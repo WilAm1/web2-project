@@ -137,9 +137,44 @@ h2 {
 
 /* Accordion */
 
+.accordion {
+  width: 80%;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: whitesmoke;
+}
 .accordion-header {
   font-size: 1.2rem;
-  padding: 1rem;
+  position: relative;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+.accordion-header a {
+  margin-bottom: 0;
+  color: #1b5ee2;
+}
+.date-founded {
+  font-size: 1rem;
+  font-variant: small-caps;
+  color: #707091;
+}
+.date-founded span {
+  font-weight: 700;
+  color: #15136f;
+}
+.accordion-content {
+  padding: 12px 24px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.detail-box {
+  display: flex;
+  gap: 20px;
+}
+.detail-box span.detail {
+  font-weight: 700;
 }
 
 .ui-accordion-header-icon {
@@ -163,4 +198,12 @@ h2 {
   width: 40px;
   height: 40px;
   background-repeat: no-repeat;
+}
+
+.dropdown .btn-primary {
+  background-color: #15136f !important;
+}
+
+/* utils */
+.text-primary {
 }

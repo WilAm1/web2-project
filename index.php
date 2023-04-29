@@ -5,22 +5,23 @@
   <title>Top Tech Companies</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- bootstrap  -->
+  <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/styles.css">
-
-  <!-- JS and JQuery files -->
+  <!--  JQuery and JQueryUI  -->
   <script src="assets/jquery-3.6.4.min.js"></script>
   <script src="assets/jquery-ui/jquery-ui.min.js"></script>
-  <!-- Own JS File -->
+  <!-- Own JS  -->
   <script src="assets/js/indexPage.js"></script>
+  <!-- Own CSS -->
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
 
 <body>
-  <nav class="">
+  <nav>
     <div class="menus mt-5 d-flex justify-content-center nav-box">
-      <a class="nav-link active m-2 text-decoration-none" href="create.html">Add</a>
+      <a class="nav-link active m-2 text-decoration-none" href="index.php">Home</a>
+      <a class="nav-link  m-2 text-decoration-none" href="create.html">Add</a>
       <a class=" nav-link m-2 text-decoration-none" href="update.php">Edit</a>
       <a class=" nav-link m-2 text-decoration-none" href="delete.php">Delete</a>
 
@@ -55,42 +56,62 @@
 
   </div>
 
-  <div class="accordion">
-    <div class="accordion-header ">Section 1 <i class="caret"></i>
-    </div>
-    <div>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, dignissimos eius sunt minima accusamus, alias iure officiis consequuntur similique laudantium nemo inventore. Dignissimos porro accusantium voluptatibus voluptate fugit. Saepe, provident.</p>
 
+
+  <div class="accordion">
+
+
+    <!-- handles the list of companies. -->
+    <?php
+    $xml = new DOMDocument("1.0");
+    $xml->load("./BSIT3EG1G4.xml");
+
+    $companies = $xml->getElementsByTagName("techCompany");
+
+    foreach ($companies as $company) {
+      $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
+      $year = $company->getElementsByTagName("yearStart")->item(0)->nodeValue;
+      $tagline = $company->getElementsByTagName("tagline")->item(0)->nodeValue;
+      $branches = $company->getElementsByTagName("totalBranch")->item(0)->nodeValue;
+      $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
+
+
+      echo '
+    <div class="accordion-header ">
+      <a href=" /searchProcess.php?q=' . $name  . '">' . $name . ' </a> <i class="caret"></i>
+      <p class="date-founded">Founded in <span>' . $year . '</span></p>
     </div>
+
+    <div class="accordion-content">
+      <div class="detail-box">
+
+        <p>Tagline: <span class="detail">' . $tagline . ' </span> </p>
+        <p>Total Branch: <span class="detail">' . $branches . '</span> </p>
+        <p>Headquarter: <span class="detail">' . $headquarter . '</span> </p>
+      </div>
+
+      <div class="dropdown">
+        <a class="btn btn-primary dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Action
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/searchProcess.php?q=' . $name . '">View in Seperate Page</a></li>
+          <li><a class="dropdown-item" href="/update.php">Update</a></li>
+          <li class="dropdown-item delete-company" data-bs-toggle="modal" data-bs-target="#theModal" data-companyName="' . $name . '">Delete</li>
+
+        </ul>
+      </div>
+    </div>
+    ';
+    }
+    ?>
   </div>
 
-  <br>
-  <!-- handles the list of companies. -->
-  <?php
-  $xml = new DOMDocument("1.0");
-  $xml->load("./BSIT3EG1G4.xml");
-
-  $companies = $xml->getElementsByTagName("techCompany");
 
 
-  foreach ($companies as $company) {
-    $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
-    $year = $company->getElementsByTagName("yearStart")->item(0)->nodeValue;
-    $tagline = $company->getElementsByTagName("tagline")->item(0)->nodeValue;
-    $branches = $company->getElementsByTagName("totalBranch")->item(0)->nodeValue;
-    $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
 
-    echo '<tr>';
-    echo "<td>" . $name . "</td> ";
-    echo "<td>" . $year . "</td>";
-    echo "<td>" . $tagline . "</td>";
-    echo "<td>" . $branches . "</td>";
-    echo "<td>" . $headquarter . "</td>";
-    echo "</tr>";
-  }
 
-  echo '</table>';
-  ?>
+
 
 
 
@@ -129,6 +150,32 @@
   ?>
 
 
+
+  <!-- Modal -->
+  <div class="modal fade" id="theModal" tabindex="-1" aria-labelledby="theModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="modal-title fs-5" id="theModalLabel">Confirm Deletion?</p>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>You cannot undo this change.</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          <form action="/deleteProcess.php" method="post">
+            <input id="deleteCompanyInput" type="hidden" name="name" value="">
+
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- end modal -->
 
 </body>
 

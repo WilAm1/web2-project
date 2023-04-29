@@ -40,4 +40,9 @@ $(document).ready(function () {
       activeHeader: "iconOpen",
     },
   });
+
+  $(".delete-company").click(function () {
+    var companyName = $(this).attr("data-companyName");
+    $("#deleteCompanyInput").val(companyName);
+  });
 });
