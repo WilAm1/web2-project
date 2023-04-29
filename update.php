@@ -68,28 +68,28 @@
                 <!-- year -->
                 <div class=" mb-2 w-75 mx-auto">
                     <label class=" fw-bold" for="year">Year</label>
-                    <input class="form-control" type="number" name="year" id="year" required value="<?= $year ?>">
+                    <input class="form-control" type="number" name="year" id="year" required>
                 </div>
 
                 <!-- tagline -->
                 <div class=" mb-2 w-75 mx-auto">
                     <label class="-text fw-bold" for="tagline">Tagline</label>
-                    <input class="form-control" type="text" name="tagline" id="tagline" required value="<?= $tagline ?>">
+                    <input class="form-control" type="text" name="tagline" id="tagline" required>
                 </div>
 
                 <!-- branches -->
                 <div class=" mb-2 w-75 mx-auto">
                     <label class=" fw-bold" for="branches">Branches</label>
-                    <input class="form-control" type="number" name="branches" id="branches" required value="<?= $branches ?>">
+                    <input class="form-control" type="number" name="branches" id="branches" required>
                 </div>
 
                 <div class=" mb-2 w-75 mx-auto">
                     <label class=" fw-bold" for="headquarter">Headquarter</label>
-                    <input class="form-control" type="text" name="headquarter" id="headquarter" required value="<?= $headquarter ?>">
+                    <input class="form-control" type="text" name="headquarter" id="headquarter" required ">
                 </div>
 
 
-                <div class="flex-btn-end">
+                <div class=" flex-btn-end">
                     <a href="index.php" class="btn btn-outline-primary">Back</a>
 
                     <button class="btn btn-primary">Save</button>
