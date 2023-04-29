@@ -18,11 +18,23 @@
 </head>
 
 <body>
-  <nav class="navbar bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand text-light fw-bold" href="#" style="color:#5A2D91">
-        <img src="assets/images/logo.png" width="54" height="54" class="d-inline-block">
-        Top Tech Companies</a>
+  <nav class="">
+    <div class="menus mt-5 d-flex justify-content-center nav-box">
+      <a class="nav-link active m-2 text-decoration-none" href="create.html">Add</a>
+      <a class=" nav-link m-2 text-decoration-none" href="update.php">Edit</a>
+      <a class=" nav-link m-2 text-decoration-none" href="delete.php">Delete</a>
+
+
+      <form action="./searchProcess.php" method="GET" autocomplete="off" class="search-form">
+        <div class="search-box">
+          <label for="search" class="col-form-label">Search:</label>
+          <div class="input-group m-2">
+            <input class="form-control" placeholder="Company" type="search" id="search" name="q">
+            <div id="autocomplete-list"></div>
+          </div>
+        </div>
+
+      </form>
     </div>
   </nav>
 
@@ -44,23 +56,7 @@
   </div>
 
 
-  <div class="menus container mt-5 d-flex justify-content-center ">
-    <a class=" btn btn-outline-primary m-2 text-decoration-none" href="create.html">Add</a>
-    <a class="btn btn-outline-primary m-2 text-decoration-none" href="update.php">Edit</a>
-    <a class="btn btn-outline-danger m-2 text-decoration-none" href="delete.php">Delete</a>
 
-
-    <form action="./searchProcess.php" method="GET" autocomplete="off">
-      <div class="input-group m-2">
-
-        <input class="form-control" placeholder="Search company" type="search" id="search" name="q">
-        <div id="autocomplete-list"></div>
-
-        <button class="btn btn-success" type="submit" value="Search">Search</button>
-      </div>
-
-    </form>
-  </div>
 
 
   <!-- handles the list of companies. -->

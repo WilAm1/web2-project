@@ -33,10 +33,6 @@ body {
   width: 40%;
 }
 
-.menus > a:hover {
-  color: white !important;
-}
-
 #autocomplete-list {
   position: absolute;
   border: 1px solid #d4d4d4;
@@ -51,6 +47,7 @@ body {
 }
 
 .autocomplete-item {
+  font-weight: 400;
   display: block;
   width: 100%;
   color: black;
@@ -104,4 +101,36 @@ h2 {
   font-weight: 700;
   color: #43436e;
   color: hsla(240, 13%, 54%, 1);
+}
+
+/* links */
+.nav-link {
+  color: #43436e;
+  font-weight: 700;
+}
+.nav-link.active {
+  color: #0702ff;
+}
+
+.nav-link:hover {
+  color: rgb(160, 10, 230);
+}
+.nav-box {
+  color: #43436e;
+  font-weight: 700;
+  position: relative;
+}
+.menus {
+  align-items: center;
+}
+
+.search-form {
+  position: absolute;
+  right: 20px;
+}
+
+.search-box {
+  display: flex;
+  row-gap: 20px;
+  align-items: center;
 }
