@@ -15,9 +15,9 @@ foreach ($companies as $company) {
     if ($searchName == substr($lowercaseCompanyName, 0, strlen($searchName))) {
 
         $result .= "
-        <div onClick='handleDropdownClick(" . '"' . $companyName . '"' . ")' class='autocomplete-item' >
+        <a href=' /searchProcess.php?q= " .   $companyName  . "'" . " class='autocomplete-item' >
                      $companyName
-        </div>
+        </a>
         ";
     }
 }

@@ -1,29 +1,38 @@
 $(document).ready(function () {
-  var input = document.getElementById("search");
-  var autocompleteContainerElement =
-    document.getElementById("autocomplete-list");
+  $("#search").keyup(function () {
+    var value = $("#search").val();
 
-  function handleInput(value) {
     if (value.trim().length === 0) {
+      $("#autocomplete-list").slideUp().html(" ");
       return;
     }
+
     var http = new XMLHttpRequest();
     http.onreadystatechange = function () {
       if (http.readyState == 4 && http.status == 200) {
         var suggestions = http.responseText;
-        autocompleteContainerElement.innerHTML = suggestions;
+
+        if (suggestions.length === 0) {
+          $("#autocomplete-list").slideUp().html("");
+        } else {
+          $("#autocomplete-list").html(suggestions).slideDown();
+        }
       }
     };
     http.open("GET", "showCompaniesProcess.php?q=" + value, true);
     http.send();
-  }
+  });
 
-  // if dropdown is clicked, redirect to this url.
+  $(".autocomplete-item").click(function () {
+    window.location.href =
+      "/searchProcess.php?q=" + $(this).attr("data-companyName");
+  });
   function handleDropdownClick(value) {
     window.location.href = "/searchProcess.php?q=" + value;
   }
-  // if the user clicks anywhere in the page , the container will get closed.
-  document.addEventListener("click", () => {
-    autocompleteContainerElement.innerHTML = "";
+
+  $(document).click(function () {
+    console.log("I ran");
+    $("autocomplete-list").html("");
   });
 });

@@ -4,49 +4,16 @@
   <title>Main Page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
 
-  <style>
-    .menus a:hover {
-      color: white !important;
-    }
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
 
-    .autocomplete-items {
-      position: absolute;
-      border: 1px solid #d4d4d4;
-      border-bottom: none;
-      border-top: none;
-      z-index: 99;
-      /*position the autocomplete items to be the same width as the container:*/
-      top: 100%;
-      left: 0;
-      right: 0;
-    }
-
-
-    .autocomplete-item {
-      padding: 10px;
-      cursor: pointer;
-      background-color: #fff;
-      border-bottom: 1px solid #d4d4d4;
-    }
-
-    /*when hovering an item:*/
-    .autocomplete-item:hover {
-      background-color: #e9e9e9;
-      color: #1B5EE2;
-    }
-
-    /* for shadow the table */
-    table {
-      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    }
-  </style>
 
   <!-- JS and JQuery files -->
-  <script src="assets/jquery-3.6.4.js"></script>
+  <script src="assets/jquery-3.6.4.min.js"></script>
+  <script src="assets/jquery-ui/jquery-ui.min.js"></script>
   <script src="assets/js/indexPage.js"></script>
-
 </head>
 
 
@@ -72,8 +39,8 @@
     <form action="./searchProcess.php" method="GET" autocomplete="off">
       <div class="input-group m-2">
 
-        <input class="form-control" placeholder="Search company" type="search" id="search" name="q" onkeyup="handleInput(this.value)">
-        <div id="autocomplete-list" class="autocomplete-items"></div>
+        <input class="form-control" placeholder="Search company" type="search" id="search" name="q">
+        <div id="autocomplete-list"></div>
 
         <button class="btn btn-success" type="submit" value="Search">Search</button>
       </div>
@@ -115,6 +82,8 @@
 
   echo '</table>';
   ?>
+
+
 
 </body>
 
