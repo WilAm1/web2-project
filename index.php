@@ -42,7 +42,7 @@
   <div class="container-xl my-5">
     <div class="row">
       <div class="col-md-6 heading-box">
-        <h2 class="heading-text ">Find the job that <span class="text-gradient">suits</span> you</h2>
+        <h1 class="heading-text ">Find the job that <span class="text-gradient">suits</span> you</h1>
         <p>
           Finding the right company can be a challenging task when you consider your skills and interests.
           Identify the company that suits you best and pave the way for your professional success.
@@ -58,6 +58,10 @@
 
 
 
+  <h2 class="gradient-heading-2">Top Tech Companies in the Philippines</h2>
+
+
+  <div class="exploding">Click one item in the list to see more details</div>
   <div class="accordion">
 
 

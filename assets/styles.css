@@ -71,7 +71,7 @@ table {
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 } */
 
-h2 {
+h1 {
   font-size: 3.5rem;
   font-weight: 700;
   line-height: 70px;
@@ -149,6 +149,11 @@ h2 {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
+  margin-bottom: 16px;
+}
+.accordion-content {
+  margin-top: -16px;
+  margin-bottom: 16px;
 }
 .accordion-header a {
   margin-bottom: 0;
@@ -230,13 +235,35 @@ h2 {
   gap: 16px;
   justify-content: end;
 }
-.ui-datepicker-calendar {
-  display: none;
+
+h2 {
+  font-weight: 700;
+  width: 80%;
+  margin: 12px auto;
 }
-.ui-datepicker-month {
-  display: none;
+.gradient-heading-2 {
+  background: linear-gradient(
+    90.04deg,
+    #2824e1 0.04%,
+    rgba(80, 150, 232, 0.74) 50.36%,
+    #d165f8 92.09%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-.ui-datepicker-next,
-.ui-datepicker-prev {
-  display: none;
+
+.exploding {
+  width: 400px;
+  height: 100px;
+  background-color: #21d4fd;
+  background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 8px;
 }

@@ -5,6 +5,7 @@ $(document).ready(function () {
     });
   }
 
+  // sliding logic. slidedown if there are no results. slide up if there are results.
   $("#search").keyup(function () {
     var value = $("#search").val();
 
@@ -28,10 +29,12 @@ $(document).ready(function () {
     }
   });
 
+  // removes the autocomplete if clicked outside of the autocomplete div
   $(document).click(function () {
     removeAutoComplete();
   });
 
+  // adds accordion
   $(".accordion").accordion({
     collapsible: true,
     active: false,
@@ -41,8 +44,15 @@ $(document).ready(function () {
     },
   });
 
+  // gets the value of the attribute `data-companyName` and adds to
+  // deleteCompanyInput value
   $(".delete-company").click(function () {
     var companyName = $(this).attr("data-companyName");
     $("#deleteCompanyInput").val(companyName);
+  });
+
+  // exploding
+  $(".accordion-header").click(function (param) {
+    $(".exploding").slideUp("slow");
   });
 });

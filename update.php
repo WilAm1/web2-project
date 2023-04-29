@@ -41,8 +41,8 @@
             <div class="formContainer">
 
                 <!-- company name in dropdown -->
-                <div class="input-group mb-2 w-75 mx-auto">
-                    <label class="input-group-text fw-bold" for="name">Name</label>
+                <div class=" mb-2 w-75 mx-auto">
+                    <label class="label-text fw-bold" for="name">Name</label>
                     <select class="form-select" name="name" id="name">
                         <?php
 
@@ -50,8 +50,14 @@
                         $xml->load("BSIT3EG1G4.xml");
                         $companies = $xml->getElementsByTagName("techCompany");
 
-                        foreach ($companies as $com) {
-                            $name = $com->getElementsByTagName("companyName")->item(0)->nodeValue;
+                        foreach ($companies as $company) {
+                            $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
+                            $year = $company->getElementsByTagName("yearStart")->item(0)->nodeValue;
+                            $tagline = $company->getElementsByTagName("tagline")->item(0)->nodeValue;
+                            $branches = $company->getElementsByTagName("totalBranch")->item(0)->nodeValue;
+                            $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
+
+
                             echo "<option value='$name' > $name</option>";
                         }
                         ?>
@@ -60,34 +66,34 @@
                 </div>
 
                 <!-- year -->
-                <div class="input-group mb-2 w-75 mx-auto">
-                    <label class="input-group-text fw-bold" for="year">Year</label>
-                    <input class="form-control" type="number" name="year" id="year" required>
+                <div class=" mb-2 w-75 mx-auto">
+                    <label class=" fw-bold" for="year">Year</label>
+                    <input class="form-control" type="number" name="year" id="year" required value="<?= $year ?>">
                 </div>
 
                 <!-- tagline -->
-                <div class="input-group mb-2 w-75 mx-auto">
-                    <label class="input-group-text fw-bold" for="tagline">Tagline</label>
-                    <input class="form-control" type="text" name="tagline" id="tagline" required>
+                <div class=" mb-2 w-75 mx-auto">
+                    <label class="-text fw-bold" for="tagline">Tagline</label>
+                    <input class="form-control" type="text" name="tagline" id="tagline" required value="<?= $tagline ?>">
                 </div>
 
                 <!-- branches -->
-                <div class="input-group mb-2 w-75 mx-auto">
-                    <label class="input-group-text fw-bold" for="branches">Branches</label>
-                    <input class="form-control" type="number" name="branches" id="branches" required>
+                <div class=" mb-2 w-75 mx-auto">
+                    <label class=" fw-bold" for="branches">Branches</label>
+                    <input class="form-control" type="number" name="branches" id="branches" required value="<?= $branches ?>">
                 </div>
 
-                <div class="input-group mb-2 w-75 mx-auto">
-                    <label class="input-group-text fw-bold" for="headquarter">Headquarter</label>
-                    <input class="form-control" type="text" name="headquarter" id="headquarter" required>
+                <div class=" mb-2 w-75 mx-auto">
+                    <label class=" fw-bold" for="headquarter">Headquarter</label>
+                    <input class="form-control" type="text" name="headquarter" id="headquarter" required value="<?= $headquarter ?>">
                 </div>
 
 
-                <button class="btn btn-outline-primary">
-                    <a href="index.php">Back</a>
-                </button>
+                <div class="flex-btn-end">
+                    <a href="index.php" class="btn btn-outline-primary">Back</a>
 
-                <button class="btn btn-primary">Save</button>
+                    <button class="btn btn-primary">Save</button>
+                </div>
             </div>
         </form>
     </div>
