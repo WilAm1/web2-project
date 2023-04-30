@@ -32,7 +32,7 @@
         <h1 class="text-accent text-center slide-up">Delete a Company</h1>
         <div class="formContainer fade-in">
             <!-- company names in dropdown -->
-            <div class=" mx-auto">
+            <div class="mb-2 w-75  mx-auto">
                 <label class=" fw-bold text-accent" for="name">Name of Company:</label>
                 <select class="form-select" name="name" id="name">
                     <?php

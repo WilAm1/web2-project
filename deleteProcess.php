@@ -6,7 +6,13 @@ $xml->load("BSIT3EG1G4.xml");
 $xml->formatOutput = true;
 $xml->preserveWhiteSpace = false;
 
-$searchName = $_POST['name'];
+$searchName;
+if (isset($_POST['name'])) {
+    $searchName = $_POST['name'];
+} else {
+    $searchName = null;
+}
+
 
 $companies = $xml->getElementsByTagName("techCompany");
 $flag = 0;
@@ -51,5 +57,21 @@ foreach ($companies as $company) {
     }
 }
 if ($flag == 0) {
-    echo "Company Deletion has been failed." . "<a href='index.php'>Back</a>";
+    echo "
+            <link rel='stylesheet' href='/assets/bootstrap/css/bootstrap.min.css' />
+            <link rel='stylesheet' href='/assets/styles.css' />";
+    echo '
+              <div class="modal fade show modal-displayed" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title text-accent">Delete Unsuccessful </h3>
+                </div>
+                <div class="modal-footer">
+                    <a href="index.php"  class="btn btn-primary">Back to Home</a>
+                </div>
+                </div>
+            </div>
+            </div>
+    ';
 }
