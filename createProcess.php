@@ -32,8 +32,26 @@ $newCompany->appendChild($headquarterElem);
 
 $xml->getElementsByTagName('techCompanies')->item(0)->appendChild($newCompany);
 $xml->save("BSIT3EG1G4.xml");
-echo " 
-          <link rel='stylesheet' href='bootstrap/css/bootstrap.min.css' />
-          <link rel='stylesheet' href='BSIT3EG1G4.css' />
-          <h1>'$name' is added to the XML file.</h1>
-          <a class='btn btn-primary' href='index.php'>Back</a>";
+
+echo "
+  <script src='/assets/bootstrap/js/bootstrap.bundle.min.js'></script>
+          <link rel='stylesheet' href='/assets/bootstrap/css/bootstrap.min.css' />
+          <link rel='stylesheet' href='/assets/styles.css' />
+          ";
+echo '
+
+<div class="modal fade show modal-displayed" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title text-accent">"' . $name . '" company is added to the XML file. </h3>
+      </div>
+      <div class="modal-footer">
+        <a href="index.php"  class="btn btn-primary">Back to Home</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+';

@@ -38,22 +38,34 @@ foreach ($companies as $company) {
         $xml->save("BSIT3EG1G4.xml");
 
 
+        echo "
+            <script src='/assets/bootstrap/js/bootstrap.bundle.min.js'></script>
+                    <link rel='stylesheet' href='/assets/bootstrap/css/bootstrap.min.css' />
+                    <link rel='stylesheet' href='/assets/styles.css' />
+                    ";
         echo '
-            <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-            <link rel="stylesheet" href="BSIT3EG1G4.css" />
 
-            <div class="modalContainer p-4">
-                <div class="modalContent rounded bg-light p-3 mx-auto">
-                    <h2 class="text-success">Update Successful</h2>
-                    <hr>
-                    <p><span class="fw-bold">' . $name . '</span> is successfully updated!</p>
+            <div class="modal fade show modal-displayed" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title text-accent">Update Successful </h3>
+                </div>
+                 <div class="modal-body">
 
-                    <button class="d-block ms-auto btn btn-secondary">
-                        <a class="text-decoration-none text-light" href="index.php">Close</a>
-                    </button>
+                    <p><span class="fw-bold">"' . $name . '"</span> is successfully updated!</p>
+                  </div>
+
+                <div class="modal-footer">
+                    <a href="index.php"  class="btn btn-primary">Back to Home</a>
+                </div>
                 </div>
             </div>
-        ';
+            </div>
+
+
+            ';
+
         break;
     }
 }

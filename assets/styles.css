@@ -283,3 +283,8 @@ h2 {
 .blind-right {
   display: none;
 }
+
+.modal.modal-displayed {
+  display: block;
+  border: rebeccapurple;
+}
