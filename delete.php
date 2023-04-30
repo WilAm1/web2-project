@@ -12,7 +12,7 @@
     <script src="assets/jquery-ui/jquery-ui.min.js"></script>
     <link href="assets/jquery-ui.css" rel="stylesheet" type="text/css" />
     <!-- Own JS  -->
-    <script src="assets/js/createScript.js"></script>
+    <script src="assets/js/startEffects.js"></script>
     <!-- Own CSS -->
     <link rel="stylesheet" href="assets/styles.css" />
 
@@ -29,8 +29,8 @@
         </div>
     </nav>
     <div class="container mt-5 ">
-        <h1 class="text-accent text-center">Delete a Company</h1>
-        <div class="formContainer">
+        <h1 class="text-accent text-center slide-up">Delete a Company</h1>
+        <div class="formContainer fade-in">
             <!-- company names in dropdown -->
             <div class=" mx-auto">
                 <label class=" fw-bold text-accent" for="name">Name of Company:</label>
@@ -50,9 +50,7 @@
 
 
             <div class="d-flex justify-content-end mt-2">
-                <button class="btn btn-outline-secondary m-2">
-                    <a class="text-decoration-none text-secondary" href="index.php">Back</a>
-                </button>
+                <a class=" btn btn-outline-secondary m-2 text-decoration-none " href="index.php">Back</a>
 
                 <button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#theModal">Delete</button>
             </div>

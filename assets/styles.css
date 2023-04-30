@@ -154,7 +154,7 @@ h1 {
   margin-top: -16px;
   margin-bottom: 16px;
 }
-.accordion-header a {
+.accordion-header .companyName {
   margin-bottom: 0;
   color: #674ada;
   font-weight: 600;
@@ -255,7 +255,7 @@ h2 {
   background-clip: text;
 }
 
-.exploding {
+.instruction {
   width: 400px;
   height: 100px;
   background-color: #21d4fd;
@@ -274,4 +274,12 @@ h2 {
   display: flex;
   align-items: start;
   gap: 10px;
+}
+
+/* make the element hide first then use jquery to show and animate the element */
+
+.slide-up,
+.fade-in,
+.blind-right {
+  display: none;
 }

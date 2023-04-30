@@ -33,26 +33,4 @@ $(document).ready(function () {
   $(document).click(function () {
     removeAutoComplete();
   });
-
-  // adds accordion
-  $(".accordion").accordion({
-    collapsible: true,
-    active: false,
-    icons: {
-      header: "iconClosed",
-      activeHeader: "iconOpen",
-    },
-  });
-
-  // gets the value of the attribute `data-companyName` and adds to
-  // deleteCompanyInput value
-  $(".delete-company").click(function () {
-    var companyName = $(this).attr("data-companyName");
-    $("#deleteCompanyInput").val(companyName);
-  });
-
-  // exploding
-  $(".accordion-header").click(function (param) {
-    $(".exploding").slideUp("slow");
-  });
 });

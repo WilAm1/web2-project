@@ -12,7 +12,9 @@
   <script src="assets/jquery-3.6.4.min.js"></script>
   <script src="assets/jquery-ui/jquery-ui.min.js"></script>
   <!-- Own JS  -->
-  <script src="assets/js/indexPage.js"></script>
+  <script src="assets/js/indexScript.js"></script>
+  <script src="assets/js/searchScript.js"></script>
+  <script src="assets/js/startEffects.js"></script>
   <!-- Own CSS -->
   <link rel="stylesheet" href="assets/styles.css">
 </head>
@@ -42,7 +44,7 @@
   <div class="container-xl my-5">
     <div class="row">
       <div class="col-md-6 heading-box">
-        <h1 class="heading-text ">Find the job that <span class="text-gradient">suits</span> you</h1>
+        <h1 class="heading-text blind-right">Find the job that <span class="text-gradient">suits</span> you</h1>
         <p>
           Finding the right company can be a challenging task when you consider your skills and interests.
           Identify the company that suits you best and pave the way for your professional success.
@@ -61,7 +63,7 @@
   <h2 class="gradient-heading-2">Top Tech Companies in the Philippines</h2>
 
 
-  <div class="exploding">Click one item in the list to see more details</div>
+  <div class="instruction">Click one item in the list to see more details</div>
   <div class="accordion">
 
 
@@ -82,7 +84,7 @@
 
       echo '
     <div class="accordion-header ">
-      <a target="_blank" href="/searchProcess.php?q=' . $name  . '">' . $name . ' </a> <i class="caret"></i>
+      <p class="companyName">' . $name . ' </a> <i class="caret"></i></p>
       <p class="date-founded">Founded in <span>' . $year . '</span></p>
     </div>
 

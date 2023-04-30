@@ -12,7 +12,7 @@
     <script src="assets/jquery-ui/jquery-ui.min.js"></script>
     <link href="assets/jquery-ui.css" rel="stylesheet" type="text/css" />
     <!-- Own JS  -->
-    <script src="assets/js/updateScript.js"></script>
+    <script src="assets/js/startEffects.js"></script>
     <!-- Own CSS -->
     <link rel="stylesheet" href="assets/styles.css" />
 
@@ -35,10 +35,10 @@
 
 
     <div class="container ">
-        <h1 class="text-accent mt-5 text-center">Update a Company</h1>
+        <h1 class="text-accent mt-5 text-center slide-up">Update a Company</h1>
         <form action="updateProcess.php" method="post">
 
-            <div class="formContainer">
+            <div class="formContainer fade-in">
 
                 <!-- company name in dropdown -->
                 <div class=" mb-2 w-75 mx-auto">
