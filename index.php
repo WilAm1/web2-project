@@ -44,7 +44,7 @@
   <div class="container-xl my-5">
     <div class="row">
       <div class="col-md-6 heading-box">
-        <h1 class="heading-text blind-right">Find the job that <span class="text-gradient">suits</span> you</h1>
+        <h1 class="heading-text blind-up">Find the job that <span class="text-gradient">suits</span> you</h1>
         <p>
           Finding the right company can be a challenging task when you consider your skills and interests.
           Identify the company that suits you best and pave the way for your professional success.

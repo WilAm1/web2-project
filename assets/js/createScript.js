@@ -25,7 +25,7 @@ $(document).ready(function () {
 
       http.onreadystatechange = function () {
         // checks the response from the server. Disables the submit button if 'false' is the response.
-        if (http.readyState === 4 && http.status === 200) {
+        if (http.readyState == 4 && http.status == 200) {
           var responseText = http.responseText;
           if (responseText == "false") {
             nameErrMsg.html("That company was already been created.");

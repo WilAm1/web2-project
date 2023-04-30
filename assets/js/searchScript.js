@@ -17,7 +17,7 @@ $(document).ready(function () {
         if (http.readyState == 4 && http.status == 200) {
           var suggestions = http.responseText;
 
-          if (suggestions.length === 0) {
+          if (suggestions.length == 0) {
             removeAutoComplete();
           } else {
             $("#autocomplete-list").html(suggestions).slideDown();
