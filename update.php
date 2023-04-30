@@ -85,7 +85,7 @@
 
                 <div class=" mb-2 w-75 mx-auto">
                     <label class=" fw-bold" for="headquarter">Headquarter</label>
-                    <input class="form-control" type="text" name="headquarter" id="headquarter" required ">
+                    <input class="form-control" type="text" name="headquarter" id="headquarter" required>
                 </div>
 
 

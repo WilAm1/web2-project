@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  // add options to year date
+  // add options to year select element
   for (i = 2023; i >= 1800; i--) {
     $("#yearStarted").append($("<option />").val(i).html(i));
   }

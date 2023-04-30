@@ -18,7 +18,7 @@ $(document).ready(function () {
   });
 
   // Instruction Element Slide
-  $(".accordion-header").click(function (param) {
+  $(".accordion-header").click(function () {
     $(".instruction").slideUp("slow");
   });
 });
