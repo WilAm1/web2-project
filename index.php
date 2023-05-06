@@ -11,6 +11,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Corinthia&family=Dancing+Script:wght@500&family=Exo+2:wght@700&family=Fasthand&family=Freehand&family=Montserrat:ital,wght@0,400;0,700;1,400;1,600;1,700;1,800&family=Poppins:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;500&family=Source+Sans+Pro:ital@1&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
+  <!-- font awesome icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <!-- typed js -->
   <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
@@ -18,6 +21,9 @@
   <script src="assets/jquery-3.6.4.min.js"></script>
   <script src="assets/jquery-ui/jquery-ui.min.js"></script>
   <script src="./typing-script.js"></script>
+
+  <!-- Own Script -->
+  <script src="./assets/js/searchScript.js"></script>
 
   <link rel="stylesheet" href="style.css" />
   <title>Top Tech Companies</title>
@@ -57,10 +63,16 @@
       </li>
     </ul>
     <div class="relative-right">
-      <form class="position-relative w-100" role="search">
-        <input class="form-control bg-transparent d-inline text-white-50" type="search" placeholder="Search" aria-label="Search" />
-        <img class="search position-absolute end-0" src="/assets/search.png" />
-      </form>
+      <form class="search-form position-relative w-100" action="./searchProcess.php" method="GET" autocomplete="off">
+        <div class="input-group m-2">
+          <i class="fa fa-search icon"></i>
+          <input placeholder="Search" aria-label="Search" class="form-control" placeholder="Search Company" type="search" id="search" name="q">
+          <div id="autocomplete-list"></div>
+        </div>
+    </div>
+
+    </form>
+
     </div>
     <!-- </div> -->
   </nav>
