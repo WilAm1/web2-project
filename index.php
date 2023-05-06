@@ -24,6 +24,7 @@
 
   <!-- Own Script -->
   <script src="./assets/js/searchScript.js"></script>
+  <script src="./assets/js/cardSliderEffect.js"></script>
 
   <link rel="stylesheet" href="style.css" />
   <title>Top Tech Companies</title>
@@ -82,9 +83,9 @@
         <h1 class="text-white fw-bolder main-text">
           Top Tech Companies in the Philippines
         </h1>
-        <button class="cta-btn py-3 px-xl-5 bg-transparent">
+        <a href="#top-tech" class="cta-btn py-3 px-xl-5 bg-transparent">
           View list
-        </button>
+        </a>
       </div>
       <div class="subheading">
         <p>Find the job that suits you</p>
@@ -95,7 +96,7 @@
     <!-- Individual Cards -->
     <section class=" tech-list-section">
       <div class="container space-x">
-        <h2>Our Top Tech List</h2>
+        <h2 id="top-tech">Our Top Tech List</h2>
         <!-- card -->
         <div class="cards">
           <?php
@@ -110,24 +111,56 @@
             $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
           ?>
             <div class="card-item">
-              <div class="card-image">
-                <img src="./assets/smart-logo.jpg" alt="">
-              </div>
-              <div class="card-body">
-                <div class="left-card-body">
-                  <p class="year-text">Founded in</p>
-                  <div class="founded-year"><?= $year ?> </div>
+
+              <!-- card shoed -->
+              <div class="card-showed">
+                <div class="card-image">
+                  <img src="./assets/smart-logo.jpg" alt="">
                 </div>
-                <div class="right-card-body">
-                  <p class="company-name">
-                    <?= $name ?>
-                  </p>
-                  <q class="quote">
-                    <?= $tagline ?>
-                  </q>
+                <div class="card-body">
+                  <div class="left-card-body">
+                    <p class="year-text">Founded in</p>
+                    <div class="founded-year"><?= $year ?> </div>
+                  </div>
+                  <div class="right-card-body">
+                    <p class="company-name">
+                      <?= $name ?>
+                    </p>
+                    <q class="quote">
+                      <?= $tagline ?>
+                    </q>
+                  </div>
                 </div>
               </div>
+              <!-- card Hovered -->
+              <div class="card-hovered">
+                <div class="hovered-detail">
+                  <p>Company Name</p>
+                  <p><?= $name ?></p>
+                </div>
+                <div class="hovered-detail">
+                  <p>Founded Year</p>
+                  <p><?= $year ?></p>
+                </div>
+                <div class="hovered-detail">
+                  <p>Branches</p>
+                  <p><?= $branches ?></p>
+                </div>
+
+                <div class="hovered-detail">
+                  <p>Headquarter</p>
+                  <p><?= $headquarter ?></p>
+                </div>
+                <div class="hovered-detail">
+                  <p>Tagline</p>
+                  <p><?= $tagline ?></p>
+                </div>
+              </div>
+
             </div>
+
+
+
           <?php } ?>
         </div>
 

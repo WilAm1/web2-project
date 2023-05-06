@@ -104,10 +104,22 @@ body {
   width: 40%;
 }
 .cta-btn {
+  display: inline-block;
   border-radius: 35px;
   color: #ff5f05;
   border: 3px solid #ff5f05;
   font-weight: bold;
+  /* "to left" / "to right" - affects initial color */
+  background: linear-gradient(to left, transparent 50%, #ff5f05 50%) right;
+  background-size: 200%;
+  transition: 0.5s ease-out;
+  text-decoration: none;
+}
+.cta-btn:hover {
+  background-position: left;
+  transform: scale(1.05);
+  border-color: white;
+  color: white;
 }
 
 .digital-world {
@@ -142,9 +154,18 @@ h2 {
   border-radius: 18px;
 
   margin: 2rem 0;
-  display: grid;
-  grid-template-rows: max-content auto;
+  /* display: grid;
+  grid-template-rows: max-content auto; */
   /* float: left; */
+  display: flex;
+  flex-flow: column nowrap;
+  /* height: 400px; */
+
+  position: relative;
+}
+.card-showed,
+.card-hovered {
+  height: 100%;
 }
 
 .card-image {
@@ -383,4 +404,32 @@ option {
   color: #e9e9e9;
   margin-top: 10px;
   margin-left: 10px;
+}
+
+/* jquery styleas */
+
+.slide-up,
+.fade-in,
+.blind-up {
+  display: none;
+}
+
+/* card hover */
+.card-hovered {
+  display: none;
+  position: absolute;
+  width: 100%;
+  background-color: #06071b;
+  color: #ff5f05;
+  border-radius: 18px;
+  padding: 1rem;
+}
+
+.hovered-detail {
+  display: grid;
+  grid-template-columns: 150px 100px;
+}
+
+.hovered-detail p:first-child {
+  font-size: 12px;
 }
