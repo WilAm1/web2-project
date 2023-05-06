@@ -5,7 +5,6 @@
   <title>Top Tech Companies</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- bootstrap  -->
   <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
   <!--  JQuery and JQueryUI  -->
@@ -16,7 +15,8 @@
   <script src="assets/js/searchScript.js"></script>
   <script src="assets/js/startEffects.js"></script>
   <!-- Own CSS -->
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/styles.css"> <!-- bootstrap  -->
+
 </head>
 
 <body>
@@ -65,7 +65,6 @@
 
   <div class="instruction">Click one item in the list to see more details</div>
   <div class="accordion">
-
 
     <!-- handles the list of companies. -->
     <?php
@@ -143,6 +142,7 @@
 
   <!-- end modal -->
 
+
 </body>
 
-</html>
+</html> -->

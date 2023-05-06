@@ -6,7 +6,13 @@
 body {
   font-family: Inter, Verdana, Geneva, Tahoma, Arial, sans-serif;
   color: #15136f;
-  background-color: #eeeeee;
+  background-color: linear-gradient(
+    180deg,
+    #06071b -1.51%,
+    rgba(6, 7, 27, 0) 85.21%
+  );
+  min-width: 100vw;
+  min-height: 100vh;
 }
 .formContainer {
   width: 50%;

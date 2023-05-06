@@ -1,0 +1,73 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #3c3c3c;
+}
+
+.background {
+  background: linear-gradient(
+    179.98deg,
+    rgba(6, 7, 27, 0) -1.5%,
+    rgba(107, 28, 85, 0.72) 110.94%
+  );
+}
+.linearBlue {
+  top: -83px;
+  background: linear-gradient(180deg, #06071b -1.51%, rgba(6, 7, 27, 0) 85.21%);
+  z-index: -1;
+}
+#robot {
+  width: 508px;
+  height: 700px;
+  filter: contrast(1.1);
+}
+
+.content {
+  z-index: 2;
+}
+
+/* Navigation */
+
+.navbar-nav .nav-item .active {
+  font-weight: bold;
+  color: #ff5f05 !important;
+}
+.navbar-nav .nav-item a {
+  color: aliceblue !important;
+}
+.navbar {
+  justify-content: center;
+}
+.relative-right {
+  position: absolute;
+  right: 20px;
+}
+.search {
+  width: 45px;
+}
+
+.view-list {
+  width: 70%;
+}
+.cta-btn {
+  border-radius: 35px;
+  color: #ff5f05;
+  border: 2px solid #ff5f05;
+}
+
+.digital-world {
+  margin-top: -200px;
+  margin-left: -150px;
+  background-image: url(/assets/globe.webp);
+  width: 500px;
+  height: 500px;
+  background-size: 100%;
+}
+
+.digital-world:hover {
+  background-image: url(/assets/static-globe.gif);
+  border: 1px solid blue;
+}
