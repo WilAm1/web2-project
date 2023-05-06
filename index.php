@@ -40,11 +40,11 @@
     <!-- <div class="collapse navbar-collapse" id="navbarText"> -->
     <ul class="navbar-nav mb-2 mb-lg-0 text-white">
       <li class="nav-item">
-        <a class="nav-link active " href="">Home</a>
+        <a class="nav-link active " href="./index.php">Home</a>
         <div class="active-box"></div>
       </li>
       <li class="nav-item ">
-        <a class="nav-link  " href="">Create</a>
+        <a class="nav-link  " href="./create.html">Create</a>
         <div class="active-box"></div>
       </li>
       <li class="nav-item">

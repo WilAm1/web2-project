@@ -228,3 +228,33 @@ section {
   font-size: 1.5rem;
   color: white;
 }
+
+/* Create */
+.formContainer .form-label {
+  display: block;
+}
+
+/* utils */
+.text-accent {
+  color: #15136f;
+}
+.btn-accent {
+  color: #fff;
+
+  background-color: #4f24fb;
+}
+.btn-accent:hover {
+  background-color: #15136f;
+
+  color: #fff;
+}
+.formContainer .form-label {
+  display: block;
+}
+
+.flex-btn-end {
+  display: flex;
+  width: 100%;
+  gap: 16px;
+  justify-content: end;
+}
