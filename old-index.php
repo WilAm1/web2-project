@@ -146,3 +146,22 @@
 </body>
 
 </html> -->
+
+<!-- <div class="card-item">
+                <div class="card-image">
+                  <img src="./assets/smart-logo.jpg" alt="">
+                </div>
+                <div class="card-body">
+                  <div class="left-card-body">
+                    <p class="year-text">Founded in</p>
+                    <div class="founded-year">1991</div>
+                  </div>
+                  <div class="right-card-body">
+                    <p class="company-name">
+                      Smart Communication
+                    </p>
+                    <q class="quote">Live More Today</q>
+                  </div>
+                </div>
+              </div>
+            </div> -->

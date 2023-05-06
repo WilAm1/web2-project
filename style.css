@@ -1,8 +1,13 @@
+:root {
+  --accent: 22, 100%, 51%;
+  --accent-color: hsla(var(--accent), 1);
+}
 * {
   font-family: "Poppins", sans-serif;
 }
 body {
   height: 100%;
+  min-height: 100%;
   width: 100%;
   background-color: #3c3c3c;
 }
@@ -13,8 +18,11 @@ body {
     rgba(6, 7, 27, 0) -1.5%,
     rgba(107, 28, 85, 0.72) 110.94%
   );
+  z-index: -1;
+  height: 100%;
 }
 .linearBlue {
+  height: 100%;
   top: -83px;
   background: linear-gradient(180deg, #06071b -1.51%, rgba(6, 7, 27, 0) 85.21%);
   z-index: -1;
@@ -23,6 +31,7 @@ body {
   width: 508px;
   height: 700px;
   filter: contrast(1.1);
+  z-index: -1;
 }
 
 .content {
@@ -70,4 +79,86 @@ body {
 .digital-world:hover {
   background-image: url(/assets/static-globe.gif);
   border: 1px solid blue;
+}
+
+/* Card Section */
+
+h2 {
+  color: white;
+}
+
+.card-item {
+  width: 400px;
+  height: 350px;
+  background-color: white;
+  border-radius: 18px;
+
+  margin: 2rem 0;
+  display: grid;
+  grid-template-rows: max-content auto;
+  /* float: left; */
+}
+
+.card-image {
+  height: 200px;
+  display: grid;
+}
+.card-item img {
+  max-width: 100%;
+  height: 100%;
+  /* border-radius: 18px; */
+  object-fit: cover;
+  /* make it in the middle */
+  margin: 0 auto;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  background: hsla(275, 46%, 23%, 1);
+  text-align: center;
+}
+
+.left-card-body {
+  width: 30%;
+  color: hsla(305, 93%, 49%, 1);
+}
+.right-card-body {
+  flex: 1;
+  color: hsla(22, 100%, 51%, 1);
+}
+
+.founded-year {
+  font-weight: 700;
+  font-size: 28px;
+  color: #fff;
+}
+.company-name {
+  color: white;
+  font-weight: bold;
+}
+
+.quote {
+  font-size: 24px;
+}
+
+section {
+  margin: 2rem 0;
+}
+
+.tech-list-section {
+  border-top: 4px solid hsla(22, 100%, 51%, 1);
+}
+
+.space-x > * {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.tech-list-section h2 {
+  text-align: center;
+  color: var(--accent-color);
+  font-weight: 800;
+  font-size: 32px;
+  font-style: italic;
 }
