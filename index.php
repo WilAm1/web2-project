@@ -30,21 +30,30 @@
   <div class="digital-world position-absolute start-0"></div>
 
 
+  <script>
+    $(document).ready(function() {
+      $('.active+.active-box').css('visibility', 'visible')
+    })
+  </script>
 
   <nav class="navbar navbar-expand-lg border-bottom p-3 position-relative">
     <!-- <div class="collapse navbar-collapse" id="navbarText"> -->
     <ul class="navbar-nav mb-2 mb-lg-0 text-white">
       <li class="nav-item">
-        <a class="nav-link active" href="">Home</a>
+        <a class="nav-link active " href="">Home</a>
+        <div class="active-box"></div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">Create</a>
+      <li class="nav-item ">
+        <a class="nav-link  " href="">Create</a>
+        <div class="active-box"></div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="">Update</a>
+        <div class="active-box"></div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="">Delete</a>
+        <div class="active-box"></div>
       </li>
     </ul>
     <div class="relative-right">

@@ -65,6 +65,22 @@ body {
   font-weight: bold;
   color: #ff5f05 !important;
 }
+.nav-item {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+.active-box {
+  width: 10px;
+  height: 10px;
+  background: #ff5f05;
+  border-radius: 100%;
+  visibility: hidden;
+  margin-top: -5px;
+}
+
 .navbar-nav .nav-item a {
   color: aliceblue !important;
 }
