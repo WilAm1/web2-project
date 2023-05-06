@@ -130,17 +130,11 @@
   <!-- <script src="./assets/js/typing.js"></script> -->
 
 
-  <!-- <script>
+  <script>
     $(document).ready(function() {
       $('.cards').sortable();
-      $('.card').sortable({
-        grid: [3, 4]
-      });
-
-      $('.cards').disableSelection();
-
     })
-  </script> -->
+  </script>
 
 
 </body>
