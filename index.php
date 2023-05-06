@@ -22,6 +22,8 @@
   <script src="assets/jquery-ui/jquery-ui.min.js"></script>
   <script src="./typing-script.js"></script>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
   <!-- Own Script -->
   <script src="./assets/js/searchScript.js"></script>
   <script src="./assets/js/cardSliderEffect.js"></script>
@@ -181,6 +183,8 @@
     })
   </script>
 
+
+  <?php include('./loading.php') ?>
 
 </body>
 
