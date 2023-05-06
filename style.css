@@ -110,13 +110,13 @@ h2 {
 }
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 400px);
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 1rem;
 }
 
 .card-item {
-  width: 400px;
-  height: 350px;
+  /* width: 400px;
+  height: 350px; */
   background-color: white;
   border-radius: 18px;
 
@@ -194,4 +194,21 @@ section {
   font-weight: 800;
   font-size: 32px;
   font-style: italic;
+}
+
+.subheading {
+  color: #c3a5c3;
+  background-color: #060006b2;
+  padding: 1rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  width: 40rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.subheading p {
+  font-family: "Press Start 2P";
+
+  font-size: 1.5rem;
+  color: white;
 }

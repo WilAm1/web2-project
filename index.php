@@ -65,7 +65,12 @@
           View list
         </button>
       </div>
+      <div class="subheading">
+        <p>Find the job that suits you</p>
+        <q>Technology is best when it brings people together.</q>
+      </div>
     </section>
+
     <!-- Individual Cards -->
     <section class=" tech-list-section">
       <div class="container space-x">
