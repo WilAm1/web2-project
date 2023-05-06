@@ -236,7 +236,7 @@ section {
 
 /* utils */
 .text-accent {
-  color: #15136f;
+  color: #ff5f05;
 }
 .btn-accent {
   color: #fff;
@@ -257,4 +257,54 @@ section {
   width: 100%;
   gap: 16px;
   justify-content: end;
+}
+.formContainer {
+  width: 50%;
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 54px 55px,
+    rgba(255, 255, 255, 0.12) 0px -12px 30px,
+    rgba(255, 255, 255, 0.12) 0px 4px 6px,
+    rgba(255, 255, 255, 0.17) 0px 12px 13px,
+    rgba(255, 255, 255, 0.09) 0px -3px 5px;
+  background-color: #060006c2;
+  padding: 50px 10px;
+  border-radius: 10px;
+  margin-inline: auto;
+}
+
+.form-control,
+select {
+  background-color: transparent !important;
+  color: white;
+}
+.form-control::placeholder {
+  color: #959595 !important;
+}
+.form-control:focus,
+select {
+  color: white;
+}
+
+.form-text,
+.form-label,
+select,
+select:focus,
+select::placeholder,
+.form-select {
+  color: white;
+}
+
+option {
+  background-color: #06071b;
+}
+.crud-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 53%;
+  margin: 0 auto;
+}
+
+.btn-outline-back {
+  border: 1px solid #ef09da;
+  background-color: transparent;
+  color: #ef09da;
 }

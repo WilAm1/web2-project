@@ -26,6 +26,8 @@
     <script src="assets/jquery-ui/jquery-ui.min.js"></script>
     <link href="assets/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="style.css" />
+    <!-- own jquery -->
+    <script src="./assets/js/createScript.js"></script>
     <title>Create</title>
   </head>
 
@@ -84,13 +86,15 @@
       <!-- </div> -->
     </nav>
     <div class="container mt-5">
-      <h1 class="text-accent text-center slide-up">Create New Company</h1>
+      <h1 class="crud-heading text-accent text-left slide-up">
+        Create New Company
+      </h1>
       <form action="createProcess.php" method="post" autocomplete="off">
         <div class="formContainer fade-in">
           <!-- company name -->
 
           <label class="form-label w-75 mx-auto fw-bold" for="companyName"
-            >Name:</label
+            >Company Name:</label
           >
           <div class="form-text w-75 mx-auto">
             Company name must have 3 minimum characters
@@ -155,7 +159,9 @@
 
           <!-- total headquarter -->
           <div class="mb-5 w-75 mx-auto">
-            <label class="-text fw-bold" for="headquarter">Headquarter:</label>
+            <label class="form-label fw-bold" for="headquarter"
+              >Headquarter:</label
+            >
             <input
               class="form-control"
               id="headquarter"
@@ -167,12 +173,13 @@
           </div>
 
           <div class="flex-btn-end">
-            <a class="btn btn-outline-primary" href="index.php">Back</a>
+            <a class="btn btn-outline-back" href="index.php">Back</a>
             <input
+              disabled
               class="btn btn-secondary"
               id="submit"
               type="submit"
-              value="Save New Company"
+              value="Save Company"
             />
           </div>
         </div>

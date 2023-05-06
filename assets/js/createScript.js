@@ -7,6 +7,24 @@ $(document).ready(function () {
   var submitBtn = $("#submit");
   var nameErrMsg = $("#err");
 
+  var fields = $(".formContainer .form-control, .formContainer .form-select");
+
+  fields.keyup(function () {
+    // if all fields are filled up
+    if (allFieldUp(fields)) {
+      console.log("hwere");
+      submitBtn.prop("disabled", false);
+
+      submitBtn.removeClass("btn-secondary");
+      submitBtn.addClass("btn-primary");
+      submitBtn.disabled = false;
+    } else {
+      submitBtn.addClass("btn-secondary");
+      submitBtn.removeClass("btn-primary");
+      submitBtn.prop("disabled", true);
+    }
+  });
+
   $("#companyName").keyup(function () {
     var inputElement = $("#companyName");
     var inputValue = inputElement.val();
@@ -17,7 +35,7 @@ $(document).ready(function () {
       inputElement.removeClass("is-valid");
       submitBtn.addClass("btn-secondary");
       submitBtn.removeClass("btn-primary");
-
+      submitBtn.prop("disabled", true);
       nameErrMsg.html("Company name must not be empty or too short.");
       submitBtn.disabled = true;
     } else {
@@ -35,15 +53,11 @@ $(document).ready(function () {
             submitBtn.removeClass("btn-primary");
 
             submitBtn.disabled = true;
+            submitBtn.prop("disabled", true);
           } else if (responseText == "true") {
             nameErrMsg.html("That company is available!");
-
             inputElement.addClass("is-valid");
             inputElement.removeClass("is-invalid");
-            submitBtn.removeClass("btn-secondary");
-            submitBtn.addClass("btn-primary");
-
-            submitBtn.disabled = false;
           }
         }
       };
@@ -51,4 +65,10 @@ $(document).ready(function () {
       http.send();
     }
   });
+
+  function allFieldUp(fields) {
+    fields.filter(function () {
+      return this.value === "";
+    }).length === 0;
+  }
 });
