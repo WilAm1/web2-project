@@ -24,100 +24,91 @@
 </head>
 
 <body>
-  <div>
-    <div>
-      <!-- robot image -->
-      <img class="position-absolute bottom-0 end-0" id="robot" src="/assets/robot.png" alt="" srcset="" />
-      <div class="linearBlue position-absolute w-100 h-100 start-0"></div>
-      <!--linear blue background-->
-      <div class="background position-absolute w-100 h-100 start-0 top-0"></div>
-      <!--linear blue background-->
-
-      <!-- globe gif -->
-      <div class="digital-world position-absolute start-0"></div>
+  <!-- robot image -->
+  <img class="position-absolute bottom-0 end-0" id="robot" src="/assets/robot.png" alt="" srcset="" />
+  <!-- globe gif -->
+  <div class="digital-world position-absolute start-0"></div>
 
 
-      <div class="content">
-        <nav class="navbar navbar-expand-lg border-bottom p-3 position-relative">
-          <!-- <div class="collapse navbar-collapse" id="navbarText"> -->
-          <ul class="navbar-nav mb-2 mb-lg-0 text-white">
-            <li class="nav-item">
-              <a class="nav-link active" href="">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">Create</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">Update</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">Delete</a>
-            </li>
-          </ul>
-          <div class="relative-right">
-            <form class="position-relative w-100" role="search">
-              <input class="form-control bg-transparent d-inline text-white-50" type="search" placeholder="Search" aria-label="Search" />
-              <img class="search position-absolute end-0" src="/assets/search.png" />
-            </form>
-          </div>
-          <!-- </div> -->
-        </nav>
-        <main>
-          <section class="container position-relative">
-            <div class="view-list ms-auto text-end">
-              <h1 class="text-white fw-bolder">
-                Top Tech Companies in the Philippines
-              </h1>
-              <button class="cta-btn py-3 px-xl-5 bg-transparent">
-                View list
-              </button>
-            </div>
-          </section>
-          <!-- Individual Cards -->
-          <section class=" tech-list-section">
-            <div class="container space-x">
-              <h2>Our Top Tech List</h2>
-              <!-- card -->
-              <div class="cards">
-                <?php
-                $xml = new DOMDocument("1.0");
-                $xml->load("./BSIT3EG1G4.xml");
-                $companies = $xml->getElementsByTagName("techCompany");
-                foreach ($companies as $company) {
-                  $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
-                  $year = $company->getElementsByTagName("yearStart")->item(0)->nodeValue;
-                  $tagline = $company->getElementsByTagName("tagline")->item(0)->nodeValue;
-                  $branches = $company->getElementsByTagName("totalBranch")->item(0)->nodeValue;
-                  $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
-                ?>
-                  <div class="card-item">
-                    <div class="card-image">
-                      <img src="./assets/smart-logo.jpg" alt="">
-                    </div>
-                    <div class="card-body">
-                      <div class="left-card-body">
-                        <p class="year-text">Founded in</p>
-                        <div class="founded-year"><?= $year ?> </div>
-                      </div>
-                      <div class="right-card-body">
-                        <p class="company-name">
-                          <?= $name ?>
-                        </p>
-                        <q class="quote">
-                          <?= $tagline ?>
-                        </q>
-                      </div>
-                    </div>
-                  </div>
-                <?php } ?>
-              </div>
 
-          </section>
-        </main>
-      </div>
-
+  <nav class="navbar navbar-expand-lg border-bottom p-3 position-relative">
+    <!-- <div class="collapse navbar-collapse" id="navbarText"> -->
+    <ul class="navbar-nav mb-2 mb-lg-0 text-white">
+      <li class="nav-item">
+        <a class="nav-link active" href="">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Create</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Update</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Delete</a>
+      </li>
+    </ul>
+    <div class="relative-right">
+      <form class="position-relative w-100" role="search">
+        <input class="form-control bg-transparent d-inline text-white-50" type="search" placeholder="Search" aria-label="Search" />
+        <img class="search position-absolute end-0" src="/assets/search.png" />
+      </form>
     </div>
-  </div>
+    <!-- </div> -->
+  </nav>
+  <main>
+    <section class=" position-relative top-heading">
+      <div class="view-list ms-auto text-end">
+        <h1 class="text-white fw-bolder main-text">
+          Top Tech Companies in the Philippines
+        </h1>
+        <button class="cta-btn py-3 px-xl-5 bg-transparent">
+          View list
+        </button>
+      </div>
+    </section>
+    <!-- Individual Cards -->
+    <section class=" tech-list-section">
+      <div class="container space-x">
+        <h2>Our Top Tech List</h2>
+        <!-- card -->
+        <div class="cards">
+          <?php
+          $xml = new DOMDocument("1.0");
+          $xml->load("./BSIT3EG1G4.xml");
+          $companies = $xml->getElementsByTagName("techCompany");
+          foreach ($companies as $company) {
+            $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
+            $year = $company->getElementsByTagName("yearStart")->item(0)->nodeValue;
+            $tagline = $company->getElementsByTagName("tagline")->item(0)->nodeValue;
+            $branches = $company->getElementsByTagName("totalBranch")->item(0)->nodeValue;
+            $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
+          ?>
+            <div class="card-item">
+              <div class="card-image">
+                <img src="./assets/smart-logo.jpg" alt="">
+              </div>
+              <div class="card-body">
+                <div class="left-card-body">
+                  <p class="year-text">Founded in</p>
+                  <div class="founded-year"><?= $year ?> </div>
+                </div>
+                <div class="right-card-body">
+                  <p class="company-name">
+                    <?= $name ?>
+                  </p>
+                  <q class="quote">
+                    <?= $tagline ?>
+                  </q>
+                </div>
+              </div>
+            </div>
+          <?php } ?>
+        </div>
+
+    </section>
+  </main>
+
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
