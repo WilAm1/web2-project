@@ -111,12 +111,13 @@
             $tagline = $company->getElementsByTagName("tagline")->item(0)->nodeValue;
             $branches = $company->getElementsByTagName("totalBranch")->item(0)->nodeValue;
             $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
+            $picture = $company->getElementsByTagName("picture")->item(0)->nodeValue;
           ?>
             <div class="card-item">
               <!-- card shown -->
               <div class="card-showed">
                 <div class="card-image">
-                  <img src="./assets/smart-logo.jpg" alt="">
+                  <img src="data:image;base64,<?= $picture ?>" alt="">
                 </div>
                 <div class="card-content">
                   <p class="company-name">
