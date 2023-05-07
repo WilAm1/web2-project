@@ -53,15 +53,15 @@
         <div class="active-box"></div>
       </li>
       <li class="nav-item ">
-        <a class="nav-link  " href="./create.html">Create</a>
+        <a class="nav-link  " href="./create.php">Create</a>
         <div class="active-box"></div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Update</a>
+        <a class="nav-link" href="./update.php">Update</a>
         <div class="active-box"></div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Delete</a>
+        <a class="nav-link" href="./delete.php">Delete</a>
         <div class="active-box"></div>
       </li>
     </ul>

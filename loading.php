@@ -33,6 +33,6 @@
 
   <script>
       $(document).ready(function() {
-          $("#loading").fadeOut(1500)
+          $("#loading").fadeOut(500);
       })
   </script>

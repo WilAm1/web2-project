@@ -20,7 +20,8 @@
     <link href="assets/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="style.css" />
     <!-- own jquery -->
-    <script src="./assets/js/createScript.js"></script>
+
+    <script src="./assets/js/startEffects.js"></script>
     <title>Update Company</title>
 </head>
 
@@ -44,11 +45,11 @@
                 <div class="active-box"></div>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="./create.html">Create</a>
+                <a class="nav-link " href="./create.php">Create</a>
                 <div class="active-box"></div>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="./index.php">Update</a>
+                <a class="nav-link active" href="./update.php">Update</a>
                 <div class="active-box"></div>
             </li>
             <li class="nav-item">
@@ -129,7 +130,10 @@
         </form>
     </div>
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <?php include('./loading.php') ?>
 </body>
 
 </html>
