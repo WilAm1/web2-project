@@ -113,53 +113,50 @@
             $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
           ?>
             <div class="card-item">
-
-              <!-- card shoed -->
+              <!-- card shown -->
               <div class="card-showed">
                 <div class="card-image">
                   <img src="./assets/smart-logo.jpg" alt="">
                 </div>
-                <div class="card-body">
-                  <div class="left-card-body">
-                    <p class="year-text">Founded in</p>
-                    <div class="founded-year"><?= $year ?> </div>
-                  </div>
-                  <div class="right-card-body">
-                    <p class="company-name">
-                      <?= $name ?>
-                    </p>
-                    <q class="quote">
-                      <?= $tagline ?>
-                    </q>
-                  </div>
+                <div class="card-content">
+                  <p class="company-name">
+                    <?= $name ?>
+                  </p>
+
                 </div>
               </div>
+
               <!-- card Hovered -->
               <div class="card-hovered">
-                <div class="hovered-detail">
-                  <p>Company Name</p>
-                  <p><?= $name ?></p>
-                </div>
-                <div class="hovered-detail">
-                  <p>Founded Year</p>
-                  <p><?= $year ?></p>
-                </div>
-                <div class="hovered-detail">
-                  <p>Branches</p>
-                  <p><?= $branches ?></p>
+                <p class="company-name"><?= $name ?></p>
+                <p class="year">Founded in <span class="year-value"><?= $year ?></span></p>
+                <div class="detail-struct">
+
+                  <div>
+                    <div class="detail-box">
+                      <p>Branches:</p>
+                      <p><?= $branches ?></p>
+                    </div>
+                    <div class="detail-box ">
+                      <p>Headquarter</p>
+                      <p><?= $headquarter ?></p>
+                    </div>
+                  </div>
+                  <div class="detail-box right-aligned ">
+                    <p class=" ">Tagline:</p>
+                    <p><?= $tagline ?></p>
+                  </div>
                 </div>
 
-                <div class="hovered-detail">
-                  <p>Headquarter</p>
-                  <p><?= $headquarter ?></p>
-                </div>
-                <div class="hovered-detail">
-                  <p>Tagline</p>
-                  <p><?= $tagline ?></p>
-                </div>
+                <a class="card-btn btn" href="searchProcess.php/?q=<?= $name ?>">View Detail</a>
               </div>
 
+
             </div>
+
+
+
+
 
 
 

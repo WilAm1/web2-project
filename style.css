@@ -168,6 +168,10 @@ h2 {
 .card-hovered {
   height: 100%;
 }
+.card-showed {
+  display: flex;
+  flex-flow: column;
+}
 
 .card-image {
   height: 200px;
@@ -182,22 +186,19 @@ h2 {
   margin: 0 auto;
 }
 
-.card-body {
-  flex: 1;
-  display: flex;
+.card-content {
   background: hsla(275, 46%, 23%, 1);
   text-align: center;
   border-bottom-right-radius: 18px;
   border-bottom-left-radius: 18px;
-}
-
-.left-card-body {
-  width: 30%;
-  color: hsla(305, 93%, 49%, 1);
-}
-.right-card-body {
   flex: 1;
-  color: hsla(22, 100%, 51%, 1);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.card-content p {
+  margin: 0;
 }
 
 .founded-year {
@@ -478,4 +479,51 @@ option {
 
 #loading > div {
   width: 33%;
+}
+
+.card-hovered .company-name {
+  margin-bottom: 0.5rem;
+}
+
+.detail-box p:first-child,
+.card-hovered .year {
+  color: #c3a5c3;
+}
+
+.detail-box p:first-child {
+  font-size: 12px;
+}
+.year {
+  font-size: 16px;
+}
+.detail-struct p {
+  margin: 0;
+}
+.detail-struct {
+  display: flex;
+  justify-content: space-between;
+}
+
+.right-aligned {
+  text-align: right;
+}
+
+.year-value {
+  color: white;
+}
+.card-btn {
+  color: white;
+  border: 1px solid white;
+  position: absolute;
+  text-align: center;
+  bottom: 10px;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card-btn:hover {
+  border-color: #06071b;
+  background-color: #ff5f05;
+  color: white;
 }

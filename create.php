@@ -69,7 +69,7 @@
     <h1 class="crud-heading text-accent text-left slide-up">
       Create New Company
     </h1>
-    <form action="createProcess.php" method="post" autocomplete="off">
+    <form action="createProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data">
       <div class="formContainer fade-in">
         <!-- company name -->
 
@@ -107,6 +107,12 @@
         <div class="mb-5 w-75 mx-auto">
           <label class="form-label fw-bold" for="headquarter">Headquarter:</label>
           <input class="form-control" id="headquarter" type="text" name="headquarter" placeholder="ex: Makati" required />
+        </div>
+
+        <!-- picture -->
+        <div class="mb-5 w-75 mx-auto">
+          <label class="form-label fw-bold" for="picture">Company Logo</label>
+          <input class="form-control" id="picture" type="file" name="picture" required />
         </div>
 
         <div class="flex-btn-end">

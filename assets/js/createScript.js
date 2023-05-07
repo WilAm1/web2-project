@@ -9,6 +9,21 @@ $(document).ready(function () {
 
   var fields = $(".formContainer .form-control, .formContainer .form-select");
 
+  $("#picture").change(function () {
+    // if all fields are filled up
+    if (allFieldUp(fields)) {
+      console.log("hwere");
+      submitBtn.prop("disabled", false);
+
+      submitBtn.removeClass("btn-secondary");
+      submitBtn.addClass("btn-primary");
+      submitBtn.disabled = false;
+    } else {
+      submitBtn.addClass("btn-secondary");
+      submitBtn.removeClass("btn-primary");
+      submitBtn.prop("disabled", true);
+    }
+  });
   fields.keyup(function () {
     // if all fields are filled up
     if (allFieldUp(fields)) {
@@ -67,8 +82,15 @@ $(document).ready(function () {
   });
 
   function allFieldUp(fields) {
-    fields.filter(function () {
-      return this.value === "";
-    }).length === 0;
+    return (
+      fields.filter(function () {
+        if (this.id === "picture") {
+          console.log("hello world");
+          console.log(this.files.length);
+          return this.files.length === 0;
+        }
+        return this.value === "";
+      }).length === 0
+    );
   }
 });

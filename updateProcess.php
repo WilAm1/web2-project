@@ -1,17 +1,16 @@
 <?php
 $xml = new DOMDocument('1.0');
-$xml->load("BSIT3EG1G4.xml");
 
 $xml->formatOutput = true;
 $xml->preserveWhiteSpace = false;
-
+$xml->load("BSIT3EG1G4.xml");
 
 $searchName = $_POST['name'];
 $year = $_POST['year'];
 $tagline = $_POST['tagline'];
 $branches = $_POST['branches'];
 $headquarter = $_POST['headquarter'];
-
+$picture = $_FILES['picture']['tmp_name'];
 $companies = $xml->getElementsByTagName("techCompany");
 $flag = 0;
 foreach ($companies as $company) {
@@ -28,11 +27,19 @@ foreach ($companies as $company) {
         $headquarterElem = $xml->createElement("headquarter", $headquarter);
 
 
+
+        $picElem = $xml->createElement('picture');
+        $cdata = $xml->createCDATASection(base64_encode(file_get_contents($picture)));
+        $picElem->appendChild($cdata);
+
         $newNode->appendChild($nameElem);
         $newNode->appendChild($yearElem);
         $newNode->appendChild($taglineElem);
         $newNode->appendChild($branchElem);
         $newNode->appendChild($headquarterElem);
+        $newNode->appendChild($picElem);
+
+
 
         $xml->getElementsByTagName('techCompanies')->item(0)->replaceChild($newNode, $company);
         $xml->save("BSIT3EG1G4.xml");

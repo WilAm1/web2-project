@@ -13,6 +13,7 @@ $year = $_POST['year'];
 $tagline = $_POST['tagline'];
 $branches = $_POST['branches'];
 $headquarter = $_POST['headquarter'];
+$picture = $_FILES['picture']['tmp_name'];
 
 
 $newCompany = $xml->createElement("techCompany");
@@ -23,12 +24,17 @@ $taglineElem = $xml->createElement("tagline", $tagline);
 $branchElem = $xml->createElement("totalBranch", $branches);
 $headquarterElem = $xml->createElement("headquarter", $headquarter);
 
+$picElem = $xml->createElement('picture');
+$cdata = $xml->createCDATASection(base64_encode(file_get_contents($picture)));
+$picElem->appendChild($cdata);
+
 
 $newCompany->appendChild(($nameElem));
 $newCompany->appendChild($yearElem);
 $newCompany->appendChild($taglineElem);
 $newCompany->appendChild($branchElem);
 $newCompany->appendChild($headquarterElem);
+$newCompany->appendChild($picElem);
 
 $xml->getElementsByTagName('techCompanies')->item(0)->appendChild($newCompany);
 $xml->save("BSIT3EG1G4.xml");

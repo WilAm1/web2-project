@@ -22,6 +22,7 @@
     <!-- own jquery -->
 
     <script src="./assets/js/startEffects.js"></script>
+    <script src="./assets/js/createScript.js"></script>
     <title>Update Company</title>
 </head>
 
@@ -69,7 +70,7 @@
         <h1 class="crud-heading text-accent text-left slide-up">
             Update Company Information
         </h1>
-        <form action="createProcess.php" method="post" autocomplete="off">
+        <form action="updateProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data">
             <div class="formContainer fade-in">
 
                 <!-- company name in dropdown -->
@@ -121,6 +122,13 @@
                     <label class="form-label fw-bold" for="headquarter">Headquarter:</label>
                     <input class="form-control" id="headquarter" type="text" name="headquarter" placeholder="ex: Makati" required />
                 </div>
+
+                <!-- picture -->
+                <div class="mb-5 w-75 mx-auto">
+                    <label class="form-label fw-bold" for="picture">Company Logo</label>
+                    <input class="form-control" id="picture" type="file" name="picture" required />
+                </div>
+
 
                 <div class="flex-btn-end">
                     <a class="btn btn-outline-back" href="index.php">Back</a>
