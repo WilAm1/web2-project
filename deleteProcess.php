@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $xml = new DOMDocument('1.0');
 $xml->load("BSIT3EG1G4.xml");
@@ -25,53 +26,16 @@ foreach ($companies as $company) {
         $flag = 1;
         $xml->getElementsByTagName('techCompanies')->item(0)->removeChild($company);
         $xml->save("BSIT3EG1G4.xml");
-        echo '
-
-            <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-            <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
-            <script src="assets/jquery-3.6.4.min.js"></script>
-            <script src="assets/jquery-ui/jquery-ui.min.js"></script>
-            <link href="assets/jquery-ui.css" rel="stylesheet" type="text/css" />
-            <link rel="stylesheet" href="assets/styles.css" />
-            <div class="modal fade show modal-displayed" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title text-accent">Delete Successful </h3>
-                </div>
-                 <div class="modal-body">
-
-                    <p><span class="fw-bold">"' . $name . '"</span> is successfully deleted!</p>
-                  </div>
-
-                <div class="modal-footer">
-                    <a href="index.php"  class="btn btn-primary">Back to Home</a>
-                </div>
-                </div>
-            </div>
-            </div>
+        $_SESSION['message'] = 'Company Deleted';
+        $_SESSION['message_body'] =  $name . ' is successfully deleted.';
+        echo "<script>window.location = './index.php'</script>";
 
 
-            ';
         break;
     }
 }
 if ($flag == 0) {
-    echo "
-            <link rel='stylesheet' href='/assets/bootstrap/css/bootstrap.min.css' />
-            <link rel='stylesheet' href='/assets/styles.css' />";
-    echo '
-              <div class="modal fade show modal-displayed" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title text-accent">Delete Unsuccessful </h3>
-                </div>
-                <div class="modal-footer">
-                    <a href="index.php"  class="btn btn-primary">Back to Home</a>
-                </div>
-                </div>
-            </div>
-            </div>
-    ';
+    $_SESSION['message'] = 'Delete Unsuccessful';
+    $_SESSION['message_body'] =  $name . ' is not deleted.';
+    echo "<script>window.location = './index.php'</script>";
 }

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $xml = new DOMDocument('1.0');
 
 $xml->formatOutput = true;
@@ -44,39 +46,18 @@ foreach ($companies as $company) {
         $xml->getElementsByTagName('techCompanies')->item(0)->replaceChild($newNode, $company);
         $xml->save("BSIT3EG1G4.xml");
 
-
-        // echo "
-        //     <script src='/assets/bootstrap/js/bootstrap.bundle.min.js'></script>
-        //             <link rel='stylesheet' href='/assets/bootstrap/css/bootstrap.min.css' />
-        //             <link rel='stylesheet' href='/assets/styles.css' />
-        //             ";
-        // echo '
-
-        //     <div class="modal fade show modal-displayed" tabindex="-1">
-        //     <div class="modal-dialog">
-        //         <div class="modal-content">
-        //         <div class="modal-header">
-        //             <h3 class="modal-title text-accent">Update Successful </h3>
-        //         </div>
-        //          <div class="modal-body">
-
-        //             <p><span class="fw-bold">"' . $name . '"</span> is successfully updated!</p>
-        //           </div>
-
-        //         <div class="modal-footer">
-        //             <a href="index.php"  class="btn btn-primary">Back to Home</a>
-        //         </div>
-        //         </div>
-        //     </div>
-        //     </div>
+        $_SESSION['message'] = 'Update Successful';
+        $_SESSION['message_body'] =  $name . ' is successfully updated.';
+        echo "<script>window.location = './index.php'</script>";
 
 
-        //     ';
-        echo "<script>window.location = './update.php'</script>";
+
 
         break;
     }
 }
 if ($flag == 0) {
-    echo "Modification failed." . "<a href='index.php'>Back</a>";
+    $_SESSION['message'] = 'Update Unsuccessful';
+    $_SESSION['message_body'] =   'Update was unsucessful.';
+    echo "<script>window.location = './index.php'</script>";
 }

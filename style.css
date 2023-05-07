@@ -532,3 +532,13 @@ option {
 /* .card-item:hover .card-hovered {
   height: 100%;
 } */
+
+.toast {
+  border-left: 20px solid #ff5f05;
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+}
+
+.toast-body {
+  background: white;
+}
