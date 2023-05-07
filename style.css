@@ -506,6 +506,7 @@ option {
 
 .right-aligned {
   text-align: right;
+  padding-right: 5px;
 }
 
 .year-value {

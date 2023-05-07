@@ -1,4 +1,7 @@
 $(document).ready(function () {
+  $("#search-form").submit(function () {
+    return false;
+  });
   function removeAutoComplete() {
     $("#autocomplete-list").slideUp("slow", function () {
       $(this).html("");
@@ -18,7 +21,9 @@ $(document).ready(function () {
           var suggestions = http.responseText;
 
           if (suggestions.length == 0) {
-            removeAutoComplete();
+            $("#autocomplete-list").html(
+              '<div class="autocomplete-item">No results found.</div>'
+            );
           } else {
             $("#autocomplete-list").html(suggestions).slideDown();
           }

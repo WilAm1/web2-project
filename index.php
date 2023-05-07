@@ -66,7 +66,7 @@
       </li>
     </ul>
     <div class="relative-right">
-      <form class="search-form position-relative w-100" action="./searchProcess.php" method="GET" autocomplete="off">
+      <form id="search-form" class="search-form position-relative w-100" action="./searchProcess.php" method="GET" autocomplete="off">
         <div class="input-group m-2">
           <i class="fa fa-search icon"></i>
           <input placeholder="Search" aria-label="Search" class="form-control" placeholder="Search Company" type="search" id="search" name="q">
