@@ -180,6 +180,31 @@
     })
   </script>
 
+  <!-- Modal -->
+  <div class="modal fade" id="theModal" tabindex="-1" aria-labelledby="theModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="modal-title fs-5" id="theModalLabel">Update Information</p>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          <form action="/deleteProcess.php" method="post">
+            <input id="deleteCompanyInput" type="hidden" name="name" value="">
+
+            <button type="submit" class="btn btn-danger">Confirm Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- end modal -->
+
 
   <?php include('./loading.php') ?>
 

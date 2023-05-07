@@ -45,33 +45,34 @@ foreach ($companies as $company) {
         $xml->save("BSIT3EG1G4.xml");
 
 
-        echo "
-            <script src='/assets/bootstrap/js/bootstrap.bundle.min.js'></script>
-                    <link rel='stylesheet' href='/assets/bootstrap/css/bootstrap.min.css' />
-                    <link rel='stylesheet' href='/assets/styles.css' />
-                    ";
-        echo '
+        // echo "
+        //     <script src='/assets/bootstrap/js/bootstrap.bundle.min.js'></script>
+        //             <link rel='stylesheet' href='/assets/bootstrap/css/bootstrap.min.css' />
+        //             <link rel='stylesheet' href='/assets/styles.css' />
+        //             ";
+        // echo '
 
-            <div class="modal fade show modal-displayed" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title text-accent">Update Successful </h3>
-                </div>
-                 <div class="modal-body">
+        //     <div class="modal fade show modal-displayed" tabindex="-1">
+        //     <div class="modal-dialog">
+        //         <div class="modal-content">
+        //         <div class="modal-header">
+        //             <h3 class="modal-title text-accent">Update Successful </h3>
+        //         </div>
+        //          <div class="modal-body">
 
-                    <p><span class="fw-bold">"' . $name . '"</span> is successfully updated!</p>
-                  </div>
+        //             <p><span class="fw-bold">"' . $name . '"</span> is successfully updated!</p>
+        //           </div>
 
-                <div class="modal-footer">
-                    <a href="index.php"  class="btn btn-primary">Back to Home</a>
-                </div>
-                </div>
-            </div>
-            </div>
+        //         <div class="modal-footer">
+        //             <a href="index.php"  class="btn btn-primary">Back to Home</a>
+        //         </div>
+        //         </div>
+        //     </div>
+        //     </div>
 
 
-            ';
+        //     ';
+        echo "<script>window.location = './update.php'</script>";
 
         break;
     }

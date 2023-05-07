@@ -23,6 +23,7 @@
 
     <script src="./assets/js/startEffects.js"></script>
     <script src="./assets/js/createScript.js"></script>
+    <script src="./assets/js/updateScript.js"></script>
     <title>Update Company</title>
 </head>
 
