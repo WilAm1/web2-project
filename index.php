@@ -244,7 +244,7 @@ session_start();
   <?php include('./loading.php') ?>
 
   <?php if (isset($_SESSION['message']) && isset($_SESSION['message_body'])) : ?>
-    <div class="toast showing position-fixed top-0 end-0 p-3" role="alert" aria-live="assertive" aria-atomic="true">
+    <div id="liveToast" class="toast showing position-fixed top-0 end-0 p-3" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
         <div class="rounded me-2"></div>
         <strong class="me-auto"><?= $_SESSION['message'] ?></strong>
@@ -256,16 +256,12 @@ session_start();
     </div>
     <script>
       $(document).ready(function() {
-        setTimeout(function() {
-          $(".toast").fadeOut('slow');
-        }, 5000);
+        const toast = new bootstrap.Toast($('#liveToast').get(0))
+        toast.show()
       });
     </script>
-    <?php
-    session_unset();
-
-    ?>
-  <?php endif; ?>
+  <?php session_unset();
+  endif; ?>
 
 </body>
 
