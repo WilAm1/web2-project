@@ -32,8 +32,9 @@ session_start();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
   <!-- Own Script -->
-  <script src="./assets/js/searchScript.js"></script>
   <script src="./assets/js/indexScript.js"></script>
+
+  <script src="./assets/js/searchScript.js"></script>
   <script src="./assets/js/cardSliderEffect.js"></script>
 
   <link rel="stylesheet" href="style.css" />
@@ -76,7 +77,7 @@ session_start();
       </li>
     </ul>
     <div class="relative-right">
-      <form id="search-form" class="search-form position-relative w-100" action="./searchProcess.php" method="GET" autocomplete="off">
+      <form id="search-form" class="search-form position-relative w-100" method="GET" autocomplete="off">
         <div class="input-group m-2">
           <i class="fa fa-search icon"></i>
           <input placeholder="Search" aria-label="Search" class="form-control" placeholder="Search Company" type="search" id="search" name="q">

@@ -26,6 +26,12 @@ $(document).ready(function () {
               .slideDown();
           } else {
             $("#autocomplete-list").html(suggestions).slideDown();
+
+            $(".autocomplete-item").click(function () {
+              var companyName = $(this).attr("data-company-name");
+
+              fetchData(companyName);
+            });
           }
         }
       };
