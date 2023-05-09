@@ -71,6 +71,19 @@
     </h1>
     <form action="createProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data">
       <div class="formContainer fade-in">
+
+        <!-- picture -->
+        <div class="mb-5 w-75 mx-auto">
+          <label class="form-label fw-bold" for="picture">Company Logo</label>
+          <div class="file-drop-area">
+            <span class="fake-btn">Choose files</span>
+            <span class="file-msg">or drag and drop files here</span>
+            <input class="file-input" id="picture" type="file" name="picture" required>
+          </div>
+        </div>
+
+
+
         <!-- company name -->
 
         <label class="form-label w-75 mx-auto fw-bold" for="companyName">Company Name:</label>
@@ -109,11 +122,7 @@
           <input class="form-control" id="headquarter" type="text" name="headquarter" placeholder="ex: Makati" required />
         </div>
 
-        <!-- picture -->
-        <div class="mb-5 w-75 mx-auto">
-          <label class="form-label fw-bold" for="picture">Company Logo</label>
-          <input class="form-control" id="picture" type="file" name="picture" required />
-        </div>
+
 
         <div class="flex-btn-end">
           <a class="btn btn-outline-back" href="index.php">Back</a>
