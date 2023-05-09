@@ -1,7 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap");
 :root {
   --accent: 22, 100%, 51%;
   --accent-color: hsla(var(--accent), 1);
 }
+
 * {
   font-family: "Poppins", sans-serif;
 }
@@ -132,11 +134,6 @@ body {
   background-size: 100%;
 }
 
-.digital-world:hover {
-  background-image: url(/assets/static-globe.gif);
-  border: 1px solid blue;
-}
-
 /* Card Section */
 
 h2 {
@@ -184,6 +181,8 @@ h2 {
   object-fit: contain;
   /* make it in the middle */
   margin: 0 auto;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
 }
 
 .card-content {
@@ -341,9 +340,10 @@ option {
   background-color: #ef09da;
   color: white;
 }
-.modal-content {
+/* todo */
+/* .modal-content {
   background-color: #383737 !important;
-}
+} */
 
 .modal-header {
   color: #ff5f05;
@@ -355,9 +355,9 @@ option {
 .modal-body {
   text-align: center;
   color: white;
-  font-style: italic;
+  /* font-style: italic;
   padding-left: 5rem;
-  padding-right: 5rem;
+  padding-right: 5rem; */
 }
 
 .modal-footer {
@@ -537,8 +537,111 @@ option {
   border-left: 20px solid #ff5f05;
   margin-top: 1rem;
   margin-right: 0.5rem;
+  background: white;
 }
 
 .toast-body {
-  background: white;
+}
+
+.company-detail-modal .modal-dialog {
+  max-width: 700px;
+}
+/* Company Modal */
+.company-modal {
+  border-radius: 16px;
+}
+.company-modal.modal-content {
+  background-color: #e0e0e0 !important;
+  color: #830fb9;
+}
+.company-modal .modal-body {
+  margin: 0 auto;
+  color: #830fb9;
+  padding: 1rem;
+}
+
+img {
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.logo-box {
+  background-color: white;
+  height: 300px;
+  width: 500px;
+  margin: 0 auto;
+  border-radius: 18px;
+}
+
+/* Individual Company UI */
+.modal-name {
+  font-size: 32px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: left;
+  width: 430px;
+  font-style: normal;
+  margin-bottom: 0;
+}
+.modal-headquarter-box {
+  color: #aa87f9;
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.modal-headquarter {
+  color: #4f24fb;
+}
+
+.modal-quotemark {
+  font-family: "Lora", Georgia, "Times New Roman", Times, serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 100px;
+  margin: 0;
+  margin-bottom: -75px;
+  margin-top: -30px;
+}
+.modal-tagline {
+  font-family: "Lora", Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 36px;
+}
+
+.modal-card {
+  background-color: #43436e;
+  border-radius: 8px;
+  font-size: 32px;
+  color: #ffe9ca;
+  width: 200px;
+  text-align: right;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  font-weight: 700;
+}
+.cards-row {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+}
+.card-xl {
+  text-align: left;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+.modal-card-label {
+  font-size: 14px;
+  text-align: left;
+  margin: 0;
+  color: rgba(212, 193, 255, 1);
+}
+
+.modal-year {
+}
+.modal-branches {
+}
+.cards-col {
 }

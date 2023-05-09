@@ -21,9 +21,9 @@ $(document).ready(function () {
           var suggestions = http.responseText;
 
           if (suggestions.length == 0) {
-            $("#autocomplete-list").html(
-              '<div class="autocomplete-item">No results found.</div>'
-            );
+            $("#autocomplete-list")
+              .html('<div class="autocomplete-item">No results found.</div>')
+              .slideDown();
           } else {
             $("#autocomplete-list").html(suggestions).slideDown();
           }

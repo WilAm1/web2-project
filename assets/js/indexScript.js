@@ -1,25 +1,40 @@
 $(document).ready(function () {
-  $(".accordion").accordion({
-    collapsible: true,
-    active: false,
-    // these are the classes of the triangle icon on the accordion header. header is the closed icon and activeHeader is the open one
-    icons: {
-      header: "iconClosed",
-      activeHeader: "iconOpen",
-    },
+  $(".card-btn").click(function () {
+    var companyName = $(this).attr("data-company-name");
+    fetchData(companyName);
   });
+  $("#theModal");
 
-  // Accordion Effects
-
-  // gets the value of the attribute `data-companyName` and adds it to
-  // deleteCompanyInput value in the modal. This is used if the user clicks the delete button on the modal
-  $(".delete-company").click(function () {
-    var companyName = $(this).attr("data-companyName");
-    $("#deleteCompanyInput").val(companyName);
-  });
-
-  // Instruction Element Slide
-  $(".accordion-header").click(function () {
-    $(".instruction").slideUp("slow");
-  });
+  function fetchData(companyName) {
+    $.ajax({
+      url: "/BSIT3EG1G4.xml",
+      type: "GET",
+      dataType: "xml",
+      success: function (xml) {
+        $(xml)
+          .find("companyName")
+          .each(function () {
+            if ($(this).text() === companyName) {
+              var parentElem = $(this).parent();
+              changeFields(parentElem);
+              return;
+            }
+          });
+      },
+    });
+  }
+  function changeFields(xml) {
+    var name = xml.find("companyName").text();
+    var year = xml.find("yearStart").text();
+    var tagline = xml.find("tagline").text();
+    var branch = xml.find("totalBranch").text();
+    var headQuarter = xml.find("headquarter").text();
+    var picture = xml.find("picture").text();
+    $(".modal-name").html(name);
+    $(".modal-year").html(year);
+    $(".modal-branches").html(branch);
+    $(".modal-tagline").html(tagline);
+    $(".modal-headquarter").html(headQuarter);
+    $(".modal-picture").attr("src", "data:image;base64," + picture);
+  }
 });

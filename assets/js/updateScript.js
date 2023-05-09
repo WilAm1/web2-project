@@ -23,9 +23,6 @@ $(document).ready(function () {
     var tagline = xml.find("tagline").text();
     var branch = xml.find("totalBranch").text();
     var headQuarter = xml.find("headquarter").text();
-
-    console.log(headQuarter);
-    console.log(branch);
     $("#yearStarted").val(year);
     $("#tagLine").val(tagline);
     $("#branches").val(branch.replace(/\,/g, ""));
