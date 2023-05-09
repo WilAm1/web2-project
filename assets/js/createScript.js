@@ -118,9 +118,23 @@ $(document).ready(function () {
       // if single file is selected, show file name
       var fileName = $(this).val().split("\\").pop();
       $textContainer.text(fileName);
+      readURL($(this)[0]);
     } else {
       // otherwise show number of files
       $textContainer.text(filesCount + " files selected");
     }
   });
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $(".modal-picture")
+          .attr("src", e.target.result)
+          .effect("bounce", "slow");
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
 });

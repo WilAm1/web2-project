@@ -286,13 +286,12 @@ section {
   justify-content: end;
 }
 .formContainer {
-  width: 50%;
   box-shadow: rgba(255, 255, 255, 0.25) 0px 54px 55px,
     rgba(255, 255, 255, 0.12) 0px -12px 30px,
     rgba(255, 255, 255, 0.12) 0px 4px 6px,
     rgba(255, 255, 255, 0.17) 0px 12px 13px,
     rgba(255, 255, 255, 0.09) 0px -3px 5px;
-  background-color: #060006c2;
+  background-color: #0000005b;
   padding: 50px 10px;
   border-radius: 10px;
   margin-inline: auto;

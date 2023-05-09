@@ -69,67 +69,89 @@
     <h1 class="crud-heading text-accent text-left slide-up">
       Create New Company
     </h1>
-    <form action="createProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data">
-      <div class="formContainer fade-in">
-
-        <!-- picture -->
-        <div class="mb-5 w-75 mx-auto">
-          <label class="form-label fw-bold" for="picture">Company Logo</label>
-          <div class="file-drop-area">
-            <span class="fake-btn">Choose files</span>
-            <span class="file-msg">or drag and drop files here</span>
-            <input class="file-input" id="picture" type="file" name="picture" required>
+    <div class="container-md row">
+      <form class="col" action="createProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data container-md">
+        <div class="formContainer fade-in ">
+          <!-- picture -->
+          <div class="mb-1 w-75 mx-auto">
+            <label class="form-label fw-bold" for="picture">Company Logo</label>
+            <div class="file-drop-area">
+              <span class="fake-btn">Choose files</span>
+              <span class="file-msg">or drag and drop files here</span>
+              <input class="file-input" id="picture" type="file" name="picture" required>
+            </div>
+          </div>
+          <!-- company name -->
+          <label class="form-label w-75 mx-auto fw-bold" for="companyName">Company Name:</label>
+          <div class="form-text w-75 mx-auto">
+            Company name must have 3 minimum characters
+          </div>
+          <div class="input-group mb-1 w-75 mx-auto">
+            <input class="form-control" id="companyName" type="text" name="name" minlength="3" required placeholder="ex: BulSU Company" />
+            <span id="message" class="valid-feedback">That company is available!</span>
+            <span id="err" class="invalid-feedback"></span>
+          </div>
+          <!-- year started -->
+          <div class="mb-1 w-75 mx-auto">
+            <label class="form-label fw-bold" for="yearStarted">Year Started:
+            </label>
+            <select class="form-select" required name="year" id="yearStarted"></select>
+          </div>
+          <!-- tagline -->
+          <div class="mb-1 w-75 mx-auto">
+            <label class="form-label fw-bold" for="tagLine">Tagline:</label>
+            <input class="form-control" id="tagLine" type="text" name="tagline" placeholder="ex: We stay connected even offline" required />
+          </div>
+          <!-- total branch -->
+          <div class="mb-1 w-75 mx-auto">
+            <label class="form-label fw-bold" for="branches">Total Branch:</label>
+            <input class="form-control" id="branches" type="number" name="branches" placeholder="ex: 106" required />
+          </div>
+          <!-- total headquarter -->
+          <div class="mb-1 w-75 mx-auto">
+            <label class="form-label fw-bold" for="headquarter">Headquarter:</label>
+            <input class="form-control" id="headquarter" type="text" name="headquarter" placeholder="ex: Makati" required />
+          </div>
+          <div class="flex-btn-end">
+            <a class="btn btn-outline-back" href="index.php">Back</a>
+            <input disabled class="btn btn-secondary" id="submit" type="submit" value="Save Company" />
           </div>
         </div>
 
+      </form> <!-- Modal -->
+      <div class=" show fade company-detail-modal create-display col" id="theModal" tabindex="-1" aria-labelledby="theModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content company-modal">
 
+            <div class="modal-body p-3">
+              <div class="logo-box"><img class="modal-picture" src="./default-logo.jpg" alt=""></div>
+              <div>
+                <p class="modal-name"></p>
+                <p class="modal-headquarter-box">Headquarter at <span class="modal-headquarter"></span></p>
+                <div class="cards-row">
+                  <div class="modal-card">
+                    <p class="modal-year">299</p>
+                    <p class="modal-card-label">Year Started</p>
+                  </div>
+                  <div class="modal-card">
+                    <p class="modal-branches">123123</p>
+                    <p class="modal-card-label">Branches</p>
+                  </div>
+                </div>
+                <div class="modal-card card-xl">
+                  <p class="modal-quotemark">“</p>
+                  <p class="modal-tagline">Ghetto</p>
+                  <p class="modal-card-label">Tagline</p>
+                </div>
+              </div>
+            </div>
 
-        <!-- company name -->
-
-        <label class="form-label w-75 mx-auto fw-bold" for="companyName">Company Name:</label>
-        <div class="form-text w-75 mx-auto">
-          Company name must have 3 minimum characters
-        </div>
-        <div class="input-group mb-5 w-75 mx-auto">
-          <input class="form-control" id="companyName" type="text" name="name" minlength="3" required placeholder="ex: BulSU Company" />
-
-          <span id="message" class="valid-feedback">That company is available!</span>
-          <span id="err" class="invalid-feedback"></span>
-        </div>
-
-        <!-- year started -->
-        <div class="mb-5 w-75 mx-auto">
-          <label class="form-label fw-bold" for="yearStarted">Year Started:
-          </label>
-          <select class="form-select" required name="year" id="yearStarted"></select>
-        </div>
-
-        <!-- tagline -->
-        <div class="mb-5 w-75 mx-auto">
-          <label class="form-label fw-bold" for="tagLine">Tagline:</label>
-          <input class="form-control" id="tagLine" type="text" name="tagline" placeholder="ex: We stay connected even offline" required />
-        </div>
-
-        <!-- total branch -->
-        <div class="mb-5 w-75 mx-auto">
-          <label class="form-label fw-bold" for="branches">Total Branch:</label>
-          <input class="form-control" id="branches" type="number" name="branches" placeholder="ex: 106" required />
-        </div>
-
-        <!-- total headquarter -->
-        <div class="mb-5 w-75 mx-auto">
-          <label class="form-label fw-bold" for="headquarter">Headquarter:</label>
-          <input class="form-control" id="headquarter" type="text" name="headquarter" placeholder="ex: Makati" required />
-        </div>
-
-
-
-        <div class="flex-btn-end">
-          <a class="btn btn-outline-back" href="index.php">Back</a>
-          <input disabled class="btn btn-secondary" id="submit" type="submit" value="Save Company" />
+          </div>
         </div>
       </div>
-    </form>
+    </div>
+
+    <!-- end modal -->
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
