@@ -70,7 +70,7 @@
       Create New Company
     </h1>
     <div class="container-md row">
-      <form class="col needs-validation " action="createProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data container-md">
+      <form class="col needs-validation  container-md " action="createProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data">
         <div class="formContainer two-container fade-in ">
           <!-- picture -->
           <div class="mb-3 w-75 mx-auto">
