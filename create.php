@@ -70,8 +70,8 @@
       Create New Company
     </h1>
     <div class="container-md row">
-      <form class="col" action="createProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data container-md">
-        <div class="formContainer fade-in ">
+      <form class="col needs-validation " action="createProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data container-md">
+        <div class="formContainer two-container fade-in ">
           <!-- picture -->
           <div class="mb-1 w-75 mx-auto">
             <label class="form-label fw-bold" for="picture">Company Logo</label>
@@ -79,6 +79,10 @@
               <span class="fake-btn">Choose files</span>
               <span class="file-msg">or drag and drop files here</span>
               <input class="file-input" id="picture" type="file" name="picture" required>
+              <div class="invalid-feedback">
+                Please pick an image file.
+              </div>
+
             </div>
           </div>
           <!-- company name -->
@@ -95,22 +99,33 @@
           <div class="mb-1 w-75 mx-auto">
             <label class="form-label fw-bold" for="yearStarted">Year Started:
             </label>
-            <select class="form-select" required name="year" id="yearStarted"></select>
+            <select class="form-select" required name="year" id="yearStarted">
+              <option value="" disabled selected>Select Year</option>
+            </select>
           </div>
           <!-- tagline -->
           <div class="mb-1 w-75 mx-auto">
             <label class="form-label fw-bold" for="tagLine">Tagline:</label>
             <input class="form-control" id="tagLine" type="text" name="tagline" placeholder="ex: We stay connected even offline" required />
+            <div class="invalid-feedback">
+              Please provide a tagline.
+            </div>
           </div>
           <!-- total branch -->
           <div class="mb-1 w-75 mx-auto">
             <label class="form-label fw-bold" for="branches">Total Branch:</label>
             <input class="form-control" id="branches" type="number" name="branches" placeholder="ex: 106" required />
+            <div class="invalid-feedback">
+              Please provide valid number of branches.
+            </div>
           </div>
           <!-- total headquarter -->
           <div class="mb-1 w-75 mx-auto">
             <label class="form-label fw-bold" for="headquarter">Headquarter:</label>
             <input class="form-control" id="headquarter" type="text" name="headquarter" placeholder="ex: Makati" required />
+            <div class="invalid-feedback">
+              Please provide a valid headquarter
+            </div>
           </div>
           <div class="flex-btn-end">
             <a class="btn btn-outline-back" href="index.php">Back</a>
@@ -126,21 +141,21 @@
             <div class="modal-body p-3">
               <div class="logo-box"><img class="modal-picture" src="./default-logo.jpg" alt=""></div>
               <div>
-                <p class="modal-name"></p>
+                <p class="modal-companyName modal-name"><br></p>
                 <p class="modal-headquarter-box">Headquarter at <span class="modal-headquarter"></span></p>
                 <div class="cards-row">
                   <div class="modal-card">
-                    <p class="modal-year">299</p>
+                    <p class="modal-yearStarted"><br></p>
                     <p class="modal-card-label">Year Started</p>
                   </div>
                   <div class="modal-card">
-                    <p class="modal-branches">123123</p>
+                    <p class="modal-branches"><br></p>
                     <p class="modal-card-label">Branches</p>
                   </div>
                 </div>
                 <div class="modal-card card-xl">
                   <p class="modal-quotemark">“</p>
-                  <p class="modal-tagline">Ghetto</p>
+                  <p class="modal-tagLine"><br></p>
                   <p class="modal-card-label">Tagline</p>
                 </div>
               </div>

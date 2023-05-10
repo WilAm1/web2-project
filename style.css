@@ -295,6 +295,11 @@ section {
   padding: 50px 10px;
   border-radius: 10px;
   margin-inline: auto;
+  width: 50%;
+}
+.two-container {
+  width: initial;
+  background-color: #000000;
 }
 
 .form-control,

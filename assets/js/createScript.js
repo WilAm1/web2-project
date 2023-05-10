@@ -1,6 +1,7 @@
 $(document).ready(function () {
   // add options to year select element
-  for (i = 2023; i >= 1800; i--) {
+  var date = new Date();
+  for (i = date.getFullYear(); i >= 1800; i--) {
     $("#yearStarted").append($("<option />").val(i).html(i));
   }
 
@@ -26,10 +27,51 @@ $(document).ready(function () {
       submitBtn.prop("disabled", true);
     }
   });
+  $("#yearStarted").change(function () {
+    var inputVal = $(this).val();
+    if (inputVal.trim().length === 0) {
+      inputVal = "<br/>";
+    }
+    $(".modal-yearStarted").html(inputVal);
+  });
   fields.keyup(function () {
     // if all fields are filled up
+    var inputVal = $(this).val();
+    var inputName = $(this).attr("id");
+
+    // check each field if they are correct.
+    switch (inputName) {
+      case "yearStarted":
+      case "tagLine":
+      case "headquarter": {
+        if (inputVal.trim().length === 0) {
+          $(this).removeClass("is-valid");
+          $(this).addClass("is-invalid");
+        } else {
+          $(this).addClass("is-valid");
+          $(this).removeClass("is-invalid");
+        }
+        break;
+      }
+      case "branches": {
+        if (inputVal.trim().length === 0 || isNaN(inputVal)) {
+          $(this).removeClass("is-valid");
+          $(this).addClass("is-invalid");
+        } else {
+          $(this).addClass("is-valid");
+          $(this).removeClass("is-invalid");
+        }
+        break;
+      }
+    }
+
+    if (inputVal.trim().length === 0) {
+      inputVal = "<br/>";
+    }
+    $(".modal-" + inputName).html(inputVal);
+
+    // Toggles the submit button
     if (allFieldUp(fields)) {
-      console.log("hwere");
       submitBtn.prop("disabled", false);
 
       submitBtn.removeClass("btn-secondary");
@@ -42,6 +84,7 @@ $(document).ready(function () {
     }
   });
 
+  // Checks the validity of Company Name
   $("#companyName").keyup(function () {
     var inputElement = $("#companyName");
     var inputValue = inputElement.val();
@@ -119,9 +162,11 @@ $(document).ready(function () {
       var fileName = $(this).val().split("\\").pop();
       $textContainer.text(fileName);
       readURL($(this)[0]);
+      $(this).addClass("is-valid");
+      $(this).removeClass("is-invalid");
     } else {
-      // otherwise show number of files
-      $textContainer.text(filesCount + " files selected");
+      $(this).addClass("is-invalid");
+      $(this).removeClass("is-valid");
     }
   });
   function readURL(input) {
