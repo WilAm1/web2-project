@@ -1,4 +1,9 @@
 $(document).ready(function () {
+  $(".cards").sortable({ revert: true });
+  $(".card").draggable({
+    connectToSortable: ".cards",
+    revert: true,
+  });
   $(".card-content").click(function () {
     $(this)
       .parent()
@@ -9,7 +14,7 @@ $(document).ready(function () {
   $(".card-hovered").mouseleave(function () {
     $(this).hide("slide", { direction: "down" });
   });
-  $(".card-image").on("click", function () {
+  $(".modal-picture").on("click", function () {
     $(".imagepreview").attr("src", $(this).find("img").attr("src"));
     $("#imagemodal").modal("show");
   });

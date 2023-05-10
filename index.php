@@ -50,11 +50,7 @@ session_start();
   <div class="digital-world position-absolute start-0"></div>
 
 
-  <script>
-    $(document).ready(function() {
-      $('.active+.active-box').css('visibility', 'visible')
-    })
-  </script>
+
 
   <nav class="navbar navbar-expand-lg border-bottom p-3 position-relative">
     <!-- <div class="collapse navbar-collapse" id="navbarText"> -->
@@ -159,22 +155,11 @@ session_start();
                     <p><?= $tagline ?></p>
                   </div>
                 </div>
-
                 <button data-company-name="<?= $name ?>" data-bs-toggle="modal" data-bs-target="#theModal" class="card-btn btn">View Detail</button>
               </div>
-
-
             </div>
-
-
-
-
-
-
-
           <?php } ?>
         </div>
-
     </section>
   </main>
 
@@ -186,11 +171,7 @@ session_start();
   <!-- <script src="./assets/js/typing.js"></script> -->
 
 
-  <script>
-    $(document).ready(function() {
-      $('.cards').sortable();
-    })
-  </script>
+
   <!-- picture modal -->
   <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
