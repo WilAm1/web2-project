@@ -662,6 +662,11 @@ img {
   border: 1px dashed rgba(255, 255, 255, 0.4);
   border-radius: 3px;
   transition: 0.2s;
+  padding-bottom: 5rem;
+  margin-bottom: 2rem;
+}
+.file-drop-area.invalid {
+  border-color: red;
 }
 .file-drop-area.is-active {
   background-color: rgba(255, 255, 255, 0.05);
@@ -669,7 +674,7 @@ img {
 
 .fake-btn {
   flex-shrink: 0;
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: rgb(255, 255, 255);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 3px;
   padding: 8px 15px;
@@ -685,6 +690,7 @@ img {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: white;
 }
 
 .file-input {
@@ -699,4 +705,10 @@ img {
 
 .file-input:focus {
   outline: none;
+}
+
+.picture-feedback {
+  position: absolute;
+  bottom: -2rem;
+  left: 0;
 }

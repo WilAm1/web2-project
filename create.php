@@ -20,7 +20,7 @@
   <link href="assets/jquery-ui.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="style.css" />
   <!-- own jquery -->
-  <script src="./assets/js/createScript.js"></script>
+  <script src="./assets/js/formValidation.js"></script>
   <script src="./assets/js/startEffects.js"></script>
   <title>Add New Company</title>
 </head>
@@ -73,13 +73,13 @@
       <form class="col needs-validation " action="createProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data container-md">
         <div class="formContainer two-container fade-in ">
           <!-- picture -->
-          <div class="mb-1 w-75 mx-auto">
+          <div class="mb-3 w-75 mx-auto">
             <label class="form-label fw-bold" for="picture">Company Logo</label>
             <div class="file-drop-area">
               <span class="fake-btn">Choose files</span>
               <span class="file-msg">or drag and drop files here</span>
               <input class="file-input" id="picture" type="file" name="picture" required>
-              <div class="invalid-feedback">
+              <div class="invalid-feedback picture-feedback">
                 Please pick an image file.
               </div>
 
@@ -90,13 +90,13 @@
           <div class="form-text w-75 mx-auto">
             Company name must have 3 minimum characters
           </div>
-          <div class="input-group mb-1 w-75 mx-auto">
+          <div class="input-group mb-3 w-75 mx-auto">
             <input class="form-control" id="companyName" type="text" name="name" minlength="3" required placeholder="ex: BulSU Company" />
             <span id="message" class="valid-feedback">That company is available!</span>
             <span id="err" class="invalid-feedback"></span>
           </div>
           <!-- year started -->
-          <div class="mb-1 w-75 mx-auto">
+          <div class="mb-3 w-75 mx-auto">
             <label class="form-label fw-bold" for="yearStarted">Year Started:
             </label>
             <select class="form-select" required name="year" id="yearStarted">
@@ -104,7 +104,7 @@
             </select>
           </div>
           <!-- tagline -->
-          <div class="mb-1 w-75 mx-auto">
+          <div class="mb-3 w-75 mx-auto">
             <label class="form-label fw-bold" for="tagLine">Tagline:</label>
             <input class="form-control" id="tagLine" type="text" name="tagline" placeholder="ex: We stay connected even offline" required />
             <div class="invalid-feedback">
@@ -112,7 +112,7 @@
             </div>
           </div>
           <!-- total branch -->
-          <div class="mb-1 w-75 mx-auto">
+          <div class="mb-3 w-75 mx-auto">
             <label class="form-label fw-bold" for="branches">Total Branch:</label>
             <input class="form-control" id="branches" type="number" name="branches" placeholder="ex: 106" required />
             <div class="invalid-feedback">
@@ -120,7 +120,7 @@
             </div>
           </div>
           <!-- total headquarter -->
-          <div class="mb-1 w-75 mx-auto">
+          <div class="mb-3 w-75 mx-auto">
             <label class="form-label fw-bold" for="headquarter">Headquarter:</label>
             <input class="form-control" id="headquarter" type="text" name="headquarter" placeholder="ex: Makati" required />
             <div class="invalid-feedback">
