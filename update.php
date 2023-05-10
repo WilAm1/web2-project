@@ -22,7 +22,7 @@
     <!-- own jquery -->
 
     <script src="./assets/js/startEffects.js"></script>
-    <script src="./assets/js/createScript.js"></script>
+    <script src="./assets/js/formValidation.js"></script>
     <script src="./assets/js/updateScript.js"></script>
     <title>Update Company</title>
 </head>
@@ -71,9 +71,23 @@
         <h1 class="crud-heading text-accent text-left slide-up">
             Update Company Information
         </h1>
-        <form action="updateProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data">
-            <div class="formContainer fade-in">
 
+        <form class="col needs-validation  container-md " action="updateProcess.php " method="POST" autocomplete="off" enctype="multipart/form-data">
+            <div class="formContainer two-container fade-in ">
+                <!-- picture -->
+                <div class="mb-3 w-75 mx-auto">
+                    <label class="form-label fw-bold" for="picture">Company Logo</label>
+                    <div class="file-drop-area">
+                        <span class="fake-btn">Choose files</span>
+                        <span class="file-msg">or drag and drop files here</span>
+                        <input class="file-input" id="picture" type="file" name="picture" required>
+                        <div class="invalid-feedback picture-feedback">
+                            Please pick an image file.
+                        </div>
+
+                    </div>
+                </div>
+                <!-- company name -->
                 <!-- company name in dropdown -->
                 <div class=" mb-5 w-75 mx-auto">
                     <label class="form-label fw-bold label-text fw-bold" for="name">Name</label>
@@ -98,39 +112,38 @@
 
                     </select>
                 </div>
-
                 <!-- year started -->
-                <div class="mb-5 w-75 mx-auto">
+                <div class="mb-3 w-75 mx-auto">
                     <label class="form-label fw-bold" for="yearStarted">Year Started:
                     </label>
-                    <select class="form-select" required name="year" id="yearStarted"></select>
+                    <select class="form-select" required name="year" id="yearStarted">
+                        <option value="" disabled selected>Select Year</option>
+                    </select>
                 </div>
-
                 <!-- tagline -->
-                <div class="mb-5 w-75 mx-auto">
+                <div class="mb-3 w-75 mx-auto">
                     <label class="form-label fw-bold" for="tagLine">Tagline:</label>
                     <input class="form-control" id="tagLine" type="text" name="tagline" placeholder="ex: We stay connected even offline" required />
+                    <div class="invalid-feedback">
+                        Please provide a tagline.
+                    </div>
                 </div>
-
                 <!-- total branch -->
-                <div class="mb-5 w-75 mx-auto">
+                <div class="mb-3 w-75 mx-auto">
                     <label class="form-label fw-bold" for="branches">Total Branch:</label>
                     <input class="form-control" id="branches" type="number" name="branches" placeholder="ex: 106" required />
+                    <div class="invalid-feedback">
+                        Please provide valid number of branches.
+                    </div>
                 </div>
-
                 <!-- total headquarter -->
-                <div class="mb-5 w-75 mx-auto">
+                <div class="mb-3 w-75 mx-auto">
                     <label class="form-label fw-bold" for="headquarter">Headquarter:</label>
                     <input class="form-control" id="headquarter" type="text" name="headquarter" placeholder="ex: Makati" required />
+                    <div class="invalid-feedback">
+                        Please provide a valid headquarter
+                    </div>
                 </div>
-
-                <!-- picture -->
-                <div class="mb-5 w-75 mx-auto">
-                    <label class="form-label fw-bold" for="picture">Company Logo</label>
-                    <input class="form-control" id="picture" type="file" name="picture" required />
-                </div>
-
-
                 <div class="flex-btn-end">
                     <a class="btn btn-outline-back" href="index.php">Back</a>
                     <input disabled class="btn btn-secondary" id="submit" type="submit" value="Save Company" />
