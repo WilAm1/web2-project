@@ -759,3 +759,50 @@ img {
   bottom: -2rem;
   left: 0;
 }
+.draggable-card.card-item {
+  flex-flow: row nowrap;
+}
+.draggable-card .card-showed {
+  border-radius: 0;
+}
+.draggable-card .card-content {
+  border-radius: 0;
+}
+
+.grip-box {
+  background: rgb(255, 255, 255);
+  flex-grow: 1;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.edit-company-content {
+  color: black;
+  font-size: 32px;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 auto;
+  background: white;
+  z-index: 1;
+  /* For Internet Explorer */
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.3);
+
+  /* For other browsers */
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.3);
+}
+.edit-company-content.hidden {
+  box-shadow: none;
+  display: none;
+}
+.card-dragging {
+  transform: rotate(10deg) !important;
+}
+
+.dropping-active {
+  background-color: #ff5f05;
+}
+.dropping-hover {
+  background-color: #830fb9;
+}

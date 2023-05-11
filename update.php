@@ -24,6 +24,9 @@
     <script src="./assets/js/startEffects.js"></script>
     <script src="./assets/js/formValidation.js"></script>
     <script src="./assets/js/updateScript.js"></script>
+    <script src="./assets/js/cardSliderEffect.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>Update Company</title>
 </head>
 
@@ -71,89 +74,175 @@
         <h1 class="crud-heading text-accent text-left slide-up">
             Update Company Information
         </h1>
+        <div class="cards">
 
-        <form class="col needs-validation  container-md " action="updateProcess.php " method="POST" autocomplete="off" enctype="multipart/form-data">
-            <div class="formContainer two-container fade-in ">
-                <!-- picture -->
-                <div class="mb-3 w-75 mx-auto">
-                    <label class="form-label fw-bold" for="picture">Company Logo</label>
-                    <div class="file-drop-area">
-                        <span class="fake-btn">Choose files</span>
-                        <span class="file-msg">or drag and drop files here</span>
-                        <input class="file-input" id="picture" type="file" name="picture" required>
-                        <div class="invalid-feedback picture-feedback">
-                            Please pick an image file.
+            <?php
+            $xml = new DOMDocument("1.0");
+            $xml->load("./BSIT3EG1G4.xml");
+            $companies = $xml->getElementsByTagName("techCompany");
+            $count = 0;
+            foreach ($companies as $company) {
+                $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
+                $year = $company->getElementsByTagName("yearStart")->item(0)->nodeValue;
+                $tagline = $company->getElementsByTagName("tagline")->item(0)->nodeValue;
+                $branches = $company->getElementsByTagName("totalBranch")->item(0)->nodeValue;
+                $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
+                $picture = $company->getElementsByTagName("picture")->item(0)->nodeValue;
+                $count++;
+
+            ?>
+                <div class="draggable-card card-item" data-animation-delay=" <?= $count ?>" data-company-name=" <?= $name ?>">
+                    <div class="grip-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-grip-vertical" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M9 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M9 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M9 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M15 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M15 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M15 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                        </svg>
+                    </div>
+                    <!-- card shown -->
+                    <div class="card-showed">
+                        <div class="card-image">
+                            <img src="data:image;base64,<?= $picture ?>" alt="">
                         </div>
+                        <div class="card-content">
+                            <p class="company-name">
+                                <?= $name ?>
+                            </p>
 
+                        </div>
                     </div>
                 </div>
-                <!-- company name -->
-                <!-- company name in dropdown -->
-                <div class=" mb-5 w-75 mx-auto">
-                    <label class="form-label fw-bold label-text fw-bold" for="name">Name</label>
-                    <select class="form-select" name="name" id="name">
-                        <?php
+            <?php } ?>
+        </div>
 
-                        $xml = new DOMDocument("1.0");
-                        $xml->load("BSIT3EG1G4.xml");
-                        $companies = $xml->getElementsByTagName("techCompany");
-
-                        foreach ($companies as $company) {
-                            $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
-                            $year = $company->getElementsByTagName("yearStart")->item(0)->nodeValue;
-                            $tagline = $company->getElementsByTagName("tagline")->item(0)->nodeValue;
-                            $branches = $company->getElementsByTagName("totalBranch")->item(0)->nodeValue;
-                            $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
-
-
-                            echo "<option value='$name' > $name</option>";
-                        }
-                        ?>
-
-                    </select>
-                </div>
-                <!-- year started -->
-                <div class="mb-3 w-75 mx-auto">
-                    <label class="form-label fw-bold" for="yearStarted">Year Started:
-                    </label>
-                    <select class="form-select" required name="year" id="yearStarted">
-                        <option value="" disabled selected>Select Year</option>
-                    </select>
-                </div>
-                <!-- tagline -->
-                <div class="mb-3 w-75 mx-auto">
-                    <label class="form-label fw-bold" for="tagLine">Tagline:</label>
-                    <input class="form-control" id="tagLine" type="text" name="tagline" placeholder="ex: We stay connected even offline" required />
-                    <div class="invalid-feedback">
-                        Please provide a tagline.
-                    </div>
-                </div>
-                <!-- total branch -->
-                <div class="mb-3 w-75 mx-auto">
-                    <label class="form-label fw-bold" for="branches">Total Branch:</label>
-                    <input class="form-control" id="branches" type="number" name="branches" placeholder="ex: 106" required />
-                    <div class="invalid-feedback">
-                        Please provide valid number of branches.
-                    </div>
-                </div>
-                <!-- total headquarter -->
-                <div class="mb-3 w-75 mx-auto">
-                    <label class="form-label fw-bold" for="headquarter">Headquarter:</label>
-                    <input class="form-control" id="headquarter" type="text" name="headquarter" placeholder="ex: Makati" required />
-                    <div class="invalid-feedback">
-                        Please provide a valid headquarter
-                    </div>
-                </div>
-                <div class="flex-btn-end">
-                    <a class="btn btn-outline-back" href="index.php">Back</a>
-                    <input disabled class="btn btn-secondary" id="submit" type="submit" value="Save Company" />
-                </div>
-            </div>
-        </form>
     </div>
 
+    <!-- Modal -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <div class=" edit-company-content hidden">
+        <div id="drop-company">
+            Edit Company
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M4 7l16 0" />
+                <path d="M10 11l0 6" />
+                <path d="M14 11l0 6" />
+                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+            </svg>
+        </div>
+    </div>
+    <!-- end modal -->
+
+    <!-- Modal -->
+    <div class="modal  fade company-detail-modal" id="theModal" tabindex="-1" aria-labelledby="theModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content company-modal">
+                <div class="modal-header">
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="col needs-validation  container-md " action="updateProcess.php " method="POST" autocomplete="off" enctype="multipart/form-data">
+                        <div class="formContainer two-container fade-in ">
+                            <!-- picture -->
+                            <div class="mb-3 w-75 mx-auto">
+                                <label class="form-label fw-bold" for="picture">Company Logo</label>
+                                <div class="file-drop-area">
+                                    <span class="fake-btn">Choose files</span>
+                                    <span class="file-msg">or drag and drop files here</span>
+                                    <input class="file-input" id="picture" type="file" name="picture" required>
+                                    <div class="invalid-feedback picture-feedback">
+                                        Please pick an image file.
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- company name -->
+                            <!-- company name in dropdown -->
+                            <div class=" mb-5 w-75 mx-auto">
+                                <label class="form-label fw-bold label-text fw-bold" for="name">Name</label>
+                                <select class="form-select" name="name" id="name" disabled>
+                                    <option id="update-company-disabled" value=""></option>
+                                    <?php
+
+                                    $xml = new DOMDocument("1.0");
+                                    $xml->load("BSIT3EG1G4.xml");
+                                    $companies = $xml->getElementsByTagName("techCompany");
+
+                                    foreach ($companies as $company) {
+                                        $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
+                                        $year = $company->getElementsByTagName("yearStart")->item(0)->nodeValue;
+                                        $tagline = $company->getElementsByTagName("tagline")->item(0)->nodeValue;
+                                        $branches = $company->getElementsByTagName("totalBranch")->item(0)->nodeValue;
+                                        $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
+
+
+                                        echo "<option value='$name' > $name</option>";
+                                    }
+                                    ?>
+
+                                </select>
+                            </div>
+                            <!-- year started -->
+                            <div class="mb-3 w-75 mx-auto">
+                                <label class="form-label fw-bold" for="yearStarted">Year Started:
+                                </label>
+                                <select class="form-select" required name="year" id="yearStarted">
+                                    <option value="" disabled selected>Select Year</option>
+                                </select>
+                            </div>
+                            <!-- tagline -->
+                            <div class="mb-3 w-75 mx-auto">
+                                <label class="form-label fw-bold" for="tagLine">Tagline:</label>
+                                <input class="form-control" id="tagLine" type="text" name="tagline" placeholder="ex: We stay connected even offline" required />
+                                <div class="invalid-feedback">
+                                    Please provide a tagline.
+                                </div>
+                            </div>
+                            <!-- total branch -->
+                            <div class="mb-3 w-75 mx-auto">
+                                <label class="form-label fw-bold" for="branches">Total Branch:</label>
+                                <input class="form-control" id="branches" type="number" name="branches" placeholder="ex: 106" required />
+                                <div class="invalid-feedback">
+                                    Please provide valid number of branches.
+                                </div>
+                            </div>
+                            <!-- total headquarter -->
+                            <div class="mb-3 w-75 mx-auto">
+                                <label class="form-label fw-bold" for="headquarter">Headquarter:</label>
+                                <input class="form-control" id="headquarter" type="text" name="headquarter" placeholder="ex: Makati" required />
+                                <div class="invalid-feedback">
+                                    Please provide a valid headquarter
+                                </div>
+                            </div>
+                            <div class="flex-btn-end">
+                                <a class="btn btn-outline-back" href="index.php">Back</a>
+                                <input disabled class="btn btn-secondary" id="submit" type="submit" value="Save Company" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-back" data-bs-dismiss="modal">Close</button>
+                    <form action="/deleteProcess.php" method="post">
+                        <input id="deleteCompanyInput" type="hidden" name="name" value="<?= $name ?>">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end modal -->
+
+
 
     <?php include('./loading.php') ?>
 </body>
