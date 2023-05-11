@@ -143,6 +143,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1rem;
+  min-height: 50vh;
 }
 
 .card-item {
@@ -160,6 +161,13 @@ h2 {
   /* height: 400px; */
 
   position: relative;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+.card-item.showed {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .card-item:hover {
@@ -585,9 +593,11 @@ img {
   margin: 0 auto;
   border-radius: 18px;
   transition: 0.5s all ease-in-out;
-}
-.logo-box:hover {
   cursor: zoom-in;
+}
+
+.logo-box.zoomed {
+  cursor: zoom-out;
   transform: scale(1.5);
   z-index: 1;
   position: relative;

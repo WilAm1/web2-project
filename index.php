@@ -108,10 +108,12 @@ session_start();
         <h2 id="top-tech">Our Top Tech List</h2>
         <!-- card -->
         <div class="cards">
+
           <?php
           $xml = new DOMDocument("1.0");
           $xml->load("./BSIT3EG1G4.xml");
           $companies = $xml->getElementsByTagName("techCompany");
+          $count = 0;
           foreach ($companies as $company) {
             $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
             $year = $company->getElementsByTagName("yearStart")->item(0)->nodeValue;
@@ -119,8 +121,10 @@ session_start();
             $branches = $company->getElementsByTagName("totalBranch")->item(0)->nodeValue;
             $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
             $picture = $company->getElementsByTagName("picture")->item(0)->nodeValue;
+            $count++;
+
           ?>
-            <div class="card-item">
+            <div class="card-item" data-animation-delay=" <?= $count ?>" style="--animation-delay: <?= $count ?>">
               <!-- card shown -->
               <div class="card-showed">
                 <div class="card-image">
@@ -172,17 +176,7 @@ session_start();
 
 
 
-  <!-- picture modal -->
-  <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <img src="" class="imagepreview" style="width: 100%;">
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <!-- Modal -->
   <div class="modal fade company-detail-modal" id="theModal" tabindex="-1" aria-labelledby="theModalLabel" aria-hidden="true">
