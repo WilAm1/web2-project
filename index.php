@@ -203,18 +203,24 @@ session_start();
 
             <div class="cards-row">
               <div class="modal-card">
-                <p class="modal-year"></p>
-                <p class="modal-card-label">Year Started</p>
+                <div class="modal-card-content w-100 h-100">
+                  <p class="modal-year"></p>
+                  <p class="modal-card-label">Year Started</p>
+                </div>
               </div>
               <div class="modal-card">
-                <p class="modal-branches"></p>
-                <p class="modal-card-label">Branches</p>
+                <div class="modal-card-content w-100 h-100">
+                  <p class="modal-branches"></p>
+                  <p class="modal-card-label">Branches</p>
+                </div>
               </div>
             </div>
             <div class="modal-card card-xl">
-              <p class="modal-quotemark">“</p>
-              <p class="modal-tagline"></p>
-              <p class="modal-card-label">Tagline</p>
+              <div class="modal-card-content w-100 h-auto">
+                <p class="modal-quotemark">“</p>
+                <p class="modal-tagline"></p>
+                <p class="modal-card-label">Tagline</p>
+              </div>
             </div>
           </div>
         </div>

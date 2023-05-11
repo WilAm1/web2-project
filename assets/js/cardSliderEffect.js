@@ -15,7 +15,7 @@ $(document).ready(function () {
     $(this).hide("slide", { direction: "down" });
   });
   $(".modal-picture").on("click", function () {
-    $(".imagepreview").attr("src", $(this).find("img").attr("src"));
+    $(".imagepreview").attr("src", $(this).attr("src"));
     $("#imagemodal").modal("show");
   });
 });

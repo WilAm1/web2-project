@@ -584,6 +584,13 @@ img {
   width: 500px;
   margin: 0 auto;
   border-radius: 18px;
+  transition: 0.5s all ease-in-out;
+}
+.logo-box:hover {
+  cursor: zoom-in;
+  transform: scale(1.5);
+  z-index: 1;
+  position: relative;
 }
 
 /* Individual Company UI */
@@ -612,37 +619,59 @@ img {
   font-weight: 700;
   font-size: 100px;
   margin: 0;
-  margin-bottom: -75px;
-  margin-top: -30px;
+  position: absolute;
+  top: -28px;
 }
 .modal-tagline {
   font-family: "Lora", Georgia, "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: 600;
   font-size: 36px;
+  padding-top: 1rem;
+  padding-left: 50px;
 }
 
 .modal-card {
-  background-color: #43436e;
-  border-radius: 8px;
+  background-color: #830fb9;
   font-size: 32px;
   color: #ffe9ca;
-  width: 200px;
+  width: 170px;
+  height: 120px;
   text-align: right;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   box-sizing: border-box;
   font-weight: 700;
+  position: relative;
+}
+
+.modal-card-content {
+  transform: translate(-5%, -5%);
+  transition: transform 0.2s;
+  background-color: #15136f;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.card-xl .modal-card-content {
+  transform: translate(-1%, -5%);
+}
+.modal-card-content:hover {
+  transform: translate(0, 0);
 }
 .cards-row {
   display: flex;
   flex-flow: row wrap;
   gap: 1rem;
+  margin-bottom: 30px;
 }
 .card-xl {
   text-align: left;
   width: 500px;
   margin: 0 auto;
   margin-top: 1rem;
+  height: auto;
 }
 .modal-card-label {
   font-size: 14px;
