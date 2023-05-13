@@ -26,7 +26,7 @@
 
     <script src="./assets/js/searchScript.js"></script>
     <script src="./assets/js/startEffects.js"></script>
-    <script src="./assets/js/formValidation.js"></script>
+    <script src="./assets/js/updateFormValidation.js"></script>
     <script src="./assets/js/updateScript.js"></script>
     <script src="./assets/js/cardSliderEffect.js"></script>
 
@@ -99,14 +99,14 @@
             ?>
                 <div class="draggable-card card-item" data-animation-delay=" <?= $count ?>" data-company-name=" <?= $name ?>">
                     <div class="grip-box">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-grip-vertical" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-grip-horizontal" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M9 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                            <path d="M9 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                            <path d="M9 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                            <path d="M15 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                            <path d="M15 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                            <path d="M15 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M5 9m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M5 15m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 9m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 15m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M19 9m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M19 15m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
                         </svg>
                     </div>
                     <!-- card shown -->
@@ -138,7 +138,7 @@
                     <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
                     <path d="M16 5l3 3" />
                 </svg>
-                <p> Edit Company Details</p>
+                <p> Drag Here to Edit Company</p>
             </div>
         </div>
     </div>
@@ -152,27 +152,35 @@
             <div class="modal-content">
                 <div class="modal-body" id="edit-modal">
                     <form id="updateForm" class="col needs-validation  container-md" action="updateProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data">
+
+                        <input id="old-picture" type="hidden" name="old-picture" value="">
                         <div class="formContainer two-container fade-in ">
                             <div class="modal-header">
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
+
+                            <h2 class=" mb-3 w-75 mx-auto crud-heading text-accent ">
+                                Update Company
+                            </h2>
+
                             <!-- picture -->
                             <div class="mb-3 w-75 mx-auto">
                                 <label class="form-label fw-bold" for="picture">Company Logo</label>
-                                <div class="preview-img-box">
-                                    <img src="" class="preview-file-drop-picture" alt="">
-                                </div>
-                                <div class="file-drop-area">
 
+                                <div class="file-drop-area">
+                                    <div class="preview-img-box">
+                                        <img class="preview-file-drop-picture" src="" alt="">
+                                    </div>
                                     <span class="fake-btn">Choose files</span>
                                     <span class="file-msg">or drag and drop files here</span>
-                                    <input class="file-input" id="picture" type="file" name="picture" required>
+                                    <input class="file-input" id="picture" type="file" name="picture">
+
                                     <div class="invalid-feedback picture-feedback">
                                         Please pick an image file.
                                     </div>
+
                                 </div>
                             </div>
-                            <!-- company name -->
                             <!-- company name in dropdown -->
                             <div class=" mb-5 w-75 mx-auto">
                                 <label class="form-label label-text fw-bold" for="name">Company Name</label>
@@ -184,7 +192,7 @@
                             <div class="mb-3 w-75 mx-auto">
                                 <label class="form-label fw-bold" for="yearStarted">Year Started:
                                 </label>
-                                <select class="form-select" required name="year" id="yearStarted">
+                                <select class="form-select form-select-year" required name="year" id="yearStarted">
                                     <option value="" disabled selected>Select Year</option>
                                 </select>
                             </div>
@@ -214,7 +222,7 @@
                             </div>
                             <div class="modal-footer">
                                 <div class="flex-btn-end">
-                                    <input disabled class="btn btn-secondary" id="submit" type="submit" value="Save Company" />
+                                    <input class="btn btn-secondary" id="submit" type="submit" value="Save Company" />
                                     <button type="button" class="btn btn-outline-back" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>

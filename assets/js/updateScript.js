@@ -16,6 +16,7 @@ $(document).ready(function () {
             if ($(this).text() === companyName) {
               var parentElem = $(this).parent();
               changeFields(parentElem);
+
               return;
             }
           });
@@ -25,6 +26,8 @@ $(document).ready(function () {
   $("#updateForm").bind("submit", function () {
     {
       $(this).find("select").prop("disabled", false);
+      if ($("#picture").attr("src").length === 0) {
+      }
     }
   });
   function changeFields(xml) {
@@ -37,6 +40,7 @@ $(document).ready(function () {
     $("#tagLine").val(tagline);
     $("#branches").val(branch.replace(/\,/g, ""));
     $("#headquarter").val(headQuarter);
+    $("#old-picture").val(picture);
     $(".preview-file-drop-picture").attr("src", "data:image;base64," + picture);
   }
 

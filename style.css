@@ -352,7 +352,7 @@ section {
 }
 .two-container {
   width: initial;
-  background-color: #000000;
+  background-color: #000000a3;
 }
 
 .form-control,
@@ -381,9 +381,8 @@ option {
   background-color: #06071b;
 }
 .crud-heading {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
-  width: 53%;
   margin: 0 auto;
 }
 
@@ -822,27 +821,30 @@ img {
   left: 0;
 }
 .draggable-card.card-item {
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
 }
-.draggable-card .card-showed {
-  border-radius: 0;
-}
-.draggable-card .card-content {
-  border-radius: 0;
+.draggable-card:hover {
+  cursor: grab;
+  transform: translateY(-10px);
 }
 
 .grip-box {
   background: rgb(255, 255, 255);
   flex-grow: 1;
   border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  justify-content: center;
+}
+.grip-box:hover .icon {
+  color: #3304f0;
 }
 
 .edit-company-content {
   color: black;
   font-size: 32px;
   position: fixed;
-  bottom: 10px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   margin: 0 auto;
@@ -932,4 +934,8 @@ img {
 .btn-acc:hover {
   background-color: #3304f0 !important;
   color: white !important;
+}
+
+.form-select:disabled {
+  color: gray;
 }

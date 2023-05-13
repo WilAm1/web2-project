@@ -1,4 +1,5 @@
-!DOCTYPE html>
+<?php session_start(); ?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -73,19 +74,22 @@
     </div>
   </nav>
   <div class="container mt-5">
-    <h1 class="crud-heading text-accent text-left slide-up">
-      Create New Company
-    </h1>
+
     <div class="container-md row d-flex align-items-center">
       <form class="col-6 needs-validation  container-md " action="createProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data">
+
+
         <div class="formContainer two-container fade-in ">
+          <h1 class=" mb-3 w-75 mx-auto crud-heading text-accent ">
+            Create New Company
+          </h1>
           <!-- picture -->
           <div class="mb-3 w-75 mx-auto">
             <label class="form-label fw-bold" for="picture">Company Logo</label>
 
             <div class="file-drop-area">
               <div class="preview-img-box">
-                <img class="preview-file-drop-picture" src="./default-logo.jpg" alt="">
+                <img class="preview-file-drop-picture" src="" alt="">
               </div>
               <span class="fake-btn">Choose files</span>
               <span class="file-msg">or drag and drop files here</span>
@@ -211,7 +215,7 @@
         </div>
         <div class="modal-body">
 
-          <div class="logo-box"><img class="modal-picture" src="" alt=""></div>
+          <div class="logo-box"><img class="modal-picture" src="" alt="Company Picture"></div>
 
           <p class="modal-name"></p>
 

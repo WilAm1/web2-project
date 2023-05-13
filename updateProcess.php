@@ -13,7 +13,8 @@ $year = $_POST['year'];
 $tagline = $_POST['tagline'];
 $branches = $_POST['branches'];
 $headquarter = $_POST['headquarter'];
-$picture = $_FILES['picture']['tmp_name'];
+$picture = $_FILES['picture']['tmp_name'] ?? null;
+$oldPicture = $_POST['old-picture'];
 $companies = $xml->getElementsByTagName("techCompany");
 $flag = 0;
 
@@ -33,8 +34,15 @@ foreach ($companies as $company) {
 
 
 
+
         $picElem = $xml->createElement('picture');
-        $cdata = $xml->createCDATASection(base64_encode(file_get_contents($picture)));
+        $cdata;
+        if ($picture == null) {
+            $cdata = $xml->createCDATASection($oldPicture);
+        } else {
+
+            $cdata = $xml->createCDATASection(base64_encode(file_get_contents($picture)));
+        }
         $picElem->appendChild($cdata);
 
         $newNode->appendChild($nameElem);
