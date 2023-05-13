@@ -128,7 +128,7 @@ $(document).ready(function () {
           }
         }
       };
-      http.open("GET", "checkIdProcess.php?q=" + inputValue, true);
+      http.open("GET", "./process/checkIdProcess.php?q=" + inputValue, true);
       http.send();
     }
   }

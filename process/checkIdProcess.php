@@ -3,7 +3,7 @@
 
 $xml  = new DOMDocument('1.0');
 
-$xml->load("BSIT3EG1G4.xml");
+$xml->load("../BSIT3EG1G4.xml");
 
 $companies = $xml->getElementsByTagName("techCompany");
 

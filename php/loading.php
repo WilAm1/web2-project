@@ -1,3 +1,4 @@
+  <!-- Loading Screen at the start of the page -->
   <div id="loading">
 
       <div class="centered-div">

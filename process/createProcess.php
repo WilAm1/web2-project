@@ -5,7 +5,7 @@ $xml = new DOMDocument('1.0');
 
 $xml->formatOutput = true;
 $xml->preserveWhiteSpace = false;
-$xml->load("BSIT3EG1G4.xml");
+$xml->load("../BSIT3EG1G4.xml");
 
 
 
@@ -38,8 +38,9 @@ $newCompany->appendChild($headquarterElem);
 $newCompany->appendChild($picElem);
 
 $xml->getElementsByTagName('techCompanies')->item(0)->appendChild($newCompany);
-$xml->save("BSIT3EG1G4.xml");
+$xml->save("../BSIT3EG1G4.xml");
+
 
 $_SESSION['message'] = 'New Company Added';
 $_SESSION['message_body'] =  $name . ' is successfully added.';
-echo "<script>window.location = './index.php'</script>";
+echo "<script>window.location = '/index.php'</script>";

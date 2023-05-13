@@ -2,7 +2,7 @@
 session_start();
 
 $xml = new DOMDocument('1.0');
-$xml->load("BSIT3EG1G4.xml");
+$xml->load("../BSIT3EG1G4.xml");
 
 $xml->formatOutput = true;
 $xml->preserveWhiteSpace = false;
@@ -25,10 +25,10 @@ foreach ($companies as $company) {
     if ($name == $searchName) {
         $flag = 1;
         $xml->getElementsByTagName('techCompanies')->item(0)->removeChild($company);
-        $xml->save("BSIT3EG1G4.xml");
+        $xml->save("../BSIT3EG1G4.xml");
         $_SESSION['message'] = 'Company Deleted';
         $_SESSION['message_body'] =  $name . ' is successfully deleted.';
-        echo "<script>window.location = './delete.php'</script>";
+        echo "<script>window.location = '/delete.php'</script>";
 
 
         break;
@@ -37,5 +37,5 @@ foreach ($companies as $company) {
 if ($flag == 0) {
     $_SESSION['message'] = 'Delete Unsuccessful';
     $_SESSION['message_body'] =  $name . ' is not deleted.';
-    echo "<script>window.location = './delete.php'</script>";
+    echo "<script>window.location = '/delete.php'</script>";
 }

@@ -5,7 +5,7 @@ $xml = new DOMDocument('1.0');
 
 $xml->formatOutput = true;
 $xml->preserveWhiteSpace = false;
-$xml->load("BSIT3EG1G4.xml");
+$xml->load("../BSIT3EG1G4.xml");
 
 $searchName =  ucwords(trim($_POST['name']));
 
@@ -55,16 +55,16 @@ foreach ($companies as $company) {
 
 
         $xml->getElementsByTagName('techCompanies')->item(0)->replaceChild($newNode, $company);
-        $xml->save("BSIT3EG1G4.xml");
+        $xml->save("../BSIT3EG1G4.xml");
 
         $_SESSION['message'] = 'Update Successful';
         $_SESSION['message_body'] =  $name . ' is successfully updated.';
-        echo "<script>window.location = './index.php'</script>";
+        echo "<script>window.location = '/index.php'</script>";
         break;
     }
 }
 if ($flag == 0) {
     $_SESSION['message'] = 'Update Unsuccessful';
     $_SESSION['message_body'] =   'Update was unsucessful.';
-    echo "<script>window.location = './update.php'</script>";
+    echo "<script>window.location = '/update.php'</script>";
 }

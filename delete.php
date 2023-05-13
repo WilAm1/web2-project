@@ -202,6 +202,7 @@
 
     <!-- end modal -->
 
+    <!-- Repeatable Code -->
     <?php include('./php/searchModal.php') ?>
     <?php include('./php/loading.php') ?>
     <?php include("./php/toast.php") ?>

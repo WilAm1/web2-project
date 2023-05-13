@@ -35,7 +35,7 @@ $(document).ready(function () {
           }
         }
       };
-      http.open("GET", "showCompaniesProcess.php?q=" + value, true);
+      http.open("GET", "./process/showCompaniesProcess.php?q=" + value, true);
       http.send();
     }
   });
