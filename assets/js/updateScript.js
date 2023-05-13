@@ -18,6 +18,11 @@ $(document).ready(function () {
       },
     });
   }
+  $("#updateForm").bind("submit", function () {
+    {
+      $(this).find("select").prop("disabled", false);
+    }
+  });
   function changeFields(xml) {
     var year = xml.find("yearStart").text();
     var tagline = xml.find("tagline").text();
@@ -74,10 +79,3 @@ $(document).ready(function () {
     $("#theModal").modal("show");
   }
 });
-
-// drop: function (event, ui) {
-//       console.log(event);
-//       console.log(ui);
-//       console.log("i was dropped");
-//       // $(this).addClass("ui-state-highlight").find("p").html("Dropped!");
-//     },

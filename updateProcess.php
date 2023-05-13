@@ -7,7 +7,8 @@ $xml->formatOutput = true;
 $xml->preserveWhiteSpace = false;
 $xml->load("BSIT3EG1G4.xml");
 
-$searchName = $_POST['name'];
+$searchName =  ucwords(trim($_POST['name']));
+
 $year = $_POST['year'];
 $tagline = $_POST['tagline'];
 $branches = $_POST['branches'];
@@ -15,6 +16,8 @@ $headquarter = $_POST['headquarter'];
 $picture = $_FILES['picture']['tmp_name'];
 $companies = $xml->getElementsByTagName("techCompany");
 $flag = 0;
+
+
 foreach ($companies as $company) {
     $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
 
@@ -49,15 +52,11 @@ foreach ($companies as $company) {
         $_SESSION['message'] = 'Update Successful';
         $_SESSION['message_body'] =  $name . ' is successfully updated.';
         echo "<script>window.location = './index.php'</script>";
-
-
-
-
         break;
     }
 }
 if ($flag == 0) {
     $_SESSION['message'] = 'Update Unsuccessful';
     $_SESSION['message_body'] =   'Update was unsucessful.';
-    echo "<script>window.location = './index.php'</script>";
+    echo "<script>window.location = './update.php'</script>";
 }
