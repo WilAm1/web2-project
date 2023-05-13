@@ -1,19 +1,24 @@
 <?php
+session_start();
+
 $xml = new DOMDocument('1.0');
-$xml->load("BSIT3EG1G4.xml");
 
 $xml->formatOutput = true;
 $xml->preserveWhiteSpace = false;
+$xml->load("BSIT3EG1G4.xml");
 
+$searchName =  ucwords(trim($_POST['name']));
 
-$searchName = $_POST['name'];
 $year = $_POST['year'];
 $tagline = $_POST['tagline'];
 $branches = $_POST['branches'];
 $headquarter = $_POST['headquarter'];
-
+$picture = $_FILES['picture']['tmp_name'] ?? null;
+$oldPicture = $_POST['old-picture'];
 $companies = $xml->getElementsByTagName("techCompany");
 $flag = 0;
+
+
 foreach ($companies as $company) {
     $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
 
@@ -28,47 +33,38 @@ foreach ($companies as $company) {
         $headquarterElem = $xml->createElement("headquarter", $headquarter);
 
 
+
+
+        $picElem = $xml->createElement('picture');
+        $cdata;
+        if ($picture == null) {
+            $cdata = $xml->createCDATASection($oldPicture);
+        } else {
+
+            $cdata = $xml->createCDATASection(base64_encode(file_get_contents($picture)));
+        }
+        $picElem->appendChild($cdata);
+
         $newNode->appendChild($nameElem);
         $newNode->appendChild($yearElem);
         $newNode->appendChild($taglineElem);
         $newNode->appendChild($branchElem);
         $newNode->appendChild($headquarterElem);
+        $newNode->appendChild($picElem);
+
+
 
         $xml->getElementsByTagName('techCompanies')->item(0)->replaceChild($newNode, $company);
         $xml->save("BSIT3EG1G4.xml");
 
-
-        echo "
-            <script src='/assets/bootstrap/js/bootstrap.bundle.min.js'></script>
-                    <link rel='stylesheet' href='/assets/bootstrap/css/bootstrap.min.css' />
-                    <link rel='stylesheet' href='/assets/styles.css' />
-                    ";
-        echo '
-
-            <div class="modal fade show modal-displayed" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title text-accent">Update Successful </h3>
-                </div>
-                 <div class="modal-body">
-
-                    <p><span class="fw-bold">"' . $name . '"</span> is successfully updated!</p>
-                  </div>
-
-                <div class="modal-footer">
-                    <a href="index.php"  class="btn btn-primary">Back to Home</a>
-                </div>
-                </div>
-            </div>
-            </div>
-
-
-            ';
-
+        $_SESSION['message'] = 'Update Successful';
+        $_SESSION['message_body'] =  $name . ' is successfully updated.';
+        echo "<script>window.location = './index.php'</script>";
         break;
     }
 }
 if ($flag == 0) {
-    echo "Modification failed." . "<a href='index.php'>Back</a>";
+    $_SESSION['message'] = 'Update Unsuccessful';
+    $_SESSION['message_body'] =   'Update was unsucessful.';
+    echo "<script>window.location = './update.php'</script>";
 }
