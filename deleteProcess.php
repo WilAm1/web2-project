@@ -28,7 +28,7 @@ foreach ($companies as $company) {
         $xml->save("BSIT3EG1G4.xml");
         $_SESSION['message'] = 'Company Deleted';
         $_SESSION['message_body'] =  $name . ' is successfully deleted.';
-        echo "<script>window.location = './index.php'</script>";
+        echo "<script>window.location = './delete.php'</script>";
 
 
         break;
@@ -37,5 +37,5 @@ foreach ($companies as $company) {
 if ($flag == 0) {
     $_SESSION['message'] = 'Delete Unsuccessful';
     $_SESSION['message_body'] =  $name . ' is not deleted.';
-    echo "<script>window.location = './index.php'</script>";
+    echo "<script>window.location = './delete.php'</script>";
 }

@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +22,9 @@
     <link rel="stylesheet" href="style.css" />
     <!-- own jquery -->
 
-    <script src="./assets/js/startEffects.js"></script>
+    <script src="assets/js/deleteScript.js"></script>
+    <script src="assets/js/cardSliderEffect.js"></script>
+
     <title>Delete Company</title>
 </head>
 
@@ -69,6 +72,57 @@
         <h1 class="crud-heading text-accent text-left slide-up">
             Delete Company
         </h1>
+        <div class="container mt-5">
+            <h1 class="crud-heading text-accent text-left slide-up">
+                Update Company Information
+            </h1>
+            <div class="cards">
+
+                <?php
+                $xml = new DOMDocument("1.0");
+                $xml->load("./BSIT3EG1G4.xml");
+                $companies = $xml->getElementsByTagName("techCompany");
+                $count = 0;
+                foreach ($companies as $company) {
+                    $name = $company->getElementsByTagName("companyName")->item(0)->nodeValue;
+                    $year = $company->getElementsByTagName("yearStart")->item(0)->nodeValue;
+                    $tagline = $company->getElementsByTagName("tagline")->item(0)->nodeValue;
+                    $branches = $company->getElementsByTagName("totalBranch")->item(0)->nodeValue;
+                    $headquarter = $company->getElementsByTagName("headquarter")->item(0)->nodeValue;
+                    $picture = $company->getElementsByTagName("picture")->item(0)->nodeValue;
+                    $count++;
+
+                ?>
+                    <div class="draggable-card card-item" data-animation-delay=" <?= $count ?>" data-company-name=" <?= $name ?>">
+                        <div class="grip-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-grip-vertical" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M9 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                                <path d="M9 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                                <path d="M9 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                                <path d="M15 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                                <path d="M15 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                                <path d="M15 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            </svg>
+                        </div>
+                        <!-- card shown -->
+                        <div class="card-showed">
+                            <div class="card-image">
+                                <img src="data:image;base64,<?= $picture ?>" alt="">
+                            </div>
+                            <div class="card-content">
+                                <p class="company-name">
+                                    <?= $name ?>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+
+        </div>
+
         <div class="formContainer fade-in">
             <!-- company names in dropdown -->
             <div class="mb-2 w-75  mx-auto">
@@ -98,6 +152,25 @@
 
 
     </div>
+    <!-- Modal -->
+
+    <div class=" edit-company-content hidden">
+        <div id="drop-company">
+            Edit Company
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M4 7l16 0" />
+                <path d="M10 11l0 6" />
+                <path d="M14 11l0 6" />
+                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+            </svg>
+        </div>
+    </div>
+    <!-- end modal -->
+
+
+
     <!-- Modal -->
     <div class="modal fade" id="theModal" tabindex="-1" aria-labelledby="theModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -129,6 +202,26 @@
 
 
     <?php include('./loading.php') ?>
+
+    <?php if (isset($_SESSION['message']) && isset($_SESSION['message_body'])) : ?>
+        <div id="liveToast" class="toast showing position-fixed top-0 end-0 p-3" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <div class="rounded me-2"></div>
+                <strong class="me-auto"><?= $_SESSION['message'] ?></strong>
+                <button id="toast-close" type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <?= $_SESSION['message_body'] ?>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function() {
+                const toast = new bootstrap.Toast($('#liveToast').get(0))
+                toast.show()
+            });
+        </script>
+    <?php session_unset();
+    endif; ?>
 </body>
 
 </html>
