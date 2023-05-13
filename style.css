@@ -68,6 +68,12 @@ body {
   font-weight: bold;
   color: #ff5f05 !important;
 }
+.nav-link:hover {
+  color: #f09819 !important;
+}
+.navbar-nav .nav-item a {
+  color: white;
+}
 .nav-item {
   display: flex;
   flex-flow: column;
@@ -84,9 +90,6 @@ body {
   margin-top: -5px;
 }
 
-.navbar-nav .nav-item a {
-  color: aliceblue !important;
-}
 .navbar {
   justify-content: center;
 }
@@ -172,6 +175,7 @@ body {
   width: 500px;
   height: 500px;
   background-size: 100%;
+  z-index: -1;
 }
 
 /* Card Section */
@@ -274,7 +278,10 @@ section {
   margin: 2rem 0;
 }
 .top-heading {
-  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  min-height: 90vh;
 }
 
 .tech-list-section {
@@ -291,7 +298,7 @@ section {
   color: var(--accent-color);
   font-weight: 800;
   font-size: 32px;
-  font-style: italic;
+  font-weight: 700;
 }
 
 .subheading {
@@ -614,7 +621,7 @@ option {
 .company-modal .modal-body {
   margin: 0 auto;
   color: #830fb9;
-  padding: 1rem;
+  padding: 50px 10px;
 }
 
 #edit-modal {
@@ -638,6 +645,8 @@ img {
   border-radius: 18px;
   transition: 0.5s all ease-in-out;
   cursor: zoom-in;
+  display: flex;
+  justify-content: center;
 }
 
 .logo-box.zoomed {
@@ -928,7 +937,7 @@ img {
 }
 
 .btn-acc {
-  background-color: #5a35f0 !important;
+  background-color: #aa87f9 !important;
   color: white;
 }
 .btn-acc:hover {
@@ -938,4 +947,20 @@ img {
 
 .form-select:disabled {
   color: gray;
+}
+
+.heading-container {
+  margin-top: 10rem;
+}
+
+.headquarter-wrapper {
+  text-align: center;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+}
+
+.modal-headquarter-box {
+  text-align: center;
 }

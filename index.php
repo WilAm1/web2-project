@@ -90,7 +90,7 @@ session_start();
           Top Tech Companies in the Philippines
         </h1>
         <p class="heading-text">
-          Identify here the company that suits you and pave the way for your professional success.</p>
+          Browse the company that suits you and pave the way for your professional success.</p>
 
         <div class="d-flex justify-content-center w-100 align-items-center">
           <a href="create.php" class="btn-create ">

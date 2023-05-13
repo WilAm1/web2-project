@@ -75,7 +75,7 @@
   </nav>
   <div class="container mt-5">
 
-    <div class="container-md row d-flex align-items-center">
+    <div class="container-md row d-flex ">
       <form class="col-6 needs-validation  container-md " action="createProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data">
 
 
@@ -91,8 +91,8 @@
               <div class="preview-img-box">
                 <img class="preview-file-drop-picture" src="" alt="">
               </div>
-              <span class="fake-btn">Choose files</span>
-              <span class="file-msg">or drag and drop files here</span>
+              <span class="fake-btn">Choose Logo</span>
+              <span class="file-msg">or drag and drop image here</span>
               <input class="file-input" id="picture" type="file" name="picture" required>
               <div class="invalid-feedback picture-feedback">
                 Please pick an image file.
@@ -160,14 +160,17 @@
           <div class="modal-content company-modal">
 
             <div class="modal-body">
-              <p class="preview-heading">Preview of the Company</p>
+              <h2 class=" mb-3 mx-auto crud-heading text-accent ">
+                Preview of the Company
+              </h2>
+              <p class="preview-heading"></p>
 
-              <div class="logo-box"><img class="modal-picture preview-picture" src="./default-logo.jpg" alt=""></div>
+              <div class="logo-box"><img class="modal-picture preview-picture" src="" alt=""></div>
 
               <p class="modal-name preview-companyName"></br></p>
 
               <div class="modal-headquarter-box">
-                <p class="">Headquarter at <span class="modal-headquarter preview-headquarter"></span></p>
+                <p class="headquarter-wrapper">Headquarter at <span class="modal-headquarter preview-headquarter"></span></p>
               </div>
 
 

@@ -222,7 +222,7 @@
                             </div>
                             <div class="modal-footer">
                                 <div class="flex-btn-end">
-                                    <input class="btn btn-secondary" id="submit" type="submit" value="Save Company" />
+                                    <input class="btn btn-primary" id="submit" type="submit" value="Update Company" />
                                     <button type="button" class="btn btn-outline-back" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>
