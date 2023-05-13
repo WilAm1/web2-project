@@ -147,18 +147,21 @@
     <!-- Modal -->
     <div class="modal  fade company-detail-modal" id="theModal" tabindex="-1" aria-labelledby="theModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content company-modal">
-                <div class="modal-header">
 
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
 
+            <div class="modal-content">
+                <div class="modal-body" id="edit-modal">
                     <form id="updateForm" class="col needs-validation  container-md" action="updateProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data">
                         <div class="formContainer two-container fade-in ">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
                             <!-- picture -->
                             <div class="mb-3 w-75 mx-auto">
                                 <label class="form-label fw-bold" for="picture">Company Logo</label>
+                                <div class="preview-img-box">
+                                    <img src="" class="preview-file-drop-picture" alt="">
+                                </div>
                                 <div class="file-drop-area">
 
                                     <span class="fake-btn">Choose files</span>
@@ -167,17 +170,14 @@
                                     <div class="invalid-feedback picture-feedback">
                                         Please pick an image file.
                                     </div>
-
                                 </div>
                             </div>
                             <!-- company name -->
                             <!-- company name in dropdown -->
                             <div class=" mb-5 w-75 mx-auto">
-                                <label class="form-label fw-bold label-text fw-bold" for="name">Name</label>
+                                <label class="form-label label-text fw-bold" for="name">Company Name</label>
                                 <select class="form-select" name="name" id="name" disabled>
                                     <option id="update-company-disabled" value="" selected></option>
-
-
                                 </select>
                             </div>
                             <!-- year started -->
@@ -212,22 +212,19 @@
                                     Please provide a valid headquarter
                                 </div>
                             </div>
-                            <div class="flex-btn-end">
-                                <a class="btn btn-outline-back" href="index.php">Back</a>
-                                <input disabled class="btn btn-secondary" id="submit" type="submit" value="Save Company" />
+                            <div class="modal-footer">
+                                <div class="flex-btn-end">
+                                    <input disabled class="btn btn-secondary" id="submit" type="submit" value="Save Company" />
+                                    <button type="button" class="btn btn-outline-back" data-bs-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </form>
                 </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-back" data-bs-dismiss="modal">Close</button>
-                    <form action="/deleteProcess.php" method="post">
-                        <input id="deleteCompanyInput" type="hidden" name="name" value="<?= $name ?>">
-
-                    </form>
-                </div>
             </div>
+
+
+
         </div>
     </div>
 

@@ -28,10 +28,12 @@ $(document).ready(function () {
     var tagline = xml.find("tagline").text();
     var branch = xml.find("totalBranch").text();
     var headQuarter = xml.find("headquarter").text();
+    var picture = xml.find("picture").text();
     $("#yearStarted").val(year);
     $("#tagLine").val(tagline);
     $("#branches").val(branch.replace(/\,/g, ""));
     $("#headquarter").val(headQuarter);
+    $(".preview-file-drop-picture").attr("src", "data:image;base64," + picture);
   }
 
   $("#name").change(fetchData);
