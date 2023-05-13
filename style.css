@@ -104,25 +104,65 @@ body {
 }
 
 .view-list {
-  width: 40%;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
 }
-.cta-btn {
-  display: inline-block;
-  border-radius: 35px;
-  color: #ff5f05;
-  border: 3px solid #ff5f05;
+.view-list > * {
+  margin-bottom: 1rem;
+}
+.heading-text {
+  font-size: 1.2rem;
+  color: white;
+  font-weight: 500;
+}
+
+.btn-create {
+  display: block;
+
+  border-radius: 10px;
+  color: white;
+  border: 2px solid white;
   font-weight: bold;
   /* "to left" / "to right" - affects initial color */
   background: linear-gradient(to left, transparent 50%, #ff5f05 50%) right;
   background-size: 200%;
   transition: 0.5s ease-out;
   text-decoration: none;
+
+  padding: 15px 45px;
 }
-.cta-btn:hover {
+.btn-create:hover {
   background-position: left;
-  transform: scale(1.05);
   border-color: white;
   color: white;
+}
+.btn-grad {
+  font-weight: 700;
+  margin-left: 1rem;
+  display: block;
+  text-decoration: none;
+  background-image: linear-gradient(
+    to right,
+    #ff512f 0%,
+    #f09819 51%,
+    #ff512f 100%
+  );
+
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  /* box-shadow: 0 0 20px #eee; */
+  border-radius: 10px;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
 
 .digital-world {
@@ -171,7 +211,7 @@ h2 {
 }
 
 .card-item:hover {
-  cursor: grab;
+  cursor: pointer;
 }
 .card-showed,
 .card-hovered {
@@ -235,7 +275,6 @@ section {
 }
 .top-heading {
   min-height: 100vh;
-  margin-right: 8rem;
 }
 
 .tech-list-section {
@@ -646,8 +685,8 @@ img {
   font-style: italic;
   font-weight: 600;
   font-size: 36px;
-  padding-top: 1rem;
-  padding-left: 50px;
+  /* padding-top: 1rem; */
+  padding: 1rem 2rem;
   text-align: center;
 }
 
@@ -689,6 +728,7 @@ img {
 
 .card-xl .modal-card-content {
   transform: translate(-1%, -5%);
+  padding-top: 15px;
 }
 .modal-card-content:hover {
   transform: translate(0, 0);
@@ -862,6 +902,6 @@ img {
   margin: 0 auto;
 }
 .preview-img-box {
-  height: 100px;
+  height: 150px;
   margin: 1rem auto;
 }

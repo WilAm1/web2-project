@@ -43,7 +43,7 @@ session_start();
 
 
   <!-- robot image -->
-  <img class="position-absolute bottom-0 end-0" id="robot" src="/assets/robot.png" alt="" srcset="" />
+  <img class="position-fixed bottom-0 end-0" id="robot" src="/assets/robot.png" alt="" srcset="" />
   <!-- globe gif -->
   <div class="digital-world position-absolute start-0"></div>
 
@@ -85,18 +85,23 @@ session_start();
   </nav>
   <main>
     <section class=" position-relative top-heading">
-      <div class="view-list ms-auto text-end">
+      <div class="view-list ms-auto ">
         <h1 class="text-white fw-bolder main-text">
           Top Tech Companies in the Philippines
         </h1>
-        <a href="#top-tech" class="cta-btn py-3 px-xl-5 bg-transparent">
-          View list
-        </a>
+        <p class="heading-text">
+          Identify here the company that suits you and pave the way for your professional success.</p>
+
+        <div class="d-flex justify-content-center w-100 align-items-center">
+          <a href="create.php" class="btn-create ">
+            Add New Company
+          </a>
+          <a href="#top-tech" class="btn-grad ">
+            View list
+          </a>
+        </div>
       </div>
-      <div class="subheading">
-        <p>Find the job that suits you</p>
-        <q>Technology is best when it brings people together.</q>
-      </div>
+
     </section>
 
     <!-- Individual Cards -->

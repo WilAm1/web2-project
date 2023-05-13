@@ -1,15 +1,11 @@
 $(document).ready(function () {
   $(".cards").sortable({ revert: true });
 
-  $(".card-content").click(function () {
-    $(this)
-      .parent()
-      .parent()
-      .children(".card-hovered")
-      .show("slide", { direction: "down" });
+  $(".card-item").mouseenter(function () {
+    $(this).children(".card-hovered").show("slide", { direction: "down" });
   });
-  $(".card-hovered").mouseleave(function () {
-    $(this).hide("slide", { direction: "down" });
+  $(".card-item").mouseleave(function () {
+    $(this).children(".card-hovered").hide("slide", { direction: "down" });
   });
   $(".logo-box").click(function () {
     $(this).toggleClass("zoomed");
