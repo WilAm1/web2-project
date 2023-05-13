@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
 ?>
 
 
@@ -32,9 +30,9 @@ session_start();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
   <!-- Own Script -->
-  <script src="./assets/js/indexScript.js"></script>
 
   <script src="./assets/js/searchScript.js"></script>
+  <script src="./assets/js/indexScript.js"></script>
   <script src="./assets/js/cardSliderEffect.js"></script>
 
   <link rel="stylesheet" href="style.css" />
@@ -79,12 +77,11 @@ session_start();
           <input placeholder="Search" aria-label="Search" class="form-control" placeholder="Search Company" type="search" id="search" name="q">
           <div id="autocomplete-list"></div>
         </div>
+
+      </form>
     </div>
 
-    </form>
 
-    </div>
-    <!-- </div> -->
   </nav>
   <main>
     <section class=" position-relative top-heading">
@@ -159,7 +156,7 @@ session_start();
                     <p><?= $tagline ?></p>
                   </div>
                 </div>
-                <button data-company-name="<?= $name ?>" data-bs-toggle="modal" data-bs-target="#theModal" class="card-btn btn">View Detail</button>
+                <button data-company-name="<?= $name ?>" data-bs-toggle="modal" data-bs-target="#searchModal" class="card-btn btn">View Detail</button>
               </div>
             </div>
           <?php } ?>
@@ -178,8 +175,8 @@ session_start();
 
 
 
-  <!-- Modal -->
-  <div class="modal fade company-detail-modal" id="theModal" tabindex="-1" aria-labelledby="theModalLabel" aria-hidden="true">
+  <!-- Search Modal -->
+  <div class="modal fade company-detail-modal" id="searchModal" tabindex="-1" aria-labelledby="theModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content company-modal">
         <div class="modal-header">
@@ -189,41 +186,39 @@ session_start();
         <div class="modal-body">
 
           <div class="logo-box"><img class="modal-picture" src="" alt=""></div>
-          <div>
 
-            <p class="modal-name"></p>
+          <p class="modal-name"></p>
 
-            <p class="modal-headquarter-box">Headquarter at <span class="modal-headquarter"></span></p>
+          <div class="modal-headquarter-box">
+            <p class="">Headquarter at <span class="modal-headquarter"></span></p>
+          </div>
 
-            <div class="cards-row">
-              <div class="modal-card">
-                <div class="modal-card-content w-100 h-100">
-                  <p class="modal-year"></p>
-                  <p class="modal-card-label">Year Started</p>
-                </div>
-              </div>
-              <div class="modal-card">
-                <div class="modal-card-content w-100 h-100">
-                  <p class="modal-branches"></p>
-                  <p class="modal-card-label">Branches</p>
-                </div>
+
+          <div class="cards-row">
+            <div class="modal-card">
+              <div class="modal-card-content w-100 h-100">
+                <p class="modal-year"></p>
+                <p class="modal-card-label">Year Started</p>
               </div>
             </div>
-            <div class="modal-card card-xl">
-              <div class="modal-card-content w-100 h-auto">
-                <p class="modal-quotemark">“</p>
-                <p class="modal-tagline"></p>
-                <p class="modal-card-label">Tagline</p>
+            <div class="modal-card">
+              <div class="modal-card-content w-100 h-100">
+                <p class="modal-branches"></p>
+                <p class="modal-card-label">Branches</p>
               </div>
+            </div>
+          </div>
+          <div class="modal-card card-xl">
+            <div class="modal-card-content w-100 h-auto">
+              <p class="modal-quotemark">“</p>
+              <p class="modal-tagline"></p>
+              <p class="modal-card-label">Tagline</p>
             </div>
           </div>
         </div>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-back" data-bs-dismiss="modal">Close</button>
-          <form action="/deleteProcess.php" method="post">
-            <input id="deleteCompanyInput" type="hidden" name="name" value="<?= $name ?>">
-
           </form>
         </div>
       </div>
@@ -231,6 +226,8 @@ session_start();
   </div>
 
   <!-- end modal -->
+
+
 
 
   <?php include('./loading.php') ?>

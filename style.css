@@ -608,19 +608,20 @@ img {
   font-size: 32px;
   font-weight: 700;
   text-decoration: none;
-  text-align: left;
+  text-align: center;
   width: 430px;
   font-style: normal;
-  margin-bottom: 0;
+  margin: 1rem auto;
+  color: #15136f;
 }
 .modal-headquarter-box {
-  color: #aa87f9;
-  text-align: left;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  color: #1b5ee2;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
 }
 .modal-headquarter {
-  color: #4f24fb;
+  font-weight: 700;
+  color: #15136f;
 }
 
 .modal-quotemark {
@@ -639,8 +640,15 @@ img {
   font-size: 36px;
   padding-top: 1rem;
   padding-left: 50px;
+  text-align: center;
 }
 
+.modal-cards-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .modal-card {
   background-color: #830fb9;
   font-size: 32px;
@@ -652,6 +660,13 @@ img {
   box-sizing: border-box;
   font-weight: 700;
   position: relative;
+}
+.modal-card-md {
+  min-width: 350px;
+  margin-bottom: 1rem;
+}
+.modal-card-md .modal-card-content {
+  width: auto;
 }
 
 .modal-card-content {

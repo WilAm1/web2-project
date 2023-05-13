@@ -25,7 +25,7 @@ $(document).ready(function () {
     if (inputVal.trim().length === 0) {
       inputVal = "<br/>";
     }
-    $(".modal-" + inputName).html(inputVal);
+    $(".preview-" + inputName).html(inputVal);
 
     // Toggles the submit button
     if (allFieldUp(fields)) {
@@ -60,7 +60,8 @@ $(document).ready(function () {
     if (inputVal.trim().length === 0) {
       inputVal = "<br/>";
     }
-    $(".modal-yearStarted").html(inputVal);
+    $(".preview-yearStarted").html(inputVal);
+    addValidStyle($(this));
   });
 
   // Checks the validity of Company Name
@@ -141,7 +142,9 @@ function readURL(input) {
     var reader = new FileReader();
 
     reader.onload = function (e) {
-      $(".modal-picture").attr("src", e.target.result).effect("bounce", "slow");
+      $(".preview-picture")
+        .attr("src", e.target.result)
+        .effect("bounce", "slow");
     };
 
     reader.readAsDataURL(input.files[0]);

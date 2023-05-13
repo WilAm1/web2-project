@@ -14,7 +14,7 @@ foreach ($companies as $company) {
     if ($searchName == substr($lowercaseCompanyName, 0, strlen($searchName))) {
 
         $result .= "
-        <div class='autocomplete-item link' data-company-name='$companyName' data-bs-toggle='modal' data-bs-target='#theModal' >
+        <div class='autocomplete-item link' data-company-name='$companyName' data-bs-toggle='modal' data-bs-target='#searchModal' >
                      $companyName
         </div>
         ";

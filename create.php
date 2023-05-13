@@ -11,6 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Corinthia&family=Dancing+Script:wght@500&family=Exo+2:wght@700&family=Fasthand&family=Freehand&family=Montserrat:ital,wght@0,400;0,700;1,400;1,600;1,700;1,800&family=Poppins:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;500&family=Source+Sans+Pro:ital@1&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
+  <!-- font awesome icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- bootstrap  -->
   <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
@@ -22,6 +24,8 @@
   <!-- own jquery -->
   <script src="./assets/js/formValidation.js"></script>
   <script src="./assets/js/startEffects.js"></script>
+
+  <script src="./assets/js/searchScript.js"></script>
   <title>Add New Company</title>
 </head>
 
@@ -58,12 +62,15 @@
       </li>
     </ul>
     <div class="relative-right">
-      <form class="position-relative w-100" role="search">
-        <input class="form-control bg-transparent d-inline text-white-50" type="search" placeholder="Search" aria-label="Search" />
-        <img class="search position-absolute end-0" src="/assets/search.png" />
+      <form id="search-form" class="search-form position-relative w-100" method="GET" autocomplete="off">
+        <div class="input-group m-2">
+          <i class="fa fa-search icon"></i>
+          <input placeholder="Search" aria-label="Search" class="form-control" placeholder="Search Company" type="search" id="search" name="q">
+          <div id="autocomplete-list"></div>
+        </div>
+
       </form>
     </div>
-    <!-- </div> -->
   </nav>
   <div class="container mt-5">
     <h1 class="crud-heading text-accent text-left slide-up">
@@ -100,7 +107,6 @@
             <label class="form-label fw-bold" for="yearStarted">Year Started:
             </label>
             <select class="form-select" required name="year" id="yearStarted">
-              <option value="" disabled selected>Select Year</option>
             </select>
           </div>
           <!-- tagline -->
@@ -133,7 +139,9 @@
           </div>
         </div>
 
-      </form> <!-- Modal -->
+      </form>
+
+      <!-- Modal -->
       <div class=" show fade company-detail-modal create-display col" id="theModal" tabindex="-1" aria-labelledby="theModalLabel" aria-hidden="true">
         <div class="modal-dialog">
 
@@ -142,36 +150,40 @@
 
             <div class="modal-body">
 
-              <div class="logo-box"><img class="modal-picture" src="./default-logo.jpg" alt=""></div>
-              <div>
+              <div class="logo-box"><img class="modal-picture preview-picture" src="./default-logo.jpg" alt=""></div>
 
-                <p class="modal-name"></p>
+              <p class="modal-name preview-companyName"></p>
 
-                <p class="modal-headquarter-box">Headquarter at <span class="modal-headquarter"></span></p>
+              <div class="modal-headquarter-box">
+                <p class="">Headquarter at <span class="modal-headquarter preview-headquarter"></span></p>
+              </div>
 
-                <div class="cards-row">
-                  <div class="modal-card">
-                    <div class="modal-card-content w-100 h-100">
-                      <p class="modal-year"></p>
-                      <p class="modal-card-label">Year Started</p>
-                    </div>
-                  </div>
-                  <div class="modal-card">
-                    <div class="modal-card-content w-100 h-100">
-                      <p class="modal-branches"></p>
-                      <p class="modal-card-label">Branches</p>
-                    </div>
+
+              <div class="cards-row">
+                <div class="modal-card">
+                  <div class="modal-card-content w-100 h-100">
+                    <p class="modal-year preview-yearStarted">2023</p>
+                    <p class="modal-card-label">Year Started</p>
                   </div>
                 </div>
-                <div class="modal-card card-xl">
-                  <div class="modal-card-content w-100 h-auto">
-                    <p class="modal-quotemark">“</p>
-                    <p class="modal-tagline"></p>
-                    <p class="modal-card-label">Tagline</p>
+                <div class="modal-card">
+                  <div class="modal-card-content w-100 h-100">
+                    <p class="modal-branches preview-branches"></p>
+                    <p class="modal-card-label">Branches</p>
                   </div>
                 </div>
               </div>
+              <div class="modal-card card-xl">
+                <div class="modal-card-content w-100 h-auto">
+                  <p class="modal-quotemark">“</p>
+                  <p class="preview-tagLine modal-tagline"></br></p>
+                  <p class="modal-card-label">Tagline</p>
+                </div>
+              </div>
             </div>
+
+
+
           </div>
         </div>
       </div>
@@ -179,6 +191,60 @@
 
     <!-- end modal -->
   </div>
+
+
+  <!-- Search Modal -->
+  <div class="modal fade company-detail-modal" id="searchModal" tabindex="-1" aria-labelledby="theModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content company-modal">
+        <div class="modal-header">
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="logo-box"><img class="modal-picture" src="" alt=""></div>
+
+          <p class="modal-name"></p>
+
+          <div class="modal-headquarter-box">
+            <p class="">Headquarter at <span class="modal-headquarter"></span></p>
+          </div>
+
+
+          <div class="cards-row">
+            <div class="modal-card">
+              <div class="modal-card-content w-100 h-100">
+                <p class="modal-year"></p>
+                <p class="modal-card-label">Year Started</p>
+              </div>
+            </div>
+            <div class="modal-card">
+              <div class="modal-card-content w-100 h-100">
+                <p class="modal-branches"></p>
+                <p class="modal-card-label">Branches</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-card card-xl">
+            <div class="modal-card-content w-100 h-auto">
+              <p class="modal-quotemark">“</p>
+              <p class="modal-tagline"></p>
+              <p class="modal-card-label">Tagline</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-back" data-bs-dismiss="modal">Close</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- end modal -->
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
