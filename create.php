@@ -76,17 +76,17 @@
     <h1 class="crud-heading text-accent text-left slide-up">
       Create New Company
     </h1>
-    <div class="container-md row">
-      <form class="col needs-validation  container-md " action="createProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data">
+    <div class="container-md row d-flex align-items-center">
+      <form class="col-6 needs-validation  container-md " action="createProcess.php" method="POST" autocomplete="off" enctype="multipart/form-data">
         <div class="formContainer two-container fade-in ">
           <!-- picture -->
           <div class="mb-3 w-75 mx-auto">
             <label class="form-label fw-bold" for="picture">Company Logo</label>
-            <div class="preview-img-box">
-              <img class="preview-file-drop-picture" src="./default-logo.jpg" alt="">
-            </div>
-            <div class="file-drop-area">
 
+            <div class="file-drop-area">
+              <div class="preview-img-box">
+                <img class="preview-file-drop-picture" src="./default-logo.jpg" alt="">
+              </div>
               <span class="fake-btn">Choose files</span>
               <span class="file-msg">or drag and drop files here</span>
               <input class="file-input" id="picture" type="file" name="picture" required>
@@ -126,7 +126,7 @@
             <label class="form-label fw-bold" for="branches">Total Branch:</label>
             <input class="form-control" id="branches" type="number" name="branches" placeholder="ex: 106" required />
             <div class="invalid-feedback">
-              Please provide valid number of branches.
+              Please provide and use numbers for the branches.
             </div>
           </div>
           <!-- total headquarter -->
@@ -134,29 +134,33 @@
             <label class="form-label fw-bold" for="headquarter">Headquarter:</label>
             <input class="form-control" id="headquarter" type="text" name="headquarter" placeholder="ex: Makati" required />
             <div class="invalid-feedback">
-              Please provide a valid headquarter
+              Please provide the location of the headquarter.
             </div>
           </div>
-          <div class="flex-btn-end">
-            <a class="btn btn-outline-back" href="index.php">Back</a>
-            <input disabled class="btn btn-secondary" id="submit" type="submit" value="Save Company" />
+          <div class="mb-3 w-75 mx-auto below-btn-grp">
+            <button type="button" class="toggle-preview btn btn-acc">Toggle Preview</button>
+            <div>
+
+              <input disabled class="btn btn-secondary" id="submit" type="submit" value="Save Company" />
+            </div>
           </div>
         </div>
 
       </form>
 
-      <!-- Modal -->
-      <div class=" show fade company-detail-modal create-display col" id="theModal" tabindex="-1" aria-labelledby="theModalLabel" aria-hidden="true">
+      <!-- Preview Section -->
+      <div class="preview-company-section show fade company-detail-modal create-display col" id="theModal" tabindex="-1" aria-labelledby="theModalLabel" aria-hidden="true">
         <div class="modal-dialog">
 
 
           <div class="modal-content company-modal">
 
             <div class="modal-body">
+              <p class="preview-heading">Preview of the Company</p>
 
               <div class="logo-box"><img class="modal-picture preview-picture" src="./default-logo.jpg" alt=""></div>
 
-              <p class="modal-name preview-companyName"></p>
+              <p class="modal-name preview-companyName"></br></p>
 
               <div class="modal-headquarter-box">
                 <p class="">Headquarter at <span class="modal-headquarter preview-headquarter"></span></p>

@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  $(".logo-box").click(function () {
+    $(this).toggleClass("zoomed");
+  });
+
   function fetchData() {
     var companyName = $("#name").val().trim();
     $.ajax({

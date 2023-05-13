@@ -1,4 +1,12 @@
 $(document).ready(function () {
+  $(".logo-box").click(function () {
+    $(this).toggleClass("zoomed");
+  });
+
+  $(".toggle-preview").click(function () {
+    console.log("hello");
+    $(".preview-company-section").toggle("slide");
+  });
   // add options to year select element
   var date = new Date();
   for (i = date.getFullYear(); i >= 1800; i--) {
