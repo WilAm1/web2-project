@@ -57,14 +57,13 @@ $(document).ready(function () {
   });
   $("#drop-company").droppable({
     accept: ".draggable-card",
-    activeClass: ".drop-active",
+    hoverClass: "dropping-hover",
     classes: {
-      "ui-droppable-active": "dropping-active",
       "ui-droppable-hover": "dropping-hover",
+      "ui-droppable-active": "dropping-active",
     },
+
     drop: function (event, ui) {
-      console.log("I was recieved");
-      console.log(ui.draggable);
       var companyName = ui.draggable.attr("data-company-name");
       showCompanyUpdateModal(companyName);
     },

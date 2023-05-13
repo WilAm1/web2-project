@@ -21,11 +21,7 @@ $(document).ready(function () {
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
         $(".card-item").each(function () {
-          var delayTime = $(this).attr("data-animation-delay") * 100;
-          console.log(delayTime);
-          setTimeout(() => {
-            $(this).addClass("showed");
-          }, delayTime);
+          $(this).addClass("showed");
         });
       } else {
         entry.target.classList.remove("show");

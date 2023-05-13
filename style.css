@@ -787,7 +787,7 @@ img {
   background: white;
   z-index: 1;
   /* For Internet Explorer */
-  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.3);
+  /* /* box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.3); */
 
   /* For other browsers */
   box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.3);
@@ -803,14 +803,20 @@ img {
   transform: rotate(10deg) !important;
 }
 
-.dropping-active {
+.dropping-active,
+.ui-droppable-active {
   background-color: white;
 }
-.dropping-hover {
+.dropping-hover,
+.ui-droppable-hover {
   background-color: #aa87f9;
   color: white;
 }
-.dropping-hover .icon-tabler-edit {
+
+.dropping-hover:hover .icon-tabler {
+  stroke: white;
+}
+.dropping-hover .icon-tabler {
   stroke: white;
 }
 
