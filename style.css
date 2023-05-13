@@ -718,6 +718,8 @@ img {
   position: relative;
   display: flex;
   align-items: center;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
   width: 450px;
   max-width: 100%;
   padding: 25px;
@@ -844,4 +846,10 @@ img {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.preview-file-drop-picture {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
 }

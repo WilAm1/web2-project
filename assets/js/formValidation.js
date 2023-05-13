@@ -145,6 +145,10 @@ function readURL(input) {
       $(".preview-picture")
         .attr("src", e.target.result)
         .effect("bounce", "slow");
+
+      $(".preview-file-drop-picture")
+        .attr("src", e.target.result)
+        .effect("bounce", "fast");
     };
 
     reader.readAsDataURL(input.files[0]);

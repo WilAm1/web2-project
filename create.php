@@ -83,6 +83,9 @@
           <div class="mb-3 w-75 mx-auto">
             <label class="form-label fw-bold" for="picture">Company Logo</label>
             <div class="file-drop-area">
+              <div class="preview-img-box">
+                <img class="preview-file-drop-picture" src="./default-logo.jpg" alt="">
+              </div>
               <span class="fake-btn">Choose files</span>
               <span class="file-msg">or drag and drop files here</span>
               <input class="file-input" id="picture" type="file" name="picture" required>
